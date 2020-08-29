@@ -1,222 +1,139 @@
-
-use three_d::*;
-use rand::Rng;
-
+extern crate kiss3d;
 extern crate nalgebra as na;
-use nphysics3d::object::{DefaultBodySet, DefaultColliderSet, BodyStatus};
+use na::{Point3, RealField, Vector3, UnitQuaternion,Isometry};
+
+use ncollide3d::shape::{Cuboid, ShapeHandle};
 use nphysics3d::force_generator::DefaultForceGeneratorSet;
 use nphysics3d::joint::DefaultJointConstraintSet;
-use nphysics3d::world::{DefaultMechanicalWorld, DefaultGeometricalWorld};
-use nphysics3d::math::Isometry;
+use nphysics3d::object::{
+    BodyPartHandle, ColliderDesc, DefaultBodySet, DefaultColliderSet, DefaultColliderHandle, Ground, RigidBodyDesc,
+};
+use nphysics3d::world::{DefaultGeometricalWorld, DefaultMechanicalWorld};
 
-mod gltfloader;
-use gltfloader::*;
+use kiss3d::light::Light;
+use kiss3d::scene::SceneNode;
+use kiss3d::window::{Window};
 
-mod physicsbuilders;
-use physicsbuilders::*;
+use std::time::Instant;
 
-mod datatypes;
-use datatypes::{Renderable,RenderMethod,EntityRigidBody};
-
-fn render_entities( gl : &Gl, cam : &Camera, eye : &Vec3, time : f32, entities : &Vec<EntityRigidBody>, model_matrix : &Mat4 ) {
-    //println!("render_entities:\n\n");
-    for entity in entities {
-        // TODO: Should store shader progs etc on the entities
-        let entity_matrix = model_matrix * entity.active_transform;
-        render_renderable( gl, cam, eye, time, &entity.renderable, &entity_matrix );
-    }
+struct PhysicsEntity {
+    collider : DefaultColliderHandle,
+    node : SceneNode,
 }
-
-fn render_renderables( gl : &Gl, cam : &Camera, eye : &Vec3, time : f32, renderables : &Vec<Renderable>, model_matrix : &Mat4 ) {
-    for renderable in renderables {
-        render_renderable(gl, cam, eye, time, renderable, model_matrix);
-    }
+struct AppState {
+    mechanical_world: DefaultMechanicalWorld<f32>,
+    geometrical_world: DefaultGeometricalWorld::<f32>,
+    bodies: DefaultBodySet::<f32>,
+    colliders: DefaultColliderSet<f32>,
+    joint_constrants: DefaultJointConstraintSet::<f32>,
+    force_generators: DefaultForceGeneratorSet::<f32>,
+    physics_entities: Vec<PhysicsEntity>,
+    simulation_start_time : Instant,
+    simulation_last_update_ms: f32,
 }
+impl kiss3d::window::State for AppState {
+    fn step(&mut self, _window : &mut Window) {
+        let simulation_elapsed_ms : f32 = self.simulation_start_time.elapsed().as_millis() as f32;
+        let simulation_delta = simulation_elapsed_ms - self.simulation_last_update_ms;
+        self.simulation_last_update_ms = simulation_elapsed_ms;
 
-fn render_renderable( gl : &Gl, cam : &Camera, eye : &Vec3, time : f32, renderable : &Renderable, model_matrix : &Mat4 ) {
-    let node_matrix = model_matrix * renderable.transform;
+        self.mechanical_world.set_timestep( simulation_delta / 1000.0 );
+        self.mechanical_world.step(
+            &mut self.geometrical_world,
+            &mut self.bodies,
+            &mut self.colliders,
+            &mut self.joint_constrants,
+            &mut self.force_generators,
+        );
 
-    for mesh in &renderable.meshes {
-        
-        mesh.mesh.render(&node_matrix, cam);
-    }
-
-    render_renderables(&gl, &cam, eye, time, &renderable.children, &node_matrix);
-}
-
-fn update_entities(entities_rigid : &mut Vec<EntityRigidBody>, phys_colliders : &DefaultColliderSet<f32>) {
-    for entity in entities_rigid {
-        if !entity.phys_collider.is_some() {
-            continue;
-        }
-        
-        if let Some(collider) = phys_colliders.get(entity.phys_collider.unwrap()) {
-            // https://github.com/dimforge/nphysics/blob/master/src_testbed/objects/node.rs
-            let tx = na::convert::<Isometry<f64>, Isometry<f32>>( na::convert_unchecked(*collider.position()) );
-
-            let collider_translation = tx.translation;
-            let collider_rotation = tx.rotation;
-
-            let rotation = Mat4::from(
-            cgmath::Quaternion::new(
-                collider_rotation[0],
-                collider_rotation[1],
-                collider_rotation[2],
-                collider_rotation[3],
-            ));
-            
-            let translation = vec3(
-                collider_translation.x, collider_translation.y, collider_translation.z,
-            );
-
-            entity.active_transform = Mat4::from_translation(translation) * Mat4::from_nonuniform_scale(entity.scale.x, entity.scale.y, entity.scale.z) * rotation;
+        for ent in &mut self.physics_entities {
+            if let Some(co) = &self.colliders.get(ent.collider) {
+                let pos = na::convert_unchecked(*co.position());
+                ent.node.set_local_transformation(pos);
+            }
         }
     }
 }
 
 fn main() {
-    let mut window = Window::new("OLC Code Jam 2020", 1920, 1080).unwrap();
-    let (mut screen_width, mut screen_height) = window.framebuffer_size();
-    
-    let gl = window.gl();
+    // Init graphics
+    let mut window = Window::new("OLC Jam 2020");
 
-    // Camera
-    let fov = 75.0;
-    let near = 1.0;
-    let far = 1000.0;
-    let eye = vec3(5.0, 5.0, 5.0);
-    let target = vec3(0.0,0.0,0.0);
-    let up = vec3(0.0,1.0,0.0);
-    let mut cam = Camera::new_perspective(&gl, eye, target, up,
-        degrees(fov), screen_width as f32 / screen_height as f32, near, far);
-    let mut renderer = DeferredPipeline::new(&gl).unwrap();
+    window.set_light(Light::StickToCamera);
 
-    let mut entities_rigid : Vec<EntityRigidBody> = Vec::new();
+    // Init physics
+    let mechanical_world = DefaultMechanicalWorld::new(Vector3::new(0.0, -9.81, 0.0));
+    let geometrical_world = DefaultGeometricalWorld::<f32>::new();
+    let mut bodies = DefaultBodySet::<f32>::new();
+    let mut colliders = DefaultColliderSet::new();
+    let joint_constrants = DefaultJointConstraintSet::<f32>::new();
+    let force_generators = DefaultForceGeneratorSet::<f32>::new();
 
-    // Create entities in the world
-    // TODO: Some level format/definition loading would go here, maybe just serde it + lookup meshes/etc in a table?
-    entities_rigid.push( EntityRigidBody{
-        renderable : load_gltf(&gl, include_bytes!("../assets/models/world_base/world_base.glb")).unwrap(),
-        scale : vec3(1.0, 1.0, 1.0),
-        active_transform  : Mat4::identity(),
-        phys_body_status: BodyStatus::Static,
-        collider_origin : vec3(0.0,0.0,0.0),
-        collider_dimensions : vec3(100.0, 1.0, 100.0),
-        phys_body: None,
-        phys_collider: None,
-    });
-    let mut rng = rand::thread_rng();
+    let mut state = AppState {
+        mechanical_world,
+        geometrical_world,
+        bodies,
+        colliders,
+        joint_constrants,
+        force_generators,
+        physics_entities : Vec::new(),
+        simulation_start_time : Instant::now(),
+        simulation_last_update_ms : 0.0,
+    };
 
-    // Load the dominos
-    let domino_gltf = include_bytes!("../assets/models/primitives/Domino.glb");
+    // Ground definition
+    let ground_thickness = 0.2;
+    let ground_width = 100.0;
+    let ground_shape = ShapeHandle::new(Cuboid::new(
+        Vector3::new(ground_width, ground_thickness, ground_width)
+    ));
+    let ground_handle = state.bodies.insert(Ground::new());
+    let co = ColliderDesc::new(ground_shape)
+        .translation(Vector3::y() * -ground_thickness)
+        .build(BodyPartHandle(ground_handle, 0));
+    state.colliders.insert(co);
 
-    // for z in -20..100 {
-        let z = 0;
-        let z_offset = z as f32 * 2.0;
-        entities_rigid.push( EntityRigidBody{
-            renderable : load_gltf(&gl, domino_gltf).unwrap(),
-            scale : vec3(1.0, 1.0, 1.0),
-            active_transform  : Mat4::from_translation(vec3(0.0, 2.0, z_offset)),
-            phys_body_status: BodyStatus::Dynamic,
-            collider_origin : vec3(0.0,-1.0,0.0),
-            collider_dimensions : vec3(0.1, 0.5, 0.2),
-            phys_body: None,
-            phys_collider: None,
-        });
-    // }
-    
-    // for _i in 0..200 {
-    //     let domino = load_gltf(&gl, domino_gltf).unwrap();
-    //     let x_offset: f32 = rng.gen_range(-10.0, 10.0);
-    //     let y_offset: f32 = rng.gen_range(100.0, 1000.0);
-    //     let z_offset: f32 = rng.gen_range(-10.0, 10.0);
+    // Create boxes
+    let num = 6;
+    let rad = 0.1;
+    let cuboid = ShapeHandle::new(Cuboid::new(Vector3::repeat(rad)));
 
-    //     // let x_scale: f32 = rng.gen_range(0.1, 2.5);
-    //     // let y_scale: f32 = rng.gen_range(0.1, 2.5);
-    //     // let z_scale: f32 = rng.gen_range(0.1, 2.5);
-    //     let x_scale = 1.0;
-    //     let y_scale = 1.0;
-    //     let z_scale = 1.0;
+    let shift = (rad + ColliderDesc::<f32>::default_margin()) * 2.0;
+    let centerx = shift * (num as f32) / 20.0;
+    let centery = shift / 2.0;
+    let centerz = shift * (num as f32) / 2.0;
+    let height = 3.0;
 
-    //     entities_rigid.push( EntityRigidBody{ 
-    //         renderable: domino,
-    //         scale : vec3(x_scale, y_scale, z_scale),
-    //         active_transform : Mat4::from_translation(vec3(x_offset, y_offset, z_offset)),
-    //         phys_body_status: BodyStatus::Dynamic,
-    //         phys_body: None,
-    //         phys_collider: None,
-    //     } );
-    // }
-    
-    // Light definitions
-    let mut directional_light0 = DirectionalLight::new(&gl, 0.3, &vec3(0.5, 0.5, 0.5), &vec3(0.0, -1.0, 0.0)).unwrap();
-    let mut directional_light1 = DirectionalLight::new(&gl, 0.3, &vec3(0.8, 0.8, 0.8), &vec3(0.0, -1.0, 0.0)).unwrap();
-    let mut point_light0 = PointLight::new(&gl, 0.5, &vec3(0.8, 0.8, 0.8), &vec3(50.0, 50.0, 0.0), 0.5, 0.05, 0.005).unwrap();
-    let mut point_light1 = PointLight::new(&gl, 0.5, &vec3(0.8, 0.8, 0.8), &vec3(-50.0, 50.0, 0.0), 0.5, 0.05, 0.005).unwrap();
-    let mut spot_light = SpotLight::new(&gl, 0.8, &vec3(1.0, 1.0, 1.0), &vec3(80.0, 80.0, 20.0), &vec3(-8.0, -8.0, -2.0), 25.0, 0.1, 0.001, 0.0001).unwrap();
+    for i in 0usize..num {
+        for j in 0usize..num {
+            for k in 0usize..num {
+                let x = i as f32 * shift - centerx;
+                let y = j as f32 * shift + centery + height;
+                let z = k as f32 * shift - centerz;
 
-    // Physics setup
-    // The world
-    let mut phys_mech_world = DefaultMechanicalWorld::new(na::Vector3::new(0.0, -9.81, 0.0));
-    let mut phys_geom_world = DefaultGeometricalWorld::new();
-    // The bodies/parts in the world
-    let mut phys_bodies = DefaultBodySet::new();
-    let mut phys_colliders = DefaultColliderSet::new();
-    let mut phys_joints = DefaultJointConstraintSet::new();
-    let mut phys_forces = DefaultForceGeneratorSet::new();
+                // Build the rigid body.
+                let rb = RigidBodyDesc::new()
+                    .translation(Vector3::new(x, y, z))
+                    .build();
+                let rb_handle = state.bodies.insert(rb);
 
-    // Populate the physics model
-    for mut entity in &mut entities_rigid {
-        phys_build_rigid_body(&mut entity, &mut phys_bodies, &mut phys_colliders);
+                // Build the collider.
+                let co = ColliderDesc::new(cuboid.clone())
+                    .density(1.0)
+                    .build(BodyPartHandle(rb_handle, 0));
+
+                let collision_handle = state.colliders.insert(co);
+                let mut cubey = window.add_cube(rad, rad, rad);
+                cubey.set_color(1.0, 0.0, 0.0);
+
+                state.physics_entities.push(PhysicsEntity{
+                    collider : collision_handle,
+                    node : cubey,
+                });
+            }
+        }
     }
 
-    // Render loop
-    let mut time = 0.0;
-    let clear_colour = vec4(0.1,0.1,0.1,1.0);
-    let enable_shadows = false;
-    window.render_loop(move |frame_input| {
-        screen_width = frame_input.screen_width;
-        screen_height = frame_input.screen_height;
-        let elapsed_time_ms = frame_input.elapsed_time as f32;
-        time += elapsed_time_ms / 1000.0;
-
-        // Physics update
-        // TODO: Run physics update on separate thread (How does that affect wasm target?)
-        phys_mech_world.set_timestep(elapsed_time_ms / 1000.0);
-        phys_mech_world.step(
-            &mut phys_geom_world,
-            &mut phys_bodies,
-            &mut phys_colliders,
-            &mut phys_joints,
-            &mut phys_forces,
-        );
-
-        update_entities(&mut entities_rigid, &phys_colliders);
-
-        cam.set_size(screen_width as f32, screen_height as f32);
-        cam.set_perspective_projection(degrees(fov), screen_width as f32 / screen_height as f32, near, far);
-
-        let render_scene = |camera: &Camera| {
-            render_entities(&gl, &cam, &eye, time, &entities_rigid, &Mat4::identity());
-        };
-        if enable_shadows {
-            spot_light.clear_shadow_map();
-            directional_light0.clear_shadow_map();
-            directional_light1.clear_shadow_map();
-
-            directional_light0.generate_shadow_map(&vec3(0.0, 0.0, 0.0), 4.0, 4.0, 20.0, 1024, 1024, &render_scene);
-            directional_light1.generate_shadow_map(&vec3(0.0, 0.0, 0.0), 4.0, 4.0, 20.0, 1024, 1024, &render_scene);
-            spot_light.generate_shadow_map(20.0, 1024, &render_scene);
-        }
-
-        renderer.geometry_pass(screen_width, screen_height, &|| {
-            render_scene(&cam);
-        }).unwrap();
-
-        Screen::write(&gl, 0, 0, screen_width, screen_height, Some(&clear_colour), Some(1.0), &|| {
-            renderer.light_pass(&cam, None, &[&directional_light0, &directional_light1],
-                &[&spot_light], &[&point_light0, &point_light1]).unwrap();
-        }).unwrap();
-
-    }).unwrap();
+    state.simulation_start_time = Instant::now();
+    window.render_loop(state);
 }
