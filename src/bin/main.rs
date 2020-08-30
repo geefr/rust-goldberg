@@ -1,33 +1,27 @@
 extern crate kiss3d;
 extern crate nalgebra as na;
-use na::{Point2, Point3, Vector3};
+use na::{Point3, Vector3};
 
 use ncollide3d::shape::{Cuboid, ShapeHandle};
-use ncollide3d::query::{Ray, RayCast};
+use ncollide3d::query::{Ray};
 use nphysics3d::force_generator::DefaultForceGeneratorSet;
 use nphysics3d::joint::DefaultJointConstraintSet;
 use nphysics3d::object::{
-    BodyPartHandle, ColliderDesc, DefaultBodySet, DefaultColliderSet, DefaultColliderHandle, Ground, RigidBodyDesc,
+    BodyPartHandle, ColliderDesc, DefaultBodySet, DefaultColliderSet, Ground,
 };
 use nphysics3d::world::{DefaultGeometricalWorld, DefaultMechanicalWorld};
 
 use kiss3d::light::Light;
-use kiss3d::scene::SceneNode;
 use kiss3d::window::{Window};
-use kiss3d::camera::{Camera,ArcBall};
+use kiss3d::camera::{ArcBall};
 use kiss3d::planar_camera::*;
-use kiss3d::event::{Action, Key, MouseButton, WindowEvent, Modifiers};
-use kiss3d::text::Font;
+use kiss3d::event::{Action, WindowEvent};
+
 
 use std::collections::HashMap;
 use std::time::Instant;
-use std::path::Path;
-use std::fs::{self, File};
-use std::io::BufReader;
-use std::io;
 
 extern crate goldberg;
-use goldberg::types::*;
 use goldberg::interactions::*;
 use goldberg::engine::*;
 
@@ -52,8 +46,8 @@ fn main() {
     // - We can only get the Trait, not the camera itself
     // - We can't replace the camera on the window at all, there's no method to do it whatsoever
     // window.render_loop(state);
-    let mut camera = ArcBall::new(Point3::new(5.0, 5.0, 5.0), Point3::new(0.0, 1.5, 0.0));
-    let mut planar_camera = FixedView::new();
+    let camera = ArcBall::new(Point3::new(5.0, 5.0, 5.0), Point3::new(0.0, 1.5, 0.0));
+    let planar_camera = FixedView::new();
 
     let assets_path = String::from("/home/gareth/source/rust/olc-jam-2020/assets/");
     let mut state = AppState {
@@ -89,22 +83,23 @@ fn main() {
     let mut ground_geometry = state.window.add_cube(ground_width, ground_thickness, ground_width);
     ground_geometry.set_color(0.9, 0.9, 0.9);
 
-    // TODO: Scene loading (dummy objects)
-    for x in -20..20 {
-        for z in -20..20 {
-            state.add_primitive("domino", &Vector3::new(x as f32, 0.01, z as f32));
-        }
-    }
+    // // TODO: Scene loading (dummy objects)
+    // for x in -20..20 {
+    //     for z in -20..20 {
+    //         state.add_primitive("domino", &Vector3::new(x as f32, 0.01, z as f32));
+    //     }
+    // }
 
     // Interations
     let mut interactions : HashMap<String, Box<dyn Interaction>> = HashMap::new();
-    interactions.insert(String::from("SpawnCubey"), Box::new(SpawnCubeyInteraction {
+    interactions.insert(String::from("EditorMode"), Box::new(EditorModeInteraction {
         ground_collision_cuboid,
         cursor_ray : Ray::new(na::Point3::new(0.0,0.0,0.0), na::Vector3::new(0.0,0.0,0.0)),
         cursor_position : na::Point2::<f32>::new(0.0,0.0),
+        primitive_name : String::from("domino"),
     }));
 
-    let interaction = interactions.get_mut("SpawnCubey").unwrap();
+    let interaction = interactions.get_mut("EditorMode").unwrap();
 
     state.simulation_start_time = Instant::now();
     while !state.window.should_close() {
@@ -154,27 +149,7 @@ fn main() {
         // Let the interaction render what it needs (cursors etc)
         interaction.render(&mut state);
 
-        let control_text = 
-        "Controls:
-           Left Mouse: Rotate Camera
-           Right Mouse: Translate Camera
-           Ctrl + Right click: Spawn Cubey";
-        draw_hud_text(&mut state, 
-            control_text,
-            &Point2::new(0.0,0.0), 30.0);
 
         state.window.render_with_camera(&mut state.camera); 
     }
-}
-
-fn draw_hud_text( state: &mut AppState, text : &str, position : &na::Point2<f32>, size: f32 ) {
-    let font = Font::default();
-    // Text coordinates are in pixels, from top-left
-    state.window.draw_text(
-        &text,
-        &position,
-        size,
-        &font,
-        &Point3::new(1.0, 1.0, 1.0),
-    );
 }

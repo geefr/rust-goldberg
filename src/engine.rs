@@ -1,13 +1,12 @@
 extern crate kiss3d;
 extern crate nalgebra as na;
-use na::{Point2, Point3, Vector3};
+use na::{Point3, Vector3};
 
 use ncollide3d::shape::{Cuboid, ShapeHandle};
-use ncollide3d::query::{Ray, RayCast};
 use nphysics3d::force_generator::DefaultForceGeneratorSet;
 use nphysics3d::joint::DefaultJointConstraintSet;
 use nphysics3d::object::{
-    BodyPartHandle, ColliderDesc, DefaultBodySet, DefaultColliderSet, DefaultColliderHandle, Ground, RigidBodyDesc,
+    BodyPartHandle, ColliderDesc, DefaultBodySet, DefaultColliderSet, DefaultColliderHandle, RigidBodyDesc,
 };
 use nphysics3d::world::{DefaultGeometricalWorld, DefaultMechanicalWorld};
 
@@ -15,6 +14,7 @@ use kiss3d::scene::SceneNode;
 use kiss3d::window::{Window};
 use kiss3d::camera::ArcBall;
 use kiss3d::planar_camera::*;
+use kiss3d::text::Font;
 
 use std::collections::HashMap;
 use std::time::Instant;
@@ -24,7 +24,6 @@ use std::io::BufReader;
 use std::io;
 
 use crate::types::*;
-use crate::interactions::*;
 
 // Global state
 pub struct PhysicsEntity {
@@ -91,6 +90,19 @@ impl AppState {
         }
         false
     }
+
+
+    pub fn draw_hud_text( &mut self, text : &str, position : &na::Point2<f32>, size: f32 ) {
+        let font = Font::default();
+        // Text coordinates are in pixels, from top-left
+        self.window.draw_text(
+            &text,
+            &position,
+            size,
+            &font,
+            &Point3::new(1.0, 1.0, 1.0),
+        );
+    }
 }
 
 // Engine + functions
@@ -117,5 +129,3 @@ pub fn load_primitives_definitions( assets_path : &String ) -> io::Result<HashMa
 
     Ok(results)
 }
-
-
