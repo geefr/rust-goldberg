@@ -159,26 +159,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0dbbb57365263e881e805dc77d94697c9118fd94d8da011240555aa7b23445bd"
 
 [[package]]
-name = "console_error_panic_hook"
-version = "0.1.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b8d976903543e0c48546a91908f21588a680a8c8f984df9a5d69feccb2b2a211"
-dependencies = [
- "cfg-if",
- "wasm-bindgen",
-]
-
-[[package]]
-name = "console_log"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "501a375961cef1a0d44767200e66e4a559283097e91d0730b1d75dfb2f8a1494"
-dependencies = [
- "log",
- "web-sys",
-]
-
-[[package]]
 name = "core-foundation"
 version = "0.6.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -443,6 +423,20 @@ dependencies = [
  "winapi",
  "winit",
  "x11-dl",
+]
+
+[[package]]
+name = "goldberg"
+version = "0.1.0"
+dependencies = [
+ "kiss3d",
+ "nalgebra",
+ "ncollide3d",
+ "nphysics3d",
+ "serde",
+ "serde_derive",
+ "serde_json",
+ "text_io",
 ]
 
 [[package]]
@@ -838,20 +832,6 @@ name = "object"
 version = "0.20.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1ab52be62400ca80aa00285d25253d7f7c437b7375c4de678f5405d3afe82ca5"
-
-[[package]]
-name = "olc-jam-2020"
-version = "0.1.0"
-dependencies = [
- "console_error_panic_hook",
- "console_log",
- "kiss3d",
- "log",
- "nalgebra",
- "ncollide3d",
- "nphysics3d",
- "wasm-bindgen",
-]
 
 [[package]]
 name = "ordered-float"
@@ -1481,6 +1461,12 @@ dependencies = [
  "quote 1.0.7",
  "unicode-xid 0.2.1",
 ]
+
+[[package]]
+name = "text_io"
+version = "0.1.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6cb170b4f47dc48835fbc56259c12d8963e542b05a24be2e3a1f5a6c320fd2d4"
 
 [[package]]
 name = "tiff"

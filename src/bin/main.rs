@@ -13,8 +13,16 @@ use nphysics3d::world::{DefaultGeometricalWorld, DefaultMechanicalWorld};
 use kiss3d::light::Light;
 use kiss3d::scene::SceneNode;
 use kiss3d::window::{Window};
+use kiss3d::camera::ArcBall;
 
 use std::time::Instant;
+use std::path::Path;
+use std::fs::{self, File};
+use std::io::BufReader;
+use std::io;
+
+extern crate goldberg;
+use goldberg::types::*;
 
 struct PhysicsEntity {
     collider : DefaultColliderHandle,
@@ -31,35 +39,40 @@ struct AppState {
     simulation_start_time : Instant,
     simulation_last_update_ms: f32,
 }
-impl kiss3d::window::State for AppState {
-    fn step(&mut self, _window : &mut Window) {
-        let simulation_elapsed_ms : f32 = self.simulation_start_time.elapsed().as_millis() as f32;
-        let simulation_delta = simulation_elapsed_ms - self.simulation_last_update_ms;
-        self.simulation_last_update_ms = simulation_elapsed_ms;
 
-        self.mechanical_world.set_timestep( simulation_delta / 1000.0 );
-        self.mechanical_world.step(
-            &mut self.geometrical_world,
-            &mut self.bodies,
-            &mut self.colliders,
-            &mut self.joint_constrants,
-            &mut self.force_generators,
-        );
-
-        for ent in &mut self.physics_entities {
-            if let Some(co) = &self.colliders.get(ent.collider) {
-                let pos = na::convert_unchecked(*co.position());
-                ent.node.set_local_transformation(pos);
+fn load_primitives_definitions( assets_path : &String ) -> io::Result<Vec<PrimitiveDefinition>> {
+    let mut results = Vec::new();
+    let prim_path = format!("{}{}", assets_path, "/primitives");
+    let primitives_path = Path::new(&prim_path);
+    for entry in fs::read_dir(primitives_path)? {
+        let entry = entry?;
+        let path = entry.path();
+        if path.is_file() {
+            let ext = match path.extension() {
+                Some(x) => x,
+                None => continue
+            };
+            if ext == "json" {
+                let json_file = File::open(path)?;
+                let reader = BufReader::new(json_file);
+                let prim = serde_json::from_reader(reader)?;
+                results.push(prim);
             }
         }
     }
+
+    Ok(results)
 }
 
 fn main() {
     // Init graphics
     let mut window = Window::new("OLC Jam 2020");
+    window.set_background_color(0.1, 0.1, 0.1);
 
-    window.set_light(Light::StickToCamera);
+    let primitives = load_primitives_definitions(&String::from("/home/gareth/source/rust/olc-jam-2020/assets/")).unwrap();
+    for prim in primitives {
+        println!("{} : {}", prim.name, serde_json::to_string(&prim).unwrap());
+    }
 
     // Init physics
     let mechanical_world = DefaultMechanicalWorld::new(Vector3::new(0.0, -9.81, 0.0));
@@ -93,6 +106,9 @@ fn main() {
         .build(BodyPartHandle(ground_handle, 0));
     state.colliders.insert(co);
 
+    let mut ground_geometry = window.add_cube(ground_width, ground_thickness, ground_width);
+    ground_geometry.set_color(0.9, 0.9, 0.9);
+
     // Create boxes
     let num = 6;
     let rad = 0.1;
@@ -123,8 +139,15 @@ fn main() {
                     .build(BodyPartHandle(rb_handle, 0));
 
                 let collision_handle = state.colliders.insert(co);
-                let mut cubey = window.add_cube(rad, rad, rad);
-                cubey.set_color(1.0, 0.0, 0.0);
+                
+                let mut cubey = window.add_obj(
+                    Path::new("/home/gareth/source/rust/olc-jam-2020/assets/models/primitives/domino.obj"),
+                    Path::new("/home/gareth/source/rust/olc-jam-2020/assets/models/primitives/"),
+                    Vector3::new(rad, rad, rad)
+                );
+                
+                // let mut cubey = window.add_cube(rad, rad, rad);
+                // cubey.set_color(1.0, 0.0, 0.0);
 
                 state.physics_entities.push(PhysicsEntity{
                     collider : collision_handle,
@@ -135,5 +158,39 @@ fn main() {
     }
 
     state.simulation_start_time = Instant::now();
-    window.render_loop(state);
+
+    // TODO: We would use this, as needed for wasm compatibility,
+    // but unfortunately we can't then render with anything except
+    // the default camera...
+    // TODO: We can get the default camera within the step function
+    // but there's 2 problems
+    // - We can only get the Trait, not the camera itself
+    // - We can't replace the camera on the window at all, there's no method to do it whatsoever
+    // window.render_loop(state);
+    let mut camera = ArcBall::new(Point3::new(5.0, 5.0, 5.0), Point3::new(0.0, 1.5, 0.0));
+    
+    while !window.should_close() {
+        let simulation_elapsed_ms : f32 = state.simulation_start_time.elapsed().as_millis() as f32;
+        let simulation_delta = simulation_elapsed_ms - state.simulation_last_update_ms;
+        state.simulation_last_update_ms = simulation_elapsed_ms;
+
+        state.mechanical_world.set_timestep( simulation_delta / 1000.0 );
+        state.mechanical_world.step(
+            &mut state.geometrical_world,
+            &mut state.bodies,
+            &mut state.colliders,
+            &mut state.joint_constrants,
+            &mut state.force_generators,
+        );
+
+        for ent in &mut state.physics_entities {
+            if let Some(co) = &state.colliders.get(ent.collider) {
+                let pos = na::convert_unchecked(*co.position());
+                ent.node.set_local_transformation(pos);
+            }
+        }
+
+        window.set_light(Light::Absolute(Point3::new(100.0, 100.0, 100.0)));
+        window.render_with_camera(&mut camera); 
+    }
 }

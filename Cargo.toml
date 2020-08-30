@@ -1,18 +1,31 @@
 [package]
-name = "olc-jam-2020"
+name = "goldberg"
 version = "0.1.0"
 authors = ["Gareth Francis <gfrancis.dev@gmail.com>"]
 edition = "2018"
 
-[lib]
-crate-type = ["cdylib"]
+# TODO: wasm no longer supported, had issues with graphics frameworks
+#[lib]
+#crate-type = ["cdylib"]
+
+[[bin]]
+name = "main"
+path = "src/bin/main.rs"
+
+[[bin]]
+name = "define-primitive"
+path = "src/bin/define-primitive.rs"
 
 [dependencies]
-wasm-bindgen = "0.2.67"
-log = "0.4.11"
-console_error_panic_hook = "0.1.6"
-console_log = "0.2.0"
+#wasm-bindgen = "0.2.67"
+#log = "0.4.11"
+#console_error_panic_hook = "0.1.6"
+#console_log = "0.2.0"
 nphysics3d = { version = "0.17.0", features = ["dim3", "use-wasm-bindgen"] }
 ncollide3d = { version = "0.24.0" }
 nalgebra = { version = "0.22.0" }
 kiss3d = { path = "../../kiss3d" }
+serde = "1.0.115"
+serde_derive = "1.0.115"
+serde_json = "1.0.57"
+text_io = "0.1.8"

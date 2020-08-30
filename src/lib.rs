@@ -1,14 +1,16 @@
 
-include!("main.rs");
+pub mod types;
 
-use wasm_bindgen::prelude::*;
+// include!("main.rs");
 
-// Wrap through to main (pretend it's a normal rust executable)
-#[wasm_bindgen(start)]
-pub fn start() -> Result<(), JsValue> {
-    console_log::init_with_level(log::Level::Debug).unwrap();
+// use wasm_bindgen::prelude::*;
 
-    std::panic::set_hook(Box::new(console_error_panic_hook::hook));
-    main();
-    Ok(())
-}
+// // Wrap through to main (pretend it's a normal rust executable)
+// #[wasm_bindgen(start)]
+// pub fn start() -> Result<(), JsValue> {
+//     console_log::init_with_level(log::Level::Debug).unwrap();
+
+//     std::panic::set_hook(Box::new(console_error_panic_hook::hook));
+//     main();
+//     Ok(())
+// }
