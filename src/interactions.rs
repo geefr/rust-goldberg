@@ -46,7 +46,7 @@ impl EditorModeInteraction {
             primitive_rotation : na::Vector3::new(0.0,0.0,0.0),
             primitive_rotation_delta : 15.0_f64.to_radians() as f32,
             primitive_spawn_height : 0.01,
-            primitive_spawn_spacing : 2.0,
+            primitive_spawn_spacing : 1.2,
             primitve_last_spawn_pos : na::Vector3::new(0.0,0.0,0.0),
             primitive_auto_rotate : true,
             mouse_button1_pressed : false,
@@ -54,7 +54,7 @@ impl EditorModeInteraction {
     }
 }
 impl Interaction for EditorModeInteraction {
-    fn on_key_down( &mut self, state : &mut AppState, k : &Key, _modif : &Modifiers ) {
+    fn on_key_down( &mut self, state : &mut AppState, k : &Key, modif : &Modifiers ) {
         match *k {
             Key::Tab => {
                 // Advance to the next primitive
@@ -84,7 +84,13 @@ impl Interaction for EditorModeInteraction {
             Key::A => self.primitive_rotation.y += self.primitive_rotation_delta,
             Key::D => self.primitive_rotation.y -= self.primitive_rotation_delta,
             Key::W => self.primitive_rotation.x -= self.primitive_rotation_delta,
-            Key::S => self.primitive_rotation.x += self.primitive_rotation_delta,
+            Key::S => {
+                if modif.contains(Modifiers::Control) {
+                    save_level_definition(&state.level_definition, &state.level_file);
+                } else {
+                    self.primitive_rotation.x += self.primitive_rotation_delta;
+                }
+            },
             Key::R => self.primitive_spawn_spacing *= 1.1,
             Key::F => self.primitive_spawn_spacing *= 0.9,
             Key::C => self.primitive_auto_rotate = !self.primitive_auto_rotate,
@@ -94,7 +100,7 @@ impl Interaction for EditorModeInteraction {
     fn on_key_up( &mut self, _state : &mut AppState, _k : &Key, _modif : &Modifiers ) {
 
     }
-    fn on_mouse_down( &mut self, state : &mut AppState, k : &MouseButton, _modif : &Modifiers ) {
+    fn on_mouse_down( &mut self, _state : &mut AppState, k : &MouseButton, _modif : &Modifiers ) {
         if *k == MouseButton::Button1 {
             self.mouse_button1_pressed = true;
         }
@@ -115,7 +121,6 @@ impl Interaction for EditorModeInteraction {
         // TODO: HAX! - abusing the planar camera to work out the cursor coords
         let unprojected = state.planar_camera.unproject(&cursor_position_projected, &window_size);
         self.cursor_position = unprojected;
-
         
         // Find the intersection between cursor ray and ground, then spawn something
         if let Some(toi) = self.ground_collision_cuboid.toi_with_ray(&na::Isometry3::identity(), &self.cursor_ray, 10000.0, true) {
@@ -142,10 +147,10 @@ impl Interaction for EditorModeInteraction {
 
                 if (intersection_point - self.primitve_last_spawn_pos).magnitude() > self.primitive_spawn_spacing {
                     self.primitve_last_spawn_pos = intersection_point;
-                }
 
-                if self.mouse_button1_pressed{
-                    state.add_primitive(&self.primitive_name, &self.primitve_last_spawn_pos, &self.primitive_rotation);
+                    if self.mouse_button1_pressed{
+                        state.add_primitive(&self.primitive_name, &self.primitve_last_spawn_pos, &self.primitive_rotation);
+                    }
                 }
             }
         }
@@ -164,12 +169,16 @@ impl Interaction for EditorModeInteraction {
     R  : Increase spacing
     F  : Decrease spacing
     C  : Toggle auto-rotate
+    Ctrl+S : Save level ({})
 
+Number of Primitives   : {},
 Primitive Rotation     : {}°, {}°, {}°
 Primitive Spawn Height : {}
 Primitive Spacing      : {}
 Primitive auto-rotate  : {}",
         self.primitive_name,
+        state.level_definition.name,
+        state.physics_entities.len(),
         self.primitive_rotation.x.to_degrees(), self.primitive_rotation.y.to_degrees(), self.primitive_rotation.z.to_degrees(),
         self.primitive_spawn_height,
         self.primitive_spawn_spacing,

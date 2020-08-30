@@ -1,0 +1,19 @@
+Primitive ingest process
+- Build primitive in blender
+- Ensure that primitive's base is at 0 height
+- Ensure primitive is centered at 0.0,0.0 horizontally
+
+Export to OBJ
+- triangulate faces
+- Save to models/primitives
+- -z forward, y up
+
+Create primitive definition
+- cargo run --release --bin define-primitive
+- Answer ze questions Mr Bond >:|
+-> Collider center should be the center of the object
+-> Collider dimensions should be 1/2 x/y/z size of object
+-> Don't forget that y/z are swapped between blender and engine
+- Save json it spits out to assets/primitives/xxxx.json
+
+

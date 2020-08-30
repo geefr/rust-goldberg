@@ -24,4 +24,17 @@ pub struct ColliderDefinitionCuboid {
 }
 
 // Scene/level serialisation
-// TODO
+#[derive(Serialize,Deserialize,Debug)]
+pub struct LevelDefinition {
+    pub name : String,
+    pub ground_dimensions : [f32; 2], // Width/Depth
+    pub ground_colour : [f32; 3], // rgb, 0 -> 1
+    pub background_colour : [f32; 3], // rgb, 0 -> 1
+    pub primitives : Vec<LevelPrimitiveDefinition>,
+}
+#[derive(Serialize,Deserialize,Debug,Clone)]
+pub struct LevelPrimitiveDefinition {
+    pub name : String,
+    pub position : [f32; 3],
+    pub rotation : [f32; 3],
+}

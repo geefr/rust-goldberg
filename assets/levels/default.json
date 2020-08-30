@@ -1,0 +1,18 @@
+{
+  "name": "default",
+  "ground_dimensions": [
+    100.0,
+    100.0
+  ],
+  "ground_colour": [
+    0.9,
+    0.9,
+    0.9
+  ],
+  "background_colour": [
+    0.1,
+    0.1,
+    0.1
+  ],
+  "primitives": []
+}

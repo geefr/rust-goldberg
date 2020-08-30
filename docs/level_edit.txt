@@ -1,0 +1,10 @@
+
+- Run main target, provide the level name as first argument
+- If no name provided will use 'default'
+- When level saved will be output to assets/levels/<name>.json
+- To reload level pass the nam on command line again
+
+Note:
+- If you save any old changes are gone
+- Entities are saved in their spawn positions, before they're knocked over or have any forces applied
+-> So don't save after throwing a bunch of objects around the scene, it won't work out how you think

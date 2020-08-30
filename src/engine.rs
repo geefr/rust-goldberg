@@ -20,8 +20,10 @@ use std::collections::HashMap;
 use std::time::Instant;
 use std::path::Path;
 use std::fs::{self, File};
-use std::io::BufReader;
 use std::io;
+use std::io::prelude::*;
+use std::io::BufReader;
+
 
 use crate::types::*;
 
@@ -45,9 +47,20 @@ pub struct AppState {
     pub primitives_library : HashMap<String, PrimitiveDefinition>,
     pub camera : ArcBall,
     pub planar_camera : FixedView,
+    // TODO: Having this here duplicates a load of stuff, but makes it easy to save the level at the end
+    pub level_definition : LevelDefinition,
+    pub level_file : String,
 }
 impl AppState {
     pub fn add_primitive( &mut self, name : &str, position : &Vector3<f32>, rotation : &Vector3<f32> ) -> bool {
+        // Log the primitive in the level definition
+        self.level_definition.primitives.push(
+            LevelPrimitiveDefinition{
+                name : String::from(name),
+                position : [position.x, position.y, position.z],
+                rotation : [rotation.x, rotation.y, rotation.z],
+            }
+        );
 
         if let Some(prim) = self.primitives_library.get_mut(name) {
             // TODO: we only handle cuboids for now
@@ -104,6 +117,15 @@ impl AppState {
             &Point3::new(1.0, 1.0, 1.0),
         );
     }
+
+    // TODO: Should just do this in a constructor or such
+    pub fn add_primitives_from_level_definition(&mut self) {
+        // TODO: Hack around borrowing issues, should learn the correct pattern for this
+        let prims = self.level_definition.primitives.clone();
+        for prim in prims {
+            self.add_primitive(&prim.name,&Vector3::from(prim.position), &Vector3::from(prim.rotation));
+        }
+    }
 }
 
 // Engine + functions
@@ -129,4 +151,48 @@ pub fn load_primitives_definitions( assets_path : &String ) -> io::Result<HashMa
     }
 
     Ok(results)
+}
+
+pub fn load_level_definition( level_file : &String ) -> Option<LevelDefinition> {
+    let path = Path::new(level_file);
+    if !path.is_file() { return None; }
+    
+    let ext = match path.extension() {
+        Some(x) => x,
+        None => return None
+    };
+    if ext != "json" { return None; }
+    
+    let json_file = match File::open(path) {
+        Ok(x) => x,
+        _ => return None
+    };
+    let reader = BufReader::new(json_file);
+    let level : LevelDefinition = match serde_json::from_reader(reader) {
+        Ok(x) => x,
+        _ => return None
+    };
+    Some(level)
+}
+
+pub fn load_level_empty( name : &str ) -> Option<LevelDefinition> {
+    Some(LevelDefinition {
+        name : String::from(name),
+        ground_dimensions : [100.0, 100.0],
+        ground_colour : [0.9, 0.9, 0.9],
+        background_colour : [0.1,0.1,0.1],
+        primitives : Vec::new(),
+    })
+}
+
+pub fn save_level_definition( level : &LevelDefinition, level_file : &String ) {
+    let level_str = serde_json::to_string_pretty(level).unwrap();
+    let mut file = match File::create(level_file) {
+        Ok(x) => x,
+        Err(e) => {
+            println!("ERROR: Failed to save level: {:?}", e);
+            return;
+        }
+    };
+    file.write_all(level_str.as_bytes()).unwrap();
 }

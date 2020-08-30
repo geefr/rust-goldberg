@@ -11,23 +11,49 @@ use nphysics3d::object::{
 use nphysics3d::world::{DefaultGeometricalWorld, DefaultMechanicalWorld};
 
 use kiss3d::light::Light;
-use kiss3d::window::{Window};
+use kiss3d::window::{Window,CanvasSetup,NumSamples};
 use kiss3d::camera::{ArcBall};
 use kiss3d::planar_camera::*;
 use kiss3d::event::{Action, WindowEvent,MouseButton};
 
-
 use std::collections::HashMap;
 use std::time::Instant;
+use std::env;
 
 extern crate goldberg;
 use goldberg::interactions::*;
 use goldberg::engine::*;
+use goldberg::types::*;
 
 fn main() {
+    let assets_path = String::from("/home/gareth/source/rust/olc-jam-2020/assets/");
+    let mut level_file = assets_path.clone() + "/levels/default.json";
+
+    let args: Vec<String> = env::args().collect();
+    // TODO: This level loading is a mess, sort it out
+    let mut level_definition : Option<LevelDefinition> = None;
+    if args.len() > 1 {
+        let passed_level_name = &args[1].clone();
+        let passed_level_file = assets_path.clone() + "/levels/" + passed_level_name + ".json";
+
+        level_file = passed_level_file;
+        if let Some(ldef) = load_level_definition(&level_file) {
+            level_definition = Some(ldef);
+        } else {
+            println!("WARNING: Failed to load level: {}", args[1]);
+            level_definition = load_level_empty(passed_level_name);
+        }
+    }
+
+    if !level_definition.is_some() {
+        level_definition = load_level_empty("default");
+    }
+
     // Init graphics
-    let mut window = Window::new("OLC Jam 2020");
-    window.set_background_color(0.1, 0.1, 0.1);
+    let window = Window::new_with_setup("Goldberg: Geefr's Physics Playground", 1280, 1024, CanvasSetup {
+        vsync : false,
+        samples : NumSamples::Four,
+    });
 
     // Init physics
     let mechanical_world = DefaultMechanicalWorld::new(Vector3::new(0.0, -9.81, 0.0));
@@ -50,7 +76,6 @@ fn main() {
     camera.rebind_drag_button(Some(MouseButton::Button3));
     let planar_camera = FixedView::new();
 
-    let assets_path = String::from("/home/gareth/source/rust/olc-jam-2020/assets/");
     let mut state = AppState {
         window,
         mechanical_world,
@@ -66,13 +91,14 @@ fn main() {
         primitives_library : load_primitives_definitions(&assets_path).unwrap(),
         camera,
         planar_camera,
+        level_definition : level_definition.unwrap(),
+        level_file,
     };
 
-    // Ground definition
-    let ground_thickness = 0.2;
-    let ground_width = 100.0;
+    // Setup the scene based on the level definition
+    let ground_thickness = 1.0;
     let ground_collision_cuboid = Cuboid::new(
-        Vector3::new(ground_width / 2.0, ground_thickness / 2.0, ground_width / 2.0)
+        Vector3::new(state.level_definition.ground_dimensions[0] / 2.0, ground_thickness / 2.0, state.level_definition.ground_dimensions[1] / 2.0)
     );
     let ground_shape = ShapeHandle::new(ground_collision_cuboid);
     let ground_handle = state.bodies.insert(Ground::new());
@@ -81,10 +107,22 @@ fn main() {
         .build(BodyPartHandle(ground_handle, 0));
     state.colliders.insert(ground_collider);
 
-    let mut ground_geometry = state.window.add_cube(ground_width, ground_thickness, ground_width);
-    ground_geometry.set_color(0.9, 0.9, 0.9);
+    let mut ground_geometry = state.window.add_cube(state.level_definition.ground_dimensions[0], ground_thickness, state.level_definition.ground_dimensions[1]);
+    ground_geometry.set_color(
+        state.level_definition.ground_colour[0],
+        state.level_definition.ground_colour[1],
+        state.level_definition.ground_colour[2],
+    );
 
-    // Interations
+    state.window.set_background_color(
+        state.level_definition.background_colour[0],
+        state.level_definition.background_colour[1],
+        state.level_definition.background_colour[2],
+    );
+    
+    state.add_primitives_from_level_definition();
+
+    // Interactions
     let mut interactions : HashMap<String, Box<dyn Interaction>> = HashMap::new();
     interactions.insert(String::from("EditorMode"), Box::new(
         EditorModeInteraction::new(ground_collision_cuboid, "domino")
