@@ -140,11 +140,12 @@ impl Interaction for EditorModeInteraction {
                     self.primitive_rotation.y = angle;
                 }
 
+                if (intersection_point - self.primitve_last_spawn_pos).magnitude() > self.primitive_spawn_spacing {
+                    self.primitve_last_spawn_pos = intersection_point;
+                }
+
                 if self.mouse_button1_pressed{
-                    if (intersection_point - self.primitve_last_spawn_pos).magnitude() > self.primitive_spawn_spacing {
-                        self.primitve_last_spawn_pos = intersection_point;
-                        state.add_primitive(&self.primitive_name, &self.primitve_last_spawn_pos, &self.primitive_rotation);
-                    }
+                    state.add_primitive(&self.primitive_name, &self.primitve_last_spawn_pos, &self.primitive_rotation);
                 }
             }
         }
@@ -155,7 +156,7 @@ impl Interaction for EditorModeInteraction {
 "Controls:
     Right Mouse: Rotate Camera
     Middle Mouse: Translate Camera
-    Left click: Spawn {}
+    Left drag: Spawn object: {}
     A/D: Rotate Primitive Y
     W/S: Rotate Primitive X
     Q  : Reset Primitive Rotation
