@@ -3,7 +3,6 @@ extern crate nalgebra as na;
 use na::{Point3, Vector3};
 
 use ncollide3d::shape::{Cuboid, ShapeHandle};
-use ncollide3d::query::{Ray};
 use nphysics3d::force_generator::DefaultForceGeneratorSet;
 use nphysics3d::joint::DefaultJointConstraintSet;
 use nphysics3d::object::{
@@ -92,12 +91,9 @@ fn main() {
 
     // Interations
     let mut interactions : HashMap<String, Box<dyn Interaction>> = HashMap::new();
-    interactions.insert(String::from("EditorMode"), Box::new(EditorModeInteraction {
-        ground_collision_cuboid,
-        cursor_ray : Ray::new(na::Point3::new(0.0,0.0,0.0), na::Vector3::new(0.0,0.0,0.0)),
-        cursor_position : na::Point2::<f32>::new(0.0,0.0),
-        primitive_name : String::from("domino"),
-    }));
+    interactions.insert(String::from("EditorMode"), Box::new(
+        EditorModeInteraction::new(ground_collision_cuboid, "domino")
+    ));
 
     let interaction = interactions.get_mut("EditorMode").unwrap();
 

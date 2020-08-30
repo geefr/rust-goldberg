@@ -24,28 +24,49 @@ pub trait Interaction {
 
 pub struct EditorModeInteraction {
     pub ground_collision_cuboid : Cuboid<f32>,
-    pub cursor_ray : Ray<f32>,
-    pub cursor_position : Point2<f32>,
     pub primitive_name : String,
+    cursor_ray : Ray<f32>,
+    cursor_position : Point2<f32>,
+    primitive_rotation : na::Vector3<f32>,
+}
+impl EditorModeInteraction {
+    pub fn new(ground_collision_cuboid : Cuboid<f32>, primitive_name : &str) -> Self {
+        EditorModeInteraction
+        {
+            ground_collision_cuboid,
+            cursor_ray : Ray::new(na::Point3::new(0.0,0.0,0.0), na::Vector3::new(0.0,0.0,0.0)),
+            cursor_position : na::Point2::<f32>::new(0.0,0.0),
+            primitive_name : String::from(primitive_name),
+            primitive_rotation : na::Vector3::new(0.0,0.0,0.0),
+        }
+    }
 }
 impl Interaction for EditorModeInteraction {
     fn on_key_down( &mut self, state : &mut AppState, k : &Key, _modif : &Modifiers ) {
-        if *k == Key::Tab {
-            // Advance to the next primitive
-            let mut it = state.primitives_library.iter();
-            while let Some((key, _value)) = it.next() {
-                if *key == self.primitive_name {
-                    if let Some((next_key, _next_val)) = it.next() {
-                        self.primitive_name = next_key.clone();
-                        break;
-                    } else {
-                        // Loop to beginning of primitive library
-                        if let Some((first_key, _)) = state.primitives_library.iter().next() {
-                            self.primitive_name = first_key.clone();
+        match *k {
+            Key::Tab => {
+                // Advance to the next primitive
+                let mut it = state.primitives_library.iter();
+                while let Some((key, _value)) = it.next() {
+                    if *key == self.primitive_name {
+                        if let Some((next_key, _next_val)) = it.next() {
+                            self.primitive_name = next_key.clone();
+                            break;
+                        } else {
+                            // Loop to beginning of primitive library
+                            if let Some((first_key, _)) = state.primitives_library.iter().next() {
+                                self.primitive_name = first_key.clone();
+                            }
                         }
                     }
                 }
-            }
+            },
+            Key::Q => self.primitive_rotation = Vector3::new(0.0,0.0,0.0),
+            Key::A => self.primitive_rotation.y += 0.1,
+            Key::D => self.primitive_rotation.y -= 0.1,
+            Key::W => self.primitive_rotation.x -= 0.1,
+            Key::S => self.primitive_rotation.x += 0.1,
+            _ => {}
         }
     }
     fn on_key_up( &mut self, _state : &mut AppState, _k : &Key, _modif : &Modifiers ) {
@@ -61,7 +82,8 @@ impl Interaction for EditorModeInteraction {
                         intersection_point.x,
                         intersection_point.y + 0.01,
                         intersection_point.z,
-                    ));
+                    ),
+                    &self.primitive_rotation);
                 }
             }
         }
@@ -84,11 +106,18 @@ impl Interaction for EditorModeInteraction {
 
     fn render( &mut self, state : &mut AppState ) {
         let control_text = format!(
-        "Controls:
-           Left Mouse: Rotate Camera
-           Right Mouse: Translate Camera
-           Shift + Right click: Spawn {}",
-        self.primitive_name
+"Controls:
+    Left Mouse: Rotate Camera
+    Right Mouse: Translate Camera
+    Shift + Right click: Spawn {}
+    A/D: Rotate Primitive Y
+    W/S: Rotate Primitive X
+    Q  : Reset Primitive Rotation
+
+Primitive Rotation:
+    {}, {}, {}",
+        self.primitive_name,
+        self.primitive_rotation.x, self.primitive_rotation.y, self.primitive_rotation.z
         );
         state.draw_hud_text(
             &control_text,

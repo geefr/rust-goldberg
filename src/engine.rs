@@ -47,7 +47,7 @@ pub struct AppState {
     pub planar_camera : FixedView,
 }
 impl AppState {
-    pub fn add_primitive( &mut self, name : &str, position : &Vector3<f32> ) -> bool {
+    pub fn add_primitive( &mut self, name : &str, position : &Vector3<f32>, rotation : &Vector3<f32> ) -> bool {
 
         if let Some(prim) = self.primitives_library.get_mut(name) {
             // TODO: we only handle cuboids for now
@@ -60,6 +60,7 @@ impl AppState {
                 
                     let rb = RigidBodyDesc::new()
                         .translation(*position)
+                        .rotation(*rotation)
                         .build();
                     let rb_handle = self.bodies.insert(rb);
                 
