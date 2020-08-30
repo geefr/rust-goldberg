@@ -1,5 +1,7 @@
 
 pub mod types;
+pub mod interactions;
+pub mod engine;
 
 // include!("main.rs");
 

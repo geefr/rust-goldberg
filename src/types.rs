@@ -1,7 +1,7 @@
 
-
 use serde_derive::*;
 
+// Primitive serialisation
 #[derive(Serialize,Deserialize,Debug)]
 pub enum ColliderType {
     Cuboid,
@@ -22,3 +22,6 @@ pub struct ColliderDefinitionCuboid {
     pub origin : [f32; 3], // Center of the collider, relative to the primitive
     pub dimensions : [f32; 3], // Dimensions of the collider (Half w/h/d)
 }
+
+// Scene/level serialisation
+// TODO
