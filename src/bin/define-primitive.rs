@@ -49,5 +49,7 @@ fn main() {
 
 
     println!("Nice, here's your data:");
-    println!("{}", serde_json::to_string(&prim).unwrap());
+    
+    let json_str = serde_json::to_string_pretty(&prim).unwrap();
+    println!("\n\n{}\n\n", json_str);
 }

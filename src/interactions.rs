@@ -34,6 +34,7 @@ pub struct EditorModeInteraction {
     primitve_last_spawn_pos : na::Vector3<f32>,
     primitive_auto_rotate : bool,
     mouse_button1_pressed : bool,
+    render_debug_extents : bool,
 }
 impl EditorModeInteraction {
     pub fn new(ground_collision_cuboid : Cuboid<f32>, primitive_name : &str) -> Self {
@@ -45,11 +46,12 @@ impl EditorModeInteraction {
             primitive_name : String::from(primitive_name),
             primitive_rotation : na::Vector3::new(0.0,0.0,0.0),
             primitive_rotation_delta : 15.0_f64.to_radians() as f32,
-            primitive_spawn_height : 0.01,
+            primitive_spawn_height : 0.1,
             primitive_spawn_spacing : 1.2,
             primitve_last_spawn_pos : na::Vector3::new(0.0,0.0,0.0),
             primitive_auto_rotate : true,
             mouse_button1_pressed : false,
+            render_debug_extents : false,
         }
     }
 }

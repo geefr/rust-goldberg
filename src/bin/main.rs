@@ -1,6 +1,6 @@
 extern crate kiss3d;
 extern crate nalgebra as na;
-use na::{Point3, Vector3};
+use na::{Point3, Vector3,Isometry3,Translation3};
 
 use ncollide3d::shape::{Cuboid, ShapeHandle};
 use nphysics3d::force_generator::DefaultForceGeneratorSet;
@@ -93,6 +93,7 @@ fn main() {
         planar_camera,
         level_definition : level_definition.unwrap(),
         level_file,
+        render_debug_extents : false,
     };
 
     // Setup the scene based on the level definition
@@ -103,16 +104,23 @@ fn main() {
     let ground_shape = ShapeHandle::new(ground_collision_cuboid);
     let ground_handle = state.bodies.insert(Ground::new());
     let ground_collider = ColliderDesc::new(ground_shape)
-        .translation(Vector3::y() * -ground_thickness)
+        // .translation(Vector3::y() * - ground_thickness)
         .build(BodyPartHandle(ground_handle, 0));
     state.colliders.insert(ground_collider);
 
     let mut ground_geometry = state.window.add_cube(state.level_definition.ground_dimensions[0], ground_thickness, state.level_definition.ground_dimensions[1]);
+    ground_geometry.append_translation(&Translation3::new(0.0, - ground_thickness, 0.0));
     ground_geometry.set_color(
         state.level_definition.ground_colour[0],
         state.level_definition.ground_colour[1],
         state.level_definition.ground_colour[2],
     );
+
+    if state.render_debug_extents {
+        ground_geometry.set_points_size(4.0);
+        ground_geometry.set_lines_width(2.0);
+        ground_geometry.set_surface_rendering_activation(false);
+    }
 
     state.window.set_background_color(
         state.level_definition.background_colour[0],
@@ -168,7 +176,13 @@ fn main() {
 
         for ent in &mut state.physics_entities {
             if let Some(co) = &state.colliders.get(ent.collider) {
-                let pos = na::convert_unchecked(*co.position());
+                let mut pos : Isometry3<f32> = na::convert_unchecked(*co.position());
+                let collider_translation = Translation3::new(
+                    - ent.collider_origin.x,
+                    - ent.collider_origin.y,
+                    - ent.collider_origin.z,
+                );
+                pos.append_translation_mut(&collider_translation);
                 ent.node.set_local_transformation(pos);
             }
         }
@@ -177,7 +191,6 @@ fn main() {
 
         // Let the interaction render what it needs (cursors etc)
         interaction.render(&mut state);
-
 
         state.window.render_with_camera(&mut state.camera); 
     }

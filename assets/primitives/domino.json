@@ -1,2 +1,24 @@
-{"name":"domino","path_obj":"models/primitives/domino.obj","path_mtl":"models/primitives/","scale":[1.0,1.0,1.0],"collider_type":"Cuboid","collider_def":{"origin":[0.0,0.5,0.0],"dimensions":[0.1,0.5,0.2]}}
+{
+  "name": "domino",
+  "path_obj": "models/primitives/domino.obj",
+  "path_mtl": "models/primitives/",
+  "scale": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "collider_type": "Cuboid",
+  "collider_def": {
+    "origin": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "dimensions": [
+      0.2,
+      1.0,
+      0.4
+    ]
+  }
+}
 

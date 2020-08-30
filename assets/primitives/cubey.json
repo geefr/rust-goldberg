@@ -1,1 +1,23 @@
-{"name":"cubey","path_obj":"models/primitives/cubey.obj","path_mtl":"models/primitives/","scale":[1.0,1.0,1.0],"collider_type":"Cuboid","collider_def":{"origin":[0.0,1.0,0.0],"dimensions":[1.0,1.0,1.0]}}
+{
+  "name": "cubey",
+  "path_obj": "models/primitives/cubey.obj",
+  "path_mtl": "models/primitives/",
+  "scale": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "collider_type": "Cuboid",
+  "collider_def": {
+    "origin": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "dimensions": [
+      1.0,
+      1.0,
+      1.0
+    ]
+  }
+}

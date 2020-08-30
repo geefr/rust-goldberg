@@ -1,6 +1,6 @@
 extern crate kiss3d;
 extern crate nalgebra as na;
-use na::{Point3, Vector3};
+use na::{Point3, Vector3, Translation3};
 
 use ncollide3d::shape::{Cuboid, ShapeHandle};
 use nphysics3d::force_generator::DefaultForceGeneratorSet;
@@ -30,6 +30,7 @@ use crate::types::*;
 // Global state
 pub struct PhysicsEntity {
     pub collider : DefaultColliderHandle,
+    pub collider_origin : Vector3<f32>,
     pub node : SceneNode,
 }
 pub struct AppState {
@@ -50,6 +51,7 @@ pub struct AppState {
     // TODO: Having this here duplicates a load of stuff, but makes it easy to save the level at the end
     pub level_definition : LevelDefinition,
     pub level_file : String,
+    pub render_debug_extents : bool,
 }
 impl AppState {
     pub fn add_primitive( &mut self, name : &str, position : &Vector3<f32>, rotation : &Vector3<f32> ) -> bool {
@@ -82,22 +84,37 @@ impl AppState {
                     // Build the collider.
                     let co = ColliderDesc::new(cuboid)
                         .density(1.0)
-                        .set_translation(collider_pos)
+                        .margin( 0.000001 )
+                        //.translation(collider_pos)
                         .build(BodyPartHandle(rb_handle, 0));
                 
                     let collision_handle = self.colliders.insert(co);
-                
+
+                    if self.render_debug_extents {
+                        let mut gfx = self.window.add_cube(collider_dim.x * 2.0, collider_dim.y * 2.0, collider_dim.z * 2.0);
+                        gfx.set_color(1.0, 0.0, 1.0);
+                        gfx.set_points_size(4.0);
+                        gfx.set_lines_width(4.0);
+                        gfx.set_surface_rendering_activation(false);
+
+                        self.physics_entities.push(PhysicsEntity{
+                            collider : collision_handle,
+                            collider_origin : collider_pos,
+                            node : gfx,
+                        });
+                    } else {
+                    
                     let gfx = self.window.add_obj(
                         Path::new(&format!("{}/{}", self.assets_path, prim.path_obj)),
                         Path::new(&format!("{}/{}", self.assets_path, prim.path_mtl)),
                         prim_scale,
                     );
-                
+
                     self.physics_entities.push(PhysicsEntity{
                         collider : collision_handle,
+                        collider_origin : collider_pos,
                         node : gfx,
-                    });
-                    //self.add_primitive_cuboid( &prim, position )
+                    });}
                 }
             }
             return true;
