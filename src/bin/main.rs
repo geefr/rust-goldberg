@@ -14,7 +14,7 @@ use kiss3d::light::Light;
 use kiss3d::window::{Window};
 use kiss3d::camera::{ArcBall};
 use kiss3d::planar_camera::*;
-use kiss3d::event::{Action, WindowEvent};
+use kiss3d::event::{Action, WindowEvent,MouseButton};
 
 
 use std::collections::HashMap;
@@ -45,7 +45,9 @@ fn main() {
     // - We can only get the Trait, not the camera itself
     // - We can't replace the camera on the window at all, there's no method to do it whatsoever
     // window.render_loop(state);
-    let camera = ArcBall::new(Point3::new(5.0, 5.0, 5.0), Point3::new(0.0, 1.5, 0.0));
+    let mut camera = ArcBall::new(Point3::new(5.0, 5.0, 5.0), Point3::new(0.0, 1.5, 0.0));
+    camera.rebind_rotate_button(Some(MouseButton::Button2));
+    camera.rebind_drag_button(Some(MouseButton::Button3));
     let planar_camera = FixedView::new();
 
     let assets_path = String::from("/home/gareth/source/rust/olc-jam-2020/assets/");
@@ -70,7 +72,7 @@ fn main() {
     let ground_thickness = 0.2;
     let ground_width = 100.0;
     let ground_collision_cuboid = Cuboid::new(
-        Vector3::new(ground_width, ground_thickness, ground_width)
+        Vector3::new(ground_width / 2.0, ground_thickness / 2.0, ground_width / 2.0)
     );
     let ground_shape = ShapeHandle::new(ground_collision_cuboid);
     let ground_handle = state.bodies.insert(Ground::new());
