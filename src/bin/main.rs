@@ -84,13 +84,6 @@ fn main() {
     let mut ground_geometry = state.window.add_cube(ground_width, ground_thickness, ground_width);
     ground_geometry.set_color(0.9, 0.9, 0.9);
 
-    // // TODO: Scene loading (dummy objects)
-    // for x in -20..20 {
-    //     for z in -20..20 {
-    //         state.add_primitive("domino", &Vector3::new(x as f32, 0.01, z as f32));
-    //     }
-    // }
-
     // Interations
     let mut interactions : HashMap<String, Box<dyn Interaction>> = HashMap::new();
     interactions.insert(String::from("EditorMode"), Box::new(
