@@ -8,6 +8,7 @@ use na::{Point2, Vector3};
 
 use ncollide3d::shape::{Cuboid};
 use ncollide3d::query::{Ray, RayCast};
+use ncollide3d::pipeline::object::CollisionGroups;
 
 use kiss3d::event::{Key, MouseButton, Modifiers};
 use kiss3d::camera::{Camera};
@@ -84,7 +85,7 @@ impl Interaction for EditorModeInteraction {
             Key::Q => self.primitive_rotation = Vector3::new(0.0,0.0,0.0),
             Key::E => {
                 if self.primitive_spawn_height > 1.0 {
-                    self.primitive_spawn_height = 0.01;
+                    self.primitive_spawn_height = 0.5;
                 } else {
                     self.primitive_spawn_height = 30.0;
                 }
@@ -119,42 +120,17 @@ impl Interaction for EditorModeInteraction {
             self.mouse_button1_pressed = true;
         }
 
-        // TODO: This is a copy of code below, de-dupe it
         // Find the intersection between cursor ray and ground, then spawn something
-        if let Some(toi) = self.ground_collision_cuboid.toi_with_ray(&na::Isometry3::identity(), &self.cursor_ray, 10000.0, true) {
-            if toi > 0.0 {
-                let intersection_point = self.cursor_ray.origin + self.cursor_ray.dir * toi;
-                let intersection_point = na::Vector3::new(
-                    intersection_point.x,
-                    intersection_point.y + self.primitive_spawn_height,
-                    intersection_point.z,
-                );
-
-                if self.primitive_auto_rotate {
-                    // Calculate the angle from the last spawn point, auto-update the Y rotation to match
-                    let last_to_current = (intersection_point - self.primitve_last_spawn_pos).normalize();
-                    // TODO: This is tied to the ingest format now, should change at some point
-                    // .objs imported must have -Ve Z axis as forward
-                    let zero_reference = Vector3::new(0.0,0.0,-1.0);
-
-                    let mut angle = zero_reference.dot(&last_to_current).acos();
-                    let cross = zero_reference.cross(&last_to_current);
-                    if Vector3::new(0.0, 1.0, 0.0).dot(&cross) < 0.0  {
-                        angle *= -1.0;
+        if let Some(intersection_point) = self.get_primitive_spawn_position(state) {
+            match self.primitive_placement_mode {
+                EditorPlacementMode::Singular => {
+                    if self.mouse_button1_pressed{
+                        self.primitve_last_spawn_pos = intersection_point;
+                        state.add_primitive(&self.primitive_name, &self.primitve_last_spawn_pos, &self.primitive_rotation);
+                        self.mouse_button1_pressed = false;
                     }
-                    self.primitive_rotation.y = angle;
-                }
-
-                match self.primitive_placement_mode {
-                    EditorPlacementMode::Singular => {
-                        if self.mouse_button1_pressed{
-                            self.primitve_last_spawn_pos = intersection_point;
-                            state.add_primitive(&self.primitive_name, &self.primitve_last_spawn_pos, &self.primitive_rotation);
-                            self.mouse_button1_pressed = false;
-                        }
-                    },
-                    _ => {}
-                }
+                },
+                _ => {}
             }
         }
     }
@@ -176,42 +152,24 @@ impl Interaction for EditorModeInteraction {
         self.cursor_position = unprojected;
         
         // Find the intersection between cursor ray and ground, then spawn something
-        if let Some(toi) = self.ground_collision_cuboid.toi_with_ray(&na::Isometry3::identity(), &self.cursor_ray, 10000.0, true) {
-            if toi > 0.0 {
-                let intersection_point = self.cursor_ray.origin + self.cursor_ray.dir * toi;
-                let intersection_point = na::Vector3::new(
-                    intersection_point.x,
-                    intersection_point.y + self.primitive_spawn_height,
-                    intersection_point.z,
-                );
-
-                if self.primitive_auto_rotate {
-                    // Calculate the angle from the last spawn point, auto-update the Y rotation to match
-                    let last_to_current = (intersection_point - self.primitve_last_spawn_pos).normalize();
-                    // TODO: This is tied to the ingest format now, should change at some point
-                    // .objs imported must have -Ve Z axis as forward
-                    let zero_reference = Vector3::new(0.0,0.0,-1.0);
-
-                    let mut angle = zero_reference.dot(&last_to_current).acos();
-                    let cross = zero_reference.cross(&last_to_current);
-                    if Vector3::new(0.0, 1.0, 0.0).dot(&cross) < 0.0  {
-                        angle *= -1.0;
-                    }
-                    self.primitive_rotation.y = angle;
-                }
-
-                match self.primitive_placement_mode {
-                    EditorPlacementMode::Instanced => {
-                        if (intersection_point - self.primitve_last_spawn_pos).magnitude() > self.primitive_spawn_spacing {
-                            self.primitve_last_spawn_pos = intersection_point;
-                            if self.mouse_button1_pressed{
-                                state.add_primitive(&self.primitive_name, &self.primitve_last_spawn_pos, &self.primitive_rotation);
-                            }
+        if let Some(intersection_point) = self.get_primitive_spawn_position(state) {
+            match self.primitive_placement_mode {
+                EditorPlacementMode::Instanced => {
+                    if (intersection_point - self.primitve_last_spawn_pos).magnitude() > self.primitive_spawn_spacing {
+                        self.primitve_last_spawn_pos = intersection_point;
+                        if self.mouse_button1_pressed{
+                            state.add_primitive(&self.primitive_name, &self.primitve_last_spawn_pos, &self.primitive_rotation);
                         }
-                    },
-                    _ => {}
-                }
-                
+                    }
+                },
+                // TODO: This doesn't work, somehow prevents primitives from being spawned, though the primitive counter does increase
+                // In singular mode the spacing has no effect
+                // EditorPlacementMode::Singular => {
+                //     if (intersection_point - self.primitve_last_spawn_pos).magnitude() > 0.01 {
+                //         self.primitve_last_spawn_pos = intersection_point;
+                //     }
+                // }
+                _ => {}
             }
         }
     }
@@ -270,5 +228,51 @@ Primitive auto-rotate  : {}",
 
         let right = na::Vector2::new(0.0, CROSS_SIZE);
         state.window.draw_planar_line(&(cursor_planar_pos - right), &(cursor_planar_pos + right), &cursor_colour);
+    }
+}
+impl EditorModeInteraction {
+    fn get_primitive_spawn_position(&mut self, state : &mut AppState) -> Option<Vector3<f32>> {
+        // TODO: This is a copy of code below, de-dupe it
+        // Find the intersection between cursor ray and an object, then spawn something
+        // Ideally the user clicked on the top of an object, but if it's the side we'll spawn anyway
+        let groups = CollisionGroups::new();
+        let ray_interferences = state.geometrical_world.interferences_with_ray(&state.colliders, 
+            &self.cursor_ray, 10000.0, &groups);
+        let mut toi = 10000.0;
+        for (_, b, inter) in ray_interferences {
+            if !b.query_type().is_proximity_query() && inter.toi < toi {
+                toi = inter.toi;
+            }
+        }
+
+        //if let Some(toi) = self.ground_collision_cuboid.toi_with_ray(&na::Isometry3::identity(), &self.cursor_ray, 10000.0, true) {
+        if toi > 0.0 {
+
+
+
+            let intersection_point = self.cursor_ray.origin + self.cursor_ray.dir * toi;
+            let intersection_point = na::Vector3::new(
+                intersection_point.x,
+                intersection_point.y + self.primitive_spawn_height,
+                intersection_point.z,
+            );
+
+            if self.primitive_auto_rotate {
+                // Calculate the angle from the last spawn point, auto-update the Y rotation to match
+                let last_to_current = (intersection_point - self.primitve_last_spawn_pos).normalize();
+                // TODO: This is tied to the ingest format now, should change at some point
+                // .objs imported must have -Ve Z axis as forward
+                let zero_reference = Vector3::new(0.0,0.0,-1.0);
+
+                let mut angle = zero_reference.dot(&last_to_current).acos();
+                let cross = zero_reference.cross(&last_to_current);
+                if Vector3::new(0.0, 1.0, 0.0).dot(&cross) < 0.0  {
+                    angle *= -1.0;
+                }
+                self.primitive_rotation.y = angle;
+            }
+            return Some(intersection_point);
+        }
+        None
     }
 }

@@ -100,6 +100,7 @@ impl AppState {
                 .density(1.0)
                 .margin( 0.000001 )
                 //.translation(collider_pos)
+                .ccd_enabled(false) // TODO: Enabling should provide better accuracy, but causes dominos on the floor to glitch out randomly
                 .build(BodyPartHandle(rb_handle, 0));
         
             let collision_handle = self.colliders.insert(co);
