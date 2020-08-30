@@ -71,7 +71,7 @@ fn main() {
     // - We can only get the Trait, not the camera itself
     // - We can't replace the camera on the window at all, there's no method to do it whatsoever
     // window.render_loop(state);
-    let mut camera = ArcBall::new(Point3::new(5.0, 5.0, 5.0), Point3::new(0.0, 1.5, 0.0));
+    let mut camera = ArcBall::new(Point3::new(0.0, 5.0, -5.0), Point3::new(0.0, 1.5, 0.0));
     camera.rebind_rotate_button(Some(MouseButton::Button2));
     camera.rebind_drag_button(Some(MouseButton::Button3));
     let planar_camera = FixedView::new();
@@ -177,12 +177,12 @@ fn main() {
         for ent in &mut state.physics_entities {
             if let Some(co) = &state.colliders.get(ent.collider) {
                 let mut pos : Isometry3<f32> = na::convert_unchecked(*co.position());
-                let collider_translation = Translation3::new(
-                    - ent.collider_origin.x,
-                    - ent.collider_origin.y,
-                    - ent.collider_origin.z,
-                );
-                pos.append_translation_mut(&collider_translation);
+                // let collider_translation = Translation3::new(
+                //     - ent.collider_origin.x,
+                //     - ent.collider_origin.y,
+                //     - ent.collider_origin.z,
+                // );
+                // pos.append_translation_mut(&collider_translation);
                 ent.node.set_local_transformation(pos);
             }
         }

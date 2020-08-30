@@ -15,10 +15,11 @@
       0.0
     ],
     "dimensions": [
-      0.2,
+      0.4,
       1.0,
-      0.4
+      0.2
     ]
-  }
+  },
+  "collider_def_composite_cuboid": []
 }
 

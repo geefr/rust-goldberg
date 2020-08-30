@@ -22,6 +22,11 @@ pub trait Interaction {
     fn render( &mut self, state : &mut AppState );
 }
 
+#[derive(Debug)]
+enum EditorPlacementMode {
+    Singular,
+    Instanced,
+}
 pub struct EditorModeInteraction {
     pub ground_collision_cuboid : Cuboid<f32>,
     pub primitive_name : String,
@@ -33,8 +38,8 @@ pub struct EditorModeInteraction {
     primitive_spawn_spacing : f32,
     primitve_last_spawn_pos : na::Vector3<f32>,
     primitive_auto_rotate : bool,
+    primitive_placement_mode : EditorPlacementMode,
     mouse_button1_pressed : bool,
-    render_debug_extents : bool,
 }
 impl EditorModeInteraction {
     pub fn new(ground_collision_cuboid : Cuboid<f32>, primitive_name : &str) -> Self {
@@ -46,15 +51,16 @@ impl EditorModeInteraction {
             primitive_name : String::from(primitive_name),
             primitive_rotation : na::Vector3::new(0.0,0.0,0.0),
             primitive_rotation_delta : 15.0_f64.to_radians() as f32,
-            primitive_spawn_height : 0.1,
+            primitive_spawn_height : 0.5,
             primitive_spawn_spacing : 1.2,
             primitve_last_spawn_pos : na::Vector3::new(0.0,0.0,0.0),
             primitive_auto_rotate : true,
+            primitive_placement_mode : EditorPlacementMode::Singular,
             mouse_button1_pressed : false,
-            render_debug_extents : false,
         }
     }
 }
+
 impl Interaction for EditorModeInteraction {
     fn on_key_down( &mut self, state : &mut AppState, k : &Key, modif : &Modifiers ) {
         match *k {
@@ -96,15 +102,60 @@ impl Interaction for EditorModeInteraction {
             Key::R => self.primitive_spawn_spacing *= 1.1,
             Key::F => self.primitive_spawn_spacing *= 0.9,
             Key::C => self.primitive_auto_rotate = !self.primitive_auto_rotate,
+            Key::X => {
+                match self.primitive_placement_mode {
+                    EditorPlacementMode::Instanced => self.primitive_placement_mode = EditorPlacementMode::Singular,
+                    EditorPlacementMode::Singular => self.primitive_placement_mode = EditorPlacementMode::Instanced,
+                };
+            },
             _ => {}
         }
     }
     fn on_key_up( &mut self, _state : &mut AppState, _k : &Key, _modif : &Modifiers ) {
 
     }
-    fn on_mouse_down( &mut self, _state : &mut AppState, k : &MouseButton, _modif : &Modifiers ) {
+    fn on_mouse_down( &mut self, state : &mut AppState, k : &MouseButton, _modif : &Modifiers ) {
         if *k == MouseButton::Button1 {
             self.mouse_button1_pressed = true;
+        }
+
+        // TODO: This is a copy of code below, de-dupe it
+        // Find the intersection between cursor ray and ground, then spawn something
+        if let Some(toi) = self.ground_collision_cuboid.toi_with_ray(&na::Isometry3::identity(), &self.cursor_ray, 10000.0, true) {
+            if toi > 0.0 {
+                let intersection_point = self.cursor_ray.origin + self.cursor_ray.dir * toi;
+                let intersection_point = na::Vector3::new(
+                    intersection_point.x,
+                    intersection_point.y + self.primitive_spawn_height,
+                    intersection_point.z,
+                );
+
+                if self.primitive_auto_rotate {
+                    // Calculate the angle from the last spawn point, auto-update the Y rotation to match
+                    let last_to_current = (intersection_point - self.primitve_last_spawn_pos).normalize();
+                    // TODO: This is tied to the ingest format now, should change at some point
+                    // .objs imported must have -Ve Z axis as forward
+                    let zero_reference = Vector3::new(0.0,0.0,-1.0);
+
+                    let mut angle = zero_reference.dot(&last_to_current).acos();
+                    let cross = zero_reference.cross(&last_to_current);
+                    if Vector3::new(0.0, 1.0, 0.0).dot(&cross) < 0.0  {
+                        angle *= -1.0;
+                    }
+                    self.primitive_rotation.y = angle;
+                }
+
+                match self.primitive_placement_mode {
+                    EditorPlacementMode::Singular => {
+                        if self.mouse_button1_pressed{
+                            self.primitve_last_spawn_pos = intersection_point;
+                            state.add_primitive(&self.primitive_name, &self.primitve_last_spawn_pos, &self.primitive_rotation);
+                            self.mouse_button1_pressed = false;
+                        }
+                    },
+                    _ => {}
+                }
+            }
         }
     }
     fn on_mouse_up( &mut self, _state : &mut AppState, k : &MouseButton, _modif : &Modifiers ) {
@@ -137,7 +188,9 @@ impl Interaction for EditorModeInteraction {
                 if self.primitive_auto_rotate {
                     // Calculate the angle from the last spawn point, auto-update the Y rotation to match
                     let last_to_current = (intersection_point - self.primitve_last_spawn_pos).normalize();
-                    let zero_reference = Vector3::new(1.0,0.0,0.0);
+                    // TODO: This is tied to the ingest format now, should change at some point
+                    // .objs imported must have -Ve Z axis as forward
+                    let zero_reference = Vector3::new(0.0,0.0,-1.0);
 
                     let mut angle = zero_reference.dot(&last_to_current).acos();
                     let cross = zero_reference.cross(&last_to_current);
@@ -147,13 +200,18 @@ impl Interaction for EditorModeInteraction {
                     self.primitive_rotation.y = angle;
                 }
 
-                if (intersection_point - self.primitve_last_spawn_pos).magnitude() > self.primitive_spawn_spacing {
-                    self.primitve_last_spawn_pos = intersection_point;
-
-                    if self.mouse_button1_pressed{
-                        state.add_primitive(&self.primitive_name, &self.primitve_last_spawn_pos, &self.primitive_rotation);
-                    }
+                match self.primitive_placement_mode {
+                    EditorPlacementMode::Instanced => {
+                        if (intersection_point - self.primitve_last_spawn_pos).magnitude() > self.primitive_spawn_spacing {
+                            self.primitve_last_spawn_pos = intersection_point;
+                            if self.mouse_button1_pressed{
+                                state.add_primitive(&self.primitive_name, &self.primitve_last_spawn_pos, &self.primitive_rotation);
+                            }
+                        }
+                    },
+                    _ => {}
                 }
+                
             }
         }
     }
@@ -171,9 +229,12 @@ impl Interaction for EditorModeInteraction {
     R  : Increase spacing
     F  : Decrease spacing
     C  : Toggle auto-rotate
+    X  : Cycle placement mode
     Ctrl+S : Save level ({})
 
 Number of Primitives   : {},
+Auto-Rotate Active     : {},
+Placement Mode         : {:?},
 Primitive Rotation     : {}°, {}°, {}°
 Primitive Spawn Height : {}
 Primitive Spacing      : {}
@@ -181,6 +242,8 @@ Primitive auto-rotate  : {}",
         self.primitive_name,
         state.level_definition.name,
         state.physics_entities.len(),
+        self.primitive_auto_rotate,
+        self.primitive_placement_mode,
         self.primitive_rotation.x.to_degrees(), self.primitive_rotation.y.to_degrees(), self.primitive_rotation.z.to_degrees(),
         self.primitive_spawn_height,
         self.primitive_spawn_spacing,

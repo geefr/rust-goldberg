@@ -1,8 +1,8 @@
 extern crate kiss3d;
 extern crate nalgebra as na;
-use na::{Point3, Vector3, Translation3};
+use na::{Point3, Vector3,Isometry3};
 
-use ncollide3d::shape::{Cuboid, ShapeHandle};
+use ncollide3d::shape::{Cuboid, ShapeHandle, Compound};
 use nphysics3d::force_generator::DefaultForceGeneratorSet;
 use nphysics3d::joint::DefaultJointConstraintSet;
 use nphysics3d::object::{
@@ -30,7 +30,7 @@ use crate::types::*;
 // Global state
 pub struct PhysicsEntity {
     pub collider : DefaultColliderHandle,
-    pub collider_origin : Vector3<f32>,
+    // pub collider_origin : Vector3<f32>,
     pub node : SceneNode,
 }
 pub struct AppState {
@@ -65,58 +65,71 @@ impl AppState {
         );
 
         if let Some(prim) = self.primitives_library.get_mut(name) {
+            // Build the rigid body.
+            let prim_scale = Vector3::from(prim.scale);
+        
+            let rb = RigidBodyDesc::new()
+                .translation(*position)
+                .rotation(*rotation)
+                .build();
+            let rb_handle = self.bodies.insert(rb);
+        
+            let collider_shape;
             // TODO: we only handle cuboids for now
             match &prim.collider_type {
                 ColliderType::Cuboid => {
-                    // Build the rigid body.
                     let collider_pos = Vector3::from(prim.collider_def.origin);
                     let collider_dim = Vector3::from(prim.collider_def.dimensions);
-                    let prim_scale = Vector3::from(prim.scale);
-                
-                    let rb = RigidBodyDesc::new()
-                        .translation(*position)
-                        .rotation(*rotation)
-                        .build();
-                    let rb_handle = self.bodies.insert(rb);
-                
-                    let cuboid = ShapeHandle::new(Cuboid::new(collider_dim));
-                
-                    // Build the collider.
-                    let co = ColliderDesc::new(cuboid)
-                        .density(1.0)
-                        .margin( 0.000001 )
-                        //.translation(collider_pos)
-                        .build(BodyPartHandle(rb_handle, 0));
-                
-                    let collision_handle = self.colliders.insert(co);
-
-                    if self.render_debug_extents {
-                        let mut gfx = self.window.add_cube(collider_dim.x * 2.0, collider_dim.y * 2.0, collider_dim.z * 2.0);
-                        gfx.set_color(1.0, 0.0, 1.0);
-                        gfx.set_points_size(4.0);
-                        gfx.set_lines_width(4.0);
-                        gfx.set_surface_rendering_activation(false);
-
-                        self.physics_entities.push(PhysicsEntity{
-                            collider : collision_handle,
-                            collider_origin : collider_pos,
-                            node : gfx,
-                        });
-                    } else {
-                    
-                    let gfx = self.window.add_obj(
-                        Path::new(&format!("{}/{}", self.assets_path, prim.path_obj)),
-                        Path::new(&format!("{}/{}", self.assets_path, prim.path_mtl)),
-                        prim_scale,
-                    );
-
-                    self.physics_entities.push(PhysicsEntity{
-                        collider : collision_handle,
-                        collider_origin : collider_pos,
-                        node : gfx,
-                    });}
-                }
+                    collider_shape = ShapeHandle::new(Cuboid::new(collider_dim));
+                },
+                ColliderType::CompositeCuboid => {
+                    let mut shapes = Vec::new();
+                    // Iterate over each of the collider defs, make a cuboid for each
+                    for collider_def in &prim.collider_def_composite_cuboid {
+                        let collider_pos = Vector3::from(collider_def.origin);
+                        let collider_dim = Vector3::from(collider_def.dimensions);
+                        let delta = Isometry3::new(collider_pos, na::zero());
+                        shapes.push((delta, ShapeHandle::new(Cuboid::new(collider_dim))));
+                    }
+                    collider_shape = ShapeHandle::new(Compound::new(shapes));
+                },
             }
+        
+            // Build the collider.
+            let co = ColliderDesc::new(collider_shape)
+                .density(1.0)
+                .margin( 0.000001 )
+                //.translation(collider_pos)
+                .build(BodyPartHandle(rb_handle, 0));
+        
+            let collision_handle = self.colliders.insert(co);
+
+            if self.render_debug_extents {
+                // let mut gfx = self.window.add_cube(collider_dim.x * 2.0, collider_dim.y * 2.0, collider_dim.z * 2.0);
+                // gfx.set_color(1.0, 0.0, 1.0);
+                // gfx.set_points_size(4.0);
+                // gfx.set_lines_width(4.0);
+                // gfx.set_surface_rendering_activation(false);
+
+                // self.physics_entities.push(PhysicsEntity{
+                //     collider : collision_handle,
+                //     // : collider_pos,
+                //     node : gfx,
+                // });
+            } else {
+            
+            let gfx = self.window.add_obj(
+                Path::new(&format!("{}/{}", self.assets_path, prim.path_obj)),
+                Path::new(&format!("{}/{}", self.assets_path, prim.path_mtl)),
+                prim_scale,
+            );
+
+            self.physics_entities.push(PhysicsEntity{
+                collider : collision_handle,
+                //collider_origin : collider_pos,
+                node : gfx,
+            });}
+
             return true;
         }
         false

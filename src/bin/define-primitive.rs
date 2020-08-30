@@ -14,7 +14,8 @@ fn main() {
         collider_def  : ColliderDefinitionCuboid {
             origin : [0.0;3],
             dimensions : [1.0;3],
-        }
+        },
+        collider_def_composite_cuboid : Vec::new(),
     };
 
     println!("Defining a primitive type: ");
@@ -31,22 +32,56 @@ fn main() {
     println!("Primitive z scale: ");
     prim.scale[2] = read!("{}\n");
 
-    // TODO: Collider type (We only have one, so no choice)
 
-    println!("Collider origin x");
-    prim.collider_def.origin[0] = read!("{}\n");
-    println!("Collider origin y");
-    prim.collider_def.origin[1] = read!("{}\n");
-    println!("Collider origin z");
-    prim.collider_def.origin[2] = read!("{}\n");
+    // TODO: This sucks, improve it
+    println!("Select index of collider type [0 = Cuboid, 1 = CompositeCuboid]");
+    let collider_type_index : u32 = read!("{}\n");
+    prim.collider_type = match collider_type_index {
+        0 => ColliderType::Cuboid,
+        1 => ColliderType::CompositeCuboid,
+        _ => {
+            println!("ERROR: You chose an invalid type index");
+            return;
+        }
+    };
 
-    println!("Collider scale x");
-    prim.collider_def.dimensions[0] = read!("{}\n");
-    println!("Collider scale y");
-    prim.collider_def.dimensions[1] = read!("{}\n");
-    println!("Collider scale z");
-    prim.collider_def.dimensions[2] = read!("{}\n");
+    loop {
+        let mut collider_def = ColliderDefinitionCuboid {
+            origin : [0.0;3],
+            dimensions : [0.0;3],
+        };
 
+        println!("Collider origin x");
+        collider_def.origin[0] = read!("{}\n");
+        println!("Collider origin y");
+        collider_def.origin[1] = read!("{}\n");
+        println!("Collider origin z");
+        collider_def.origin[2] = read!("{}\n");
+
+        println!("Collider scale x");
+        collider_def.dimensions[0] = read!("{}\n");
+        println!("Collider scale y");
+        collider_def.dimensions[1] = read!("{}\n");
+        println!("Collider scale z");
+        collider_def.dimensions[2] = read!("{}\n");
+
+        match prim.collider_type {
+            ColliderType::Cuboid => {
+                prim.collider_def = collider_def;
+                break;
+            },
+            ColliderType::CompositeCuboid => {
+                prim.collider_def_composite_cuboid.push(collider_def);
+                println!("Add another collider (y/n)?");
+                let choice : String = read!("{}\n");
+                if choice == "y" {
+                    continue;
+                } else {
+                    break;
+                }
+            }
+        }
+    }
 
     println!("Nice, here's your data:");
     

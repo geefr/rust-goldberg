@@ -5,6 +5,7 @@ use serde_derive::*;
 #[derive(Serialize,Deserialize,Debug)]
 pub enum ColliderType {
     Cuboid,
+    CompositeCuboid,
 }
 
 #[derive(Serialize,Deserialize,Debug)]
@@ -14,7 +15,10 @@ pub struct PrimitiveDefinition {
     pub path_mtl : String, // Path to the directory containing the .mtl files
     pub scale    : [f32; 3],
     pub collider_type : ColliderType,
-    pub collider_def  : ColliderDefinitionCuboid, // TODO: Multiple types
+    // TODO: Multiple types
+    // TODO: How to represent this in json? For now just store all possible combinations of colliders here and sort it out later
+    pub collider_def  : ColliderDefinitionCuboid,
+    pub collider_def_composite_cuboid : Vec<ColliderDefinitionCuboid>,
 }
 
 #[derive(Serialize,Deserialize,Debug)]
