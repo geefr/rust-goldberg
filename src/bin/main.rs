@@ -1,6 +1,6 @@
 extern crate kiss3d;
 extern crate nalgebra as na;
-use na::{Point3, RealField, Vector3, UnitQuaternion,Isometry};
+use na::{Point3, Vector3};
 
 use ncollide3d::shape::{Cuboid, ShapeHandle};
 use nphysics3d::force_generator::DefaultForceGeneratorSet;
@@ -14,7 +14,9 @@ use kiss3d::light::Light;
 use kiss3d::scene::SceneNode;
 use kiss3d::window::{Window};
 use kiss3d::camera::ArcBall;
+use kiss3d::event::{Action, Key, WindowEvent};
 
+use std::collections::HashMap;
 use std::time::Instant;
 use std::path::Path;
 use std::fs::{self, File};
@@ -29,6 +31,8 @@ struct PhysicsEntity {
     node : SceneNode,
 }
 struct AppState {
+    window : Window,
+    assets_path : String,
     mechanical_world: DefaultMechanicalWorld<f32>,
     geometrical_world: DefaultGeometricalWorld::<f32>,
     bodies: DefaultBodySet::<f32>,
@@ -40,8 +44,8 @@ struct AppState {
     simulation_last_update_ms: f32,
 }
 
-fn load_primitives_definitions( assets_path : &String ) -> io::Result<Vec<PrimitiveDefinition>> {
-    let mut results = Vec::new();
+fn load_primitives_definitions( assets_path : &String ) -> io::Result<HashMap<String, PrimitiveDefinition>> {
+    let mut results = HashMap::new();
     let prim_path = format!("{}{}", assets_path, "/primitives");
     let primitives_path = Path::new(&prim_path);
     for entry in fs::read_dir(primitives_path)? {
@@ -55,8 +59,8 @@ fn load_primitives_definitions( assets_path : &String ) -> io::Result<Vec<Primit
             if ext == "json" {
                 let json_file = File::open(path)?;
                 let reader = BufReader::new(json_file);
-                let prim = serde_json::from_reader(reader)?;
-                results.push(prim);
+                let prim : PrimitiveDefinition = serde_json::from_reader(reader)?;
+                results.insert(prim.name.clone(), prim);
             }
         }
     }
@@ -64,25 +68,66 @@ fn load_primitives_definitions( assets_path : &String ) -> io::Result<Vec<Primit
     Ok(results)
 }
 
+fn add_primitive( state : &mut AppState, map : &HashMap<String, PrimitiveDefinition>, name : &str, position : &Vector3<f32> ) -> bool {
+    if let Some(prim) = map.get(name) {
+        // TODO: we only handle cuboids for now
+        match &prim.collider_type {
+            ColliderType::Cuboid => add_primitive_cuboid( state, prim, position )
+        }
+        return true;
+    }
+    false
+}
+
+fn add_primitive_cuboid( state : &mut AppState, prim : &PrimitiveDefinition, position : &Vector3<f32> ) {
+    // Build the rigid body.
+    let collider_pos = Vector3::from(prim.collider_def.origin);
+    let collider_dim = Vector3::from(prim.collider_def.dimensions);
+    let prim_scale = Vector3::from(prim.scale);
+
+    let rb = RigidBodyDesc::new()
+        .translation(*position)
+        .build();
+    let rb_handle = state.bodies.insert(rb);
+
+    let cuboid = ShapeHandle::new(Cuboid::new(collider_dim));
+
+    // Build the collider.
+    let mut co = ColliderDesc::new(cuboid)
+        .density(1.0)
+        .set_translation(collider_pos)
+        .build(BodyPartHandle(rb_handle, 0));
+
+    let collision_handle = state.colliders.insert(co);
+
+    let mut gfx = state.window.add_obj(
+        Path::new(&format!("{}/{}", state.assets_path, prim.path_obj)),
+        Path::new(&format!("{}/{}", state.assets_path, prim.path_mtl)),
+        prim_scale,
+    );
+
+    state.physics_entities.push(PhysicsEntity{
+        collider : collision_handle,
+        node : gfx,
+    });
+}
+
 fn main() {
     // Init graphics
     let mut window = Window::new("OLC Jam 2020");
     window.set_background_color(0.1, 0.1, 0.1);
 
-    let primitives = load_primitives_definitions(&String::from("/home/gareth/source/rust/olc-jam-2020/assets/")).unwrap();
-    for prim in primitives {
-        println!("{} : {}", prim.name, serde_json::to_string(&prim).unwrap());
-    }
-
     // Init physics
     let mechanical_world = DefaultMechanicalWorld::new(Vector3::new(0.0, -9.81, 0.0));
     let geometrical_world = DefaultGeometricalWorld::<f32>::new();
-    let mut bodies = DefaultBodySet::<f32>::new();
-    let mut colliders = DefaultColliderSet::new();
+    let bodies = DefaultBodySet::<f32>::new();
+    let colliders = DefaultColliderSet::new();
     let joint_constrants = DefaultJointConstraintSet::<f32>::new();
     let force_generators = DefaultForceGeneratorSet::<f32>::new();
 
     let mut state = AppState {
+        window,
+        assets_path : String::from("/home/gareth/source/rust/olc-jam-2020/assets/"),
         mechanical_world,
         geometrical_world,
         bodies,
@@ -93,6 +138,8 @@ fn main() {
         simulation_start_time : Instant::now(),
         simulation_last_update_ms : 0.0,
     };
+
+    let primitives = load_primitives_definitions(&state.assets_path).unwrap();
 
     // Ground definition
     let ground_thickness = 0.2;
@@ -106,54 +153,12 @@ fn main() {
         .build(BodyPartHandle(ground_handle, 0));
     state.colliders.insert(co);
 
-    let mut ground_geometry = window.add_cube(ground_width, ground_thickness, ground_width);
+    let mut ground_geometry = state.window.add_cube(ground_width, ground_thickness, ground_width);
     ground_geometry.set_color(0.9, 0.9, 0.9);
 
-    // Create boxes
-    let num = 6;
-    let rad = 0.1;
-    let cuboid = ShapeHandle::new(Cuboid::new(Vector3::repeat(rad)));
-
-    let shift = (rad + ColliderDesc::<f32>::default_margin()) * 2.0;
-    let centerx = shift * (num as f32) / 20.0;
-    let centery = shift / 2.0;
-    let centerz = shift * (num as f32) / 2.0;
-    let height = 3.0;
-
-    for i in 0usize..num {
-        for j in 0usize..num {
-            for k in 0usize..num {
-                let x = i as f32 * shift - centerx;
-                let y = j as f32 * shift + centery + height;
-                let z = k as f32 * shift - centerz;
-
-                // Build the rigid body.
-                let rb = RigidBodyDesc::new()
-                    .translation(Vector3::new(x, y, z))
-                    .build();
-                let rb_handle = state.bodies.insert(rb);
-
-                // Build the collider.
-                let co = ColliderDesc::new(cuboid.clone())
-                    .density(1.0)
-                    .build(BodyPartHandle(rb_handle, 0));
-
-                let collision_handle = state.colliders.insert(co);
-                
-                let mut cubey = window.add_obj(
-                    Path::new("/home/gareth/source/rust/olc-jam-2020/assets/models/primitives/domino.obj"),
-                    Path::new("/home/gareth/source/rust/olc-jam-2020/assets/models/primitives/"),
-                    Vector3::new(rad, rad, rad)
-                );
-                
-                // let mut cubey = window.add_cube(rad, rad, rad);
-                // cubey.set_color(1.0, 0.0, 0.0);
-
-                state.physics_entities.push(PhysicsEntity{
-                    collider : collision_handle,
-                    node : cubey,
-                });
-            }
+    for x in -20..20 {
+        for z in -20..20 {
+            add_primitive(&mut state, &primitives, "domino", &Vector3::new(x as f32, 0.01, z as f32));
         }
     }
 
@@ -169,7 +174,20 @@ fn main() {
     // window.render_loop(state);
     let mut camera = ArcBall::new(Point3::new(5.0, 5.0, 5.0), Point3::new(0.0, 1.5, 0.0));
     
-    while !window.should_close() {
+    while !state.window.should_close() {
+        for event in state.window.events().iter() {
+            match event.value {
+                WindowEvent::Key(k, Action::Press, _) => {
+                    if k == Key::Space {
+                        add_primitive(&mut state, &primitives, "cubey", &Vector3::new(0.0, 50.0, 0.0));
+                    }
+                },
+                _ => {}
+            }
+        }
+
+
+
         let simulation_elapsed_ms : f32 = state.simulation_start_time.elapsed().as_millis() as f32;
         let simulation_delta = simulation_elapsed_ms - state.simulation_last_update_ms;
         state.simulation_last_update_ms = simulation_elapsed_ms;
@@ -190,7 +208,7 @@ fn main() {
             }
         }
 
-        window.set_light(Light::Absolute(Point3::new(100.0, 100.0, 100.0)));
-        window.render_with_camera(&mut camera); 
+        state.window.set_light(Light::Absolute(Point3::new(100.0, 100.0, 100.0)));
+        state.window.render_with_camera(&mut camera); 
     }
 }
