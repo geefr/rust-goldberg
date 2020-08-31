@@ -6,8 +6,9 @@ use ncollide3d::shape::{Cuboid, ShapeHandle, Compound};
 use nphysics3d::force_generator::DefaultForceGeneratorSet;
 use nphysics3d::joint::DefaultJointConstraintSet;
 use nphysics3d::object::{
-    BodyPartHandle, ColliderDesc, DefaultBodySet, DefaultColliderSet, DefaultColliderHandle, RigidBodyDesc, BodyStatus
+    BodyPartHandle, ColliderDesc, DefaultBodySet, DefaultColliderSet, DefaultColliderHandle, RigidBodyDesc, BodyStatus, 
 };
+use nphysics3d::material::{MaterialHandle, BasicMaterial};
 use nphysics3d::world::{DefaultGeometricalWorld, DefaultMechanicalWorld};
 
 use kiss3d::scene::SceneNode;
@@ -129,10 +130,11 @@ impl AppState {
                     collider_shape = ShapeHandle::new(Compound::new(shapes));
                 },
             }
-        
+            
             // Build the collider.
             let co = ColliderDesc::new(collider_shape)
-                .density(1.0)
+                .density(1060.0)
+                .material(MaterialHandle::new(BasicMaterial::new(0.0, 0.1)))
                 // .margin( 0.000001 )
                 //.translation(collider_pos)
                 .ccd_enabled(false) // TODO: Enabling should provide better accuracy, but causes dominos on the floor to glitch out randomly
