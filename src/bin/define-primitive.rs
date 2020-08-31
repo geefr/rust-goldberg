@@ -72,6 +72,8 @@ fn main() {
         println!("Collider scale z");
         collider_def.dimensions[2] = read!("{}\n");
 
+        prim.collider_def.push(collider_def);
+
         println!("Add another collider (y/n)?");
         let choice : String = read!("{}\n");
         if choice == "y" {
