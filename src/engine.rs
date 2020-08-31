@@ -112,16 +112,16 @@ impl AppState {
                 ColliderType::CompositeCuboid => {
                     let mut shapes = Vec::new();
                     // Iterate over each of the collider defs, make a cuboid for each
-                    for collider_def in &prim.collider_def_composite_cuboid {
+                    for cdef in &prim.collider_def_composite_cuboid {
                         let collider_pos = Vector3::new(
-                            prim.collider_def.origin[0] * prim_scale.x,
-                            prim.collider_def.origin[1] * prim_scale.y,
-                            prim.collider_def.origin[2] * prim_scale.z,
+                            cdef.origin[0] * prim_scale.x,
+                            cdef.origin[1] * prim_scale.y,
+                            cdef.origin[2] * prim_scale.z,
                         );
                         let collider_dim = Vector3::new(
-                            prim.collider_def.dimensions[0] * prim_scale.x,
-                            prim.collider_def.dimensions[1] * prim_scale.y,
-                            prim.collider_def.dimensions[2] * prim_scale.z,
+                            cdef.dimensions[0] * prim_scale.x,
+                            cdef.dimensions[1] * prim_scale.y,
+                            cdef.dimensions[2] * prim_scale.z,
                         );
                         let delta = Isometry3::new(collider_pos, na::zero());
                         shapes.push((delta, ShapeHandle::new(Cuboid::new(collider_dim))));

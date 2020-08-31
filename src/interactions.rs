@@ -93,8 +93,8 @@ impl Interaction for EditorModeInteraction {
             },
             Key::Q => {
                 self.primitive_spawn_height -= 0.5;
-                if self.primitive_spawn_height < 0.5 {
-                    self.primitive_spawn_height = 0.5;
+                if self.primitive_spawn_height < 0.0 {
+                    self.primitive_spawn_height = 0.0;
                 }
                 if let Some(intersection_point) = self.get_primitive_spawn_position(state) {
                     self.cursor_position_world = intersection_point;
@@ -311,9 +311,13 @@ impl EditorModeInteraction {
 
         if toi > 0.0 {
             let intersection_point = self.cursor_ray.origin + self.cursor_ray.dir * toi;
+            let mut spawn_height = self.primitive_spawn_height;
+            if !self.primitive_placement_static && spawn_height < 0.5 {
+                spawn_height = 0.5;
+            }
             let intersection_point = na::Vector3::new(
                 intersection_point.x,
-                intersection_point.y + self.primitive_spawn_height,
+                intersection_point.y + spawn_height,
                 intersection_point.z,
             );
 
