@@ -1,0 +1,7397 @@
+{
+  "name": "collidertest",
+  "ground_dimensions": [
+    100.0,
+    100.0
+  ],
+  "ground_colour": [
+    0.9,
+    0.9,
+    0.9
+  ],
+  "background_colour": [
+    0.1,
+    0.1,
+    0.1
+  ],
+  "primitives": [
+    {
+      "name": "steps-1m",
+      "position": [
+        0.45723277,
+        0.04999733,
+        -8.6215315
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey-2x2",
+      "position": [
+        0.45566082,
+        0.049999237,
+        -3.6314538
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey-2x2",
+      "position": [
+        0.4438553,
+        0.049999237,
+        -1.63297
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey-2x2",
+      "position": [
+        0.43184757,
+        0.049999237,
+        0.34130073
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey-2x2",
+      "position": [
+        0.44254494,
+        0.049999237,
+        2.3496892
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey-2x2",
+      "position": [
+        0.43542862,
+        0.049999237,
+        4.334608
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey-2x2",
+      "position": [
+        0.44804764,
+        0.050001144,
+        6.3417845
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey-2x2",
+      "position": [
+        0.4105711,
+        0.049999237,
+        8.342388
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey-2x2",
+      "position": [
+        0.3859911,
+        0.049999237,
+        10.338428
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "steps-1m",
+      "position": [
+        -0.101299286,
+        0.049999237,
+        15.323138
+      ],
+      "rotation": [
+        0.0,
+        -3.1415923,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "steps-1m",
+      "position": [
+        0.87885857,
+        0.049999237,
+        15.323095
+      ],
+      "rotation": [
+        0.0,
+        -3.1415923,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.68675756,
+        0.54999924,
+        -11.153639
+      ],
+      "rotation": [
+        0.0,
+        0.23950376,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.73949337,
+        0.55000305,
+        -12.29652
+      ],
+      "rotation": [
+        0.0,
+        0.0020716023,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.7372966,
+        0.54999924,
+        -13.401114
+      ],
+      "rotation": [
+        0.0,
+        0.0019834081,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.6786432,
+        0.54999924,
+        -14.532852
+      ],
+      "rotation": [
+        0.0,
+        0.051779717,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.6763172,
+        0.54999924,
+        -15.665568
+      ],
+      "rotation": [
+        0.0,
+        0.0020426274,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.70217705,
+        0.54999924,
+        -16.77029
+      ],
+      "rotation": [
+        0.0,
+        -0.02340495,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.6999788,
+        0.54999924,
+        -17.875124
+      ],
+      "rotation": [
+        0.0,
+        0.0020132356,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.6976533,
+        0.54999924,
+        -19.00761
+      ],
+      "rotation": [
+        0.0,
+        0.0020426274,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.69532776,
+        0.54999924,
+        -20.140097
+      ],
+      "rotation": [
+        0.0,
+        0.0020426274,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.69300175,
+        0.54999924,
+        -21.24493
+      ],
+      "rotation": [
+        0.0,
+        0.002128369,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.6626177,
+        0.54999924,
+        -22.378624
+      ],
+      "rotation": [
+        0.0,
+        0.026794054,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.60414124,
+        0.55000305,
+        -23.459389
+      ],
+      "rotation": [
+        0.0,
+        0.054053824,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.5457449,
+        0.54999924,
+        -24.485666
+      ],
+      "rotation": [
+        0.0,
+        0.056838427,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.487432,
+        0.54999924,
+        -25.457386
+      ],
+      "rotation": [
+        0.0,
+        0.059937414,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.37260675,
+        0.54999924,
+        -26.461922
+      ],
+      "rotation": [
+        0.0,
+        0.11381313,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.2577262,
+        0.54999924,
+        -27.440609
+      ],
+      "rotation": [
+        0.0,
+        0.11684788,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.199049,
+        0.54999924,
+        -28.443241
+      ],
+      "rotation": [
+        0.0,
+        0.058456425,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -0.11471605,
+        0.54999924,
+        -29.416714
+      ],
+      "rotation": [
+        0.0,
+        0.31180167,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -0.8013978,
+        0.5499954,
+        -30.127605
+      ],
+      "rotation": [
+        0.0,
+        0.768077,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -1.6974373,
+        0.5499954,
+        -30.642857
+      ],
+      "rotation": [
+        0.0,
+        1.0489383,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -2.6339755,
+        0.54999924,
+        -30.913475
+      ],
+      "rotation": [
+        0.0,
+        1.2895021,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -3.6125417,
+        0.54999924,
+        -31.020279
+      ],
+      "rotation": [
+        0.0,
+        1.4620833,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -4.5121174,
+        0.54999924,
+        -30.63142
+      ],
+      "rotation": [
+        0.0,
+        1.9788079,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -5.3929653,
+        0.54999924,
+        -30.119267
+      ],
+      "rotation": [
+        0.0,
+        2.0974514,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -6.2226057,
+        0.5499954,
+        -29.565952
+      ],
+      "rotation": [
+        0.0,
+        2.158983,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -7.0620203,
+        0.54999924,
+        -29.035149
+      ],
+      "rotation": [
+        0.0,
+        2.1346636,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -7.9126816,
+        0.54999924,
+        -28.527
+      ],
+      "rotation": [
+        0.0,
+        2.10927,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -8.73976,
+        0.5499954,
+        -28.010973
+      ],
+      "rotation": [
+        0.0,
+        2.1286154,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -9.543284,
+        0.54999924,
+        -27.367758
+      ],
+      "rotation": [
+        0.0,
+        2.2458377,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -10.257585,
+        0.54999924,
+        -26.62067
+      ],
+      "rotation": [
+        0.0,
+        2.3786263,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -10.912586,
+        0.5499954,
+        -25.862053
+      ],
+      "rotation": [
+        0.0,
+        2.4293618,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -11.473333,
+        0.54999924,
+        -24.999989
+      ],
+      "rotation": [
+        0.0,
+        2.564887,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -11.905166,
+        0.54999924,
+        -24.062246
+      ],
+      "rotation": [
+        0.0,
+        2.7100396,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -12.305046,
+        0.54999924,
+        -23.088646
+      ],
+      "rotation": [
+        0.0,
+        2.7518766,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -12.675233,
+        0.54999924,
+        -22.165676
+      ],
+      "rotation": [
+        0.0,
+        2.7601538,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -12.98024,
+        0.54999924,
+        -21.171307
+      ],
+      "rotation": [
+        0.0,
+        2.8439693,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -13.187583,
+        0.54999924,
+        -20.220901
+      ],
+      "rotation": [
+        0.0,
+        2.9267955,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -13.2876,
+        0.54999924,
+        -19.251518
+      ],
+      "rotation": [
+        0.0,
+        3.0387812,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -13.353594,
+        0.54999924,
+        -18.21924
+      ],
+      "rotation": [
+        0.0,
+        3.0777485,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -13.385476,
+        0.54999924,
+        -17.175623
+      ],
+      "rotation": [
+        0.0,
+        3.1110535,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -13.419077,
+        0.54999924,
+        -16.18905
+      ],
+      "rotation": [
+        0.0,
+        3.1075475,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -13.453049,
+        0.54999924,
+        -15.201469
+      ],
+      "rotation": [
+        0.0,
+        3.1072078,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -13.485117,
+        0.54999924,
+        -14.153906
+      ],
+      "rotation": [
+        0.0,
+        3.110991,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -13.554021,
+        0.54999924,
+        -13.334595
+      ],
+      "rotation": [
+        0.0,
+        2.8969572,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -13.6043005,
+        0.5499954,
+        -12.294474
+      ],
+      "rotation": [
+        0.0,
+        3.0932913,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -13.610929,
+        0.54999924,
+        -11.293915
+      ],
+      "rotation": [
+        0.0,
+        3.1349514,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -13.619486,
+        0.54999924,
+        -10.251598
+      ],
+      "rotation": [
+        0.0,
+        3.133393,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -13.667623,
+        0.55000305,
+        -9.253199
+      ],
+      "rotation": [
+        0.0,
+        3.0934162,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -13.846569,
+        0.54999924,
+        -8.172598
+      ],
+      "rotation": [
+        0.0,
+        2.9774828,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -14.251662,
+        0.54999924,
+        -7.1352067
+      ],
+      "rotation": [
+        0.0,
+        2.7693093,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -14.61844,
+        0.5499954,
+        -6.1976714
+      ],
+      "rotation": [
+        0.0,
+        2.768683,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -14.961804,
+        0.5499954,
+        -5.269982
+      ],
+      "rotation": [
+        0.0,
+        2.7870994,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -15.343886,
+        0.54999924,
+        -4.36104
+      ],
+      "rotation": [
+        0.0,
+        2.7436595,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -15.723248,
+        0.54999924,
+        -3.4568858
+      ],
+      "rotation": [
+        0.0,
+        2.7443254,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -16.18674,
+        0.5499954,
+        -2.5174608
+      ],
+      "rotation": [
+        0.0,
+        2.6832552,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -16.92921,
+        0.54999924,
+        -1.8431544
+      ],
+      "rotation": [
+        0.0,
+        2.30812,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -17.933353,
+        0.54999924,
+        -1.7655125
+      ],
+      "rotation": [
+        0.0,
+        1.6479645,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -18.828362,
+        0.54999924,
+        -2.224555
+      ],
+      "rotation": [
+        0.0,
+        1.0968883,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -19.074163,
+        0.54999924,
+        -3.196172
+      ],
+      "rotation": [
+        0.0,
+        0.24778354,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -19.194733,
+        0.55000305,
+        -4.162138
+      ],
+      "rotation": [
+        0.0,
+        0.12417479,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -19.227806,
+        0.54999924,
+        -5.2073946
+      ],
+      "rotation": [
+        0.0,
+        0.031630486,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -19.179619,
+        0.55000305,
+        -6.2070417
+      ],
+      "rotation": [
+        0.0,
+        -0.048166614,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -19.08958,
+        0.54999924,
+        -7.204538
+      ],
+      "rotation": [
+        0.0,
+        -0.09002064,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -18.793148,
+        0.5499954,
+        -8.15046
+      ],
+      "rotation": [
+        0.0,
+        -0.30368572,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -18.494791,
+        0.54999924,
+        -9.137651
+      ],
+      "rotation": [
+        0.0,
+        -0.29349977,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -18.19646,
+        0.54999924,
+        -10.1249485
+      ],
+      "rotation": [
+        0.0,
+        -0.29344517,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -17.981335,
+        0.54999924,
+        -11.116314
+      ],
+      "rotation": [
+        0.0,
+        -0.21368717,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -17.804451,
+        0.54999924,
+        -12.092016
+      ],
+      "rotation": [
+        0.0,
+        -0.17934099,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -17.671154,
+        0.54999924,
+        -13.075556
+      ],
+      "rotation": [
+        0.0,
+        -0.13470726,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -17.579794,
+        0.54999924,
+        -14.054969
+      ],
+      "rotation": [
+        0.0,
+        -0.093011685,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -17.429924,
+        0.54999924,
+        -15.16893
+      ],
+      "rotation": [
+        0.0,
+        -0.13373446,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -17.382528,
+        0.54999924,
+        -16.148422
+      ],
+      "rotation": [
+        0.0,
+        -0.048350718,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -17.334549,
+        0.55000305,
+        -17.143715
+      ],
+      "rotation": [
+        0.0,
+        -0.04816909,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -17.284424,
+        0.54999924,
+        -18.18211
+      ],
+      "rotation": [
+        0.0,
+        -0.048234656,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -17.280598,
+        0.54999924,
+        -19.230837
+      ],
+      "rotation": [
+        0.0,
+        -0.0036702405,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -17.31539,
+        0.55000305,
+        -20.240974
+      ],
+      "rotation": [
+        0.0,
+        0.034429856,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -17.493307,
+        0.54999924,
+        -21.364132
+      ],
+      "rotation": [
+        0.0,
+        0.15710273,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -17.679432,
+        0.54999924,
+        -22.389084
+      ],
+      "rotation": [
+        0.0,
+        0.17963646,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -18.057114,
+        0.54999924,
+        -23.28939
+      ],
+      "rotation": [
+        0.0,
+        0.39720586,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -18.647982,
+        0.55000305,
+        -24.073565
+      ],
+      "rotation": [
+        0.0,
+        0.64573157,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -19.413456,
+        0.54999924,
+        -24.698479
+      ],
+      "rotation": [
+        0.0,
+        0.88615,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -20.360638,
+        0.54999924,
+        -25.082998
+      ],
+      "rotation": [
+        0.0,
+        1.1851611,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -21.36018,
+        0.54999924,
+        -25.17614
+      ],
+      "rotation": [
+        0.0,
+        1.4778805,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -22.331928,
+        0.54999924,
+        -25.01714
+      ],
+      "rotation": [
+        0.0,
+        1.7329822,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -23.234018,
+        0.54999924,
+        -24.602299
+      ],
+      "rotation": [
+        0.0,
+        2.0018246,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -24.016315,
+        0.54999924,
+        -24.015768
+      ],
+      "rotation": [
+        0.0,
+        2.2141402,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -24.721123,
+        0.54999924,
+        -23.299435
+      ],
+      "rotation": [
+        0.0,
+        2.3643048,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -25.34874,
+        0.54999924,
+        -22.453796
+      ],
+      "rotation": [
+        0.0,
+        2.5031145,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -25.852034,
+        0.54999924,
+        -21.600266
+      ],
+      "rotation": [
+        0.0,
+        2.60881,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -26.272932,
+        0.54999924,
+        -20.700829
+      ],
+      "rotation": [
+        0.0,
+        2.7039058,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -26.614162,
+        0.54999924,
+        -19.71452
+      ],
+      "rotation": [
+        0.0,
+        2.8085153,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -26.91144,
+        0.54999924,
+        -18.767776
+      ],
+      "rotation": [
+        0.0,
+        2.8373415,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.087362,
+        0.54999924,
+        -17.73108
+      ],
+      "rotation": [
+        0.0,
+        2.9734993,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.223206,
+        0.55000305,
+        -16.650593
+      ],
+      "rotation": [
+        0.0,
+        3.0165246,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.359837,
+        0.54999924,
+        -15.606031
+      ],
+      "rotation": [
+        0.0,
+        3.0115292,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.449959,
+        0.5499954,
+        -14.60697
+      ],
+      "rotation": [
+        0.0,
+        3.0516298,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.586987,
+        0.54999924,
+        -13.55394
+      ],
+      "rotation": [
+        0.0,
+        3.0121927,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.639362,
+        0.5499954,
+        -12.469133
+      ],
+      "rotation": [
+        0.0,
+        3.0933495,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.689583,
+        0.54999924,
+        -11.426146
+      ],
+      "rotation": [
+        0.0,
+        3.093478,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.782215,
+        0.54999924,
+        -10.376123
+      ],
+      "rotation": [
+        0.0,
+        3.053601,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.834785,
+        0.5499954,
+        -9.285649
+      ],
+      "rotation": [
+        0.0,
+        3.093421,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.885792,
+        0.54999924,
+        -8.229569
+      ],
+      "rotation": [
+        0.0,
+        3.093332,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.93328,
+        0.54999924,
+        -7.2428656
+      ],
+      "rotation": [
+        0.0,
+        3.0935004,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.981743,
+        0.55000305,
+        -6.241505
+      ],
+      "rotation": [
+        0.0,
+        3.0932333,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.904512,
+        0.54999924,
+        -5.234111
+      ],
+      "rotation": [
+        0.0,
+        -3.0650787,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.831343,
+        0.54999924,
+        -4.1435404
+      ],
+      "rotation": [
+        0.0,
+        -3.0745993,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.714409,
+        0.54999924,
+        -3.0925095
+      ],
+      "rotation": [
+        0.0,
+        -3.0307913,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.597286,
+        0.54999924,
+        -2.041739
+      ],
+      "rotation": [
+        0.0,
+        -3.0305867,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.521984,
+        0.54999924,
+        -0.99279165
+      ],
+      "rotation": [
+        0.0,
+        -3.0699263,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.405071,
+        0.54999924,
+        0.05785227
+      ],
+      "rotation": [
+        0.0,
+        -3.0307715,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.286015,
+        0.54999924,
+        1.066813
+      ],
+      "rotation": [
+        0.0,
+        -3.0241358,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -26.999859,
+        0.5499954,
+        2.0834494
+      ],
+      "rotation": [
+        0.0,
+        -2.8672185,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -26.58398,
+        0.55000305,
+        3.0222945
+      ],
+      "rotation": [
+        0.0,
+        -2.7246022,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -25.993324,
+        0.54999924,
+        3.8457832
+      ],
+      "rotation": [
+        0.0,
+        -2.5193758,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -25.316877,
+        0.55000305,
+        4.587254
+      ],
+      "rotation": [
+        0.0,
+        -2.402021,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -24.552956,
+        0.54999924,
+        5.248867
+      ],
+      "rotation": [
+        0.0,
+        -2.2845485,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -23.702606,
+        0.5499954,
+        5.873554
+      ],
+      "rotation": [
+        0.0,
+        -2.204384,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -22.929028,
+        0.54999924,
+        6.500187
+      ],
+      "rotation": [
+        0.0,
+        -2.2516317,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -22.120209,
+        0.5499954,
+        7.123488
+      ],
+      "rotation": [
+        0.0,
+        -2.2273712,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -21.35727,
+        0.54999924,
+        7.7844605
+      ],
+      "rotation": [
+        0.0,
+        -2.284706,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -20.636318,
+        0.5499954,
+        8.443092
+      ],
+      "rotation": [
+        0.0,
+        -2.3110526,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -20.00497,
+        0.54999924,
+        9.22316
+      ],
+      "rotation": [
+        0.0,
+        -2.4611764,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -19.592474,
+        0.54999924,
+        10.201749
+      ],
+      "rotation": [
+        0.0,
+        -2.742672,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -19.640657,
+        0.54999924,
+        11.201319
+      ],
+      "rotation": [
+        0.0,
+        3.093426,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -19.732649,
+        0.54999924,
+        12.240782
+      ],
+      "rotation": [
+        0.0,
+        3.0533235,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -20.15215,
+        0.55000305,
+        13.140148
+      ],
+      "rotation": [
+        0.0,
+        2.7051518,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -20.899532,
+        0.54999924,
+        13.900152
+      ],
+      "rotation": [
+        0.0,
+        2.364567,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -21.720776,
+        0.54999924,
+        14.448695
+      ],
+      "rotation": [
+        0.0,
+        2.1596813,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -22.663115,
+        0.54999924,
+        14.867043
+      ],
+      "rotation": [
+        0.0,
+        1.9886041,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -23.631685,
+        0.54999924,
+        14.991808
+      ],
+      "rotation": [
+        0.0,
+        1.6989048,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -24.676014,
+        0.5499954,
+        14.945776
+      ],
+      "rotation": [
+        0.0,
+        1.5267467,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -25.679155,
+        0.55000305,
+        14.901871
+      ],
+      "rotation": [
+        0.0,
+        1.5270565,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -26.632671,
+        0.5499954,
+        14.692755
+      ],
+      "rotation": [
+        0.0,
+        1.3549039,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.486858,
+        0.54999924,
+        14.153641
+      ],
+      "rotation": [
+        0.0,
+        1.0077919,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -28.251648,
+        0.54999924,
+        13.493203
+      ],
+      "rotation": [
+        0.0,
+        0.8584856,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -28.882853,
+        0.54999924,
+        12.670804
+      ],
+      "rotation": [
+        0.0,
+        0.6546174,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.47375,
+        0.55000305,
+        11.803835
+      ],
+      "rotation": [
+        0.0,
+        0.5982467,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.97324,
+        0.54999924,
+        10.8167515
+      ],
+      "rotation": [
+        0.0,
+        0.46845752,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.30612,
+        0.54999924,
+        9.881144
+      ],
+      "rotation": [
+        0.0,
+        0.34182367,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.511036,
+        0.54999924,
+        8.909718
+      ],
+      "rotation": [
+        0.0,
+        0.20789573,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.717339,
+        0.55000305,
+        7.9335127
+      ],
+      "rotation": [
+        0.0,
+        0.20826678,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.928637,
+        0.54999924,
+        6.9267325
+      ],
+      "rotation": [
+        0.0,
+        0.2068724,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -31.04573,
+        0.54999924,
+        5.8754444
+      ],
+      "rotation": [
+        0.0,
+        0.110924125,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -31.225689,
+        0.54999924,
+        4.8745227
+      ],
+      "rotation": [
+        0.0,
+        0.17789203,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -31.268213,
+        0.54999924,
+        3.8673143
+      ],
+      "rotation": [
+        0.0,
+        0.04219498,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -31.306046,
+        0.5499954,
+        2.7572255
+      ],
+      "rotation": [
+        0.0,
+        0.034066044,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -31.346024,
+        0.55000305,
+        1.7540593
+      ],
+      "rotation": [
+        0.0,
+        0.03983124,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -31.423061,
+        0.54999924,
+        0.68840647
+      ],
+      "rotation": [
+        0.0,
+        0.07216572,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -31.372612,
+        0.54999924,
+        -0.35521984
+      ],
+      "rotation": [
+        0.0,
+        -0.0483026,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -31.32529,
+        0.54999924,
+        -1.3368568
+      ],
+      "rotation": [
+        0.0,
+        -0.04816909,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -31.274841,
+        0.54999924,
+        -2.3836098
+      ],
+      "rotation": [
+        0.0,
+        -0.04815795,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -31.223803,
+        0.54999924,
+        -3.441314
+      ],
+      "rotation": [
+        0.0,
+        -0.048217345,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -31.21735,
+        0.5499954,
+        -4.4872866
+      ],
+      "rotation": [
+        0.0,
+        -0.006166675,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -31.16416,
+        0.54999924,
+        -5.5889883
+      ],
+      "rotation": [
+        0.0,
+        -0.048243307,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -31.113712,
+        0.54999924,
+        -6.6363287
+      ],
+      "rotation": [
+        0.0,
+        -0.048130702,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -31.110085,
+        0.54999924,
+        -7.6879845
+      ],
+      "rotation": [
+        0.0,
+        -0.0034353647,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -31.108612,
+        0.54999924,
+        -8.7516
+      ],
+      "rotation": [
+        0.0,
+        -0.0013372133,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -31.059723,
+        0.54999924,
+        -9.762991
+      ],
+      "rotation": [
+        0.0,
+        -0.04830013,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -31.008877,
+        0.54999924,
+        -10.819946
+      ],
+      "rotation": [
+        0.0,
+        -0.048068717,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.958038,
+        0.54999924,
+        -11.872208
+      ],
+      "rotation": [
+        0.0,
+        -0.048275433,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.905626,
+        0.54999924,
+        -12.957713
+      ],
+      "rotation": [
+        0.0,
+        -0.04824578,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.854593,
+        0.5499954,
+        -14.0150585
+      ],
+      "rotation": [
+        0.0,
+        -0.048227236,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.71304,
+        0.54999924,
+        -15.054943
+      ],
+      "rotation": [
+        0.0,
+        -0.13529316,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.565321,
+        0.5499954,
+        -16.167845
+      ],
+      "rotation": [
+        0.0,
+        -0.1319615,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.464027,
+        0.54999924,
+        -17.240784
+      ],
+      "rotation": [
+        0.0,
+        -0.09412807,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.311935,
+        0.55000305,
+        -18.26762
+      ],
+      "rotation": [
+        0.0,
+        -0.1470479,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.153868,
+        0.54999924,
+        -19.416008
+      ],
+      "rotation": [
+        0.0,
+        -0.1367835,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.001083,
+        0.54999924,
+        -20.395226
+      ],
+      "rotation": [
+        0.0,
+        -0.15477894,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.905594,
+        0.54999924,
+        -21.397879
+      ],
+      "rotation": [
+        0.0,
+        -0.09495018,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.771587,
+        0.54999924,
+        -22.437256
+      ],
+      "rotation": [
+        0.0,
+        -0.12822235,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.592354,
+        0.54999924,
+        -23.489645
+      ],
+      "rotation": [
+        0.0,
+        -0.16869271,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.460316,
+        0.54999924,
+        -24.485935
+      ],
+      "rotation": [
+        0.0,
+        -0.13176249,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.368034,
+        0.54999924,
+        -25.53331
+      ],
+      "rotation": [
+        0.0,
+        -0.08787956,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.227398,
+        0.54999924,
+        -26.606386
+      ],
+      "rotation": [
+        0.0,
+        -0.13031645,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.091652,
+        0.54999924,
+        -27.632702
+      ],
+      "rotation": [
+        0.0,
+        -0.13150182,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.116865,
+        0.54999924,
+        -29.173187
+      ],
+      "rotation": [
+        0.0,
+        0.18671367,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.360178,
+        0.5499954,
+        -30.189024
+      ],
+      "rotation": [
+        0.0,
+        0.2350909,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.689621,
+        0.54999924,
+        -31.167479
+      ],
+      "rotation": [
+        0.0,
+        0.32477516,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.062849,
+        0.54999924,
+        -32.106155
+      ],
+      "rotation": [
+        0.0,
+        0.37844485,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.394753,
+        0.54999924,
+        -33.04269
+      ],
+      "rotation": [
+        0.0,
+        0.340585,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.73053,
+        0.54999924,
+        -33.987885
+      ],
+      "rotation": [
+        0.0,
+        0.34134164,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -31.051483,
+        0.54999924,
+        -35.08184
+      ],
+      "rotation": [
+        0.0,
+        0.28537962,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -31.39137,
+        0.54999924,
+        -36.0345
+      ],
+      "rotation": [
+        0.0,
+        0.3427001,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -31.72102,
+        0.5499954,
+        -37.01294
+      ],
+      "rotation": [
+        0.0,
+        0.3249688,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -32.136932,
+        0.5499954,
+        -37.954964
+      ],
+      "rotation": [
+        0.0,
+        0.41577074,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -32.513783,
+        0.54999924,
+        -38.854897
+      ],
+      "rotation": [
+        0.0,
+        0.3965681,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -32.88601,
+        0.54999924,
+        -39.838745
+      ],
+      "rotation": [
+        0.0,
+        0.36169347,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -33.21899,
+        0.54999924,
+        -40.78018
+      ],
+      "rotation": [
+        0.0,
+        0.3399624,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -28.460651,
+        0.54999924,
+        -29.11857
+      ],
+      "rotation": [
+        0.0,
+        -0.047902208,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -28.410608,
+        0.54999924,
+        -30.16164
+      ],
+      "rotation": [
+        0.0,
+        -0.047942024,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -28.362125,
+        0.55000305,
+        -31.163275
+      ],
+      "rotation": [
+        0.0,
+        -0.048365515,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -28.31365,
+        0.54999924,
+        -32.16491
+      ],
+      "rotation": [
+        0.0,
+        -0.048358116,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -28.211218,
+        0.55000305,
+        -33.31667
+      ],
+      "rotation": [
+        0.0,
+        -0.088701546,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -28.162739,
+        0.5499954,
+        -34.32534
+      ],
+      "rotation": [
+        0.0,
+        -0.048025284,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -28.111912,
+        0.55000305,
+        -35.372322
+      ],
+      "rotation": [
+        0.0,
+        -0.048508316,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -28.063437,
+        0.55000305,
+        -36.373955
+      ],
+      "rotation": [
+        0.0,
+        -0.048358116,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -28.012611,
+        0.54999924,
+        -37.430325
+      ],
+      "rotation": [
+        0.0,
+        -0.04807492,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.962568,
+        0.5499954,
+        -38.47653
+      ],
+      "rotation": [
+        0.0,
+        -0.047796287,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.910963,
+        0.54999924,
+        -39.533676
+      ],
+      "rotation": [
+        0.0,
+        -0.048777997,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.86014,
+        0.54999924,
+        -40.590828
+      ],
+      "rotation": [
+        0.0,
+        -0.048037697,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.81244,
+        0.5499954,
+        -41.581512
+      ],
+      "rotation": [
+        0.0,
+        -0.048110876,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.75927,
+        0.54999924,
+        -42.68245
+      ],
+      "rotation": [
+        0.0,
+        -0.0482569,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.786612,
+        0.54999924,
+        -28.94278
+      ],
+      "rotation": [
+        0.0,
+        -0.38537762,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.366793,
+        0.54999924,
+        -29.841896
+      ],
+      "rotation": [
+        0.0,
+        -0.4368383,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.06818,
+        0.54999924,
+        -30.831566
+      ],
+      "rotation": [
+        0.0,
+        -0.29304266,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -26.70864,
+        0.5499954,
+        -31.75781
+      ],
+      "rotation": [
+        0.0,
+        -0.37026715,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -26.39213,
+        0.54999924,
+        -32.80587
+      ],
+      "rotation": [
+        0.0,
+        -0.29328623,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -25.993599,
+        0.54999924,
+        -33.749077
+      ],
+      "rotation": [
+        0.0,
+        -0.39977467,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -25.666231,
+        0.54999924,
+        -34.79767
+      ],
+      "rotation": [
+        0.0,
+        -0.30260932,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -25.346722,
+        0.54999924,
+        -35.78362
+      ],
+      "rotation": [
+        0.0,
+        -0.31338364,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -25.034985,
+        0.55000305,
+        -36.8267
+      ],
+      "rotation": [
+        0.0,
+        -0.29041275,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -24.698349,
+        0.54999924,
+        -37.839
+      ],
+      "rotation": [
+        0.0,
+        -0.32104063,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -24.440676,
+        0.54999924,
+        -38.873055
+      ],
+      "rotation": [
+        0.0,
+        -0.24421374,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -24.175894,
+        0.5499954,
+        -39.928383
+      ],
+      "rotation": [
+        0.0,
+        -0.2458254,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -24.124325,
+        0.55000305,
+        -40.98788
+      ],
+      "rotation": [
+        0.0,
+        -0.04863599,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -23.94629,
+        0.54999924,
+        -41.9853
+      ],
+      "rotation": [
+        0.0,
+        -0.17663665,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -23.771389,
+        0.54999924,
+        -43.02093
+      ],
+      "rotation": [
+        0.0,
+        -0.16730356,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -23.493372,
+        0.54999924,
+        -44.12369
+      ],
+      "rotation": [
+        0.0,
+        -0.2469637,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -28.847631,
+        0.54999924,
+        -28.74491
+      ],
+      "rotation": [
+        0.0,
+        2.8478658,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -28.093752,
+        0.5499973,
+        -28.396997
+      ],
+      "rotation": [
+        0.0,
+        2.8478658,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -28.745771,
+        0.54999924,
+        -28.135187
+      ],
+      "rotation": [
+        0.0,
+        2.8478658,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -19.21184,
+        0.55000114,
+        -2.6130478
+      ],
+      "rotation": [
+        0.0,
+        0.49167168,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -17.377672,
+        0.54999924,
+        -1.4128264
+      ],
+      "rotation": [
+        0.0,
+        1.8006685,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -16.350546,
+        0.54999924,
+        -1.9257073
+      ],
+      "rotation": [
+        0.0,
+        2.3242671,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.77078843,
+        0.54999924,
+        -11.728692
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.69487166,
+        0.54999924,
+        -10.535649
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.6441338,
+        0.54999924,
+        -9.94352
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.63212657,
+        0.54999924,
+        -9.392275
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.5917311,
+        0.54999924,
+        -8.936027
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.5619025,
+        0.5500002,
+        -8.423873
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.55761385,
+        0.5500002,
+        -7.9035068
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.52653885,
+        1.0500002,
+        -7.387547
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.5008397,
+        1.0500002,
+        -6.849382
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.5040636,
+        1.5500002,
+        -6.363009
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.5018544,
+        1.5500002,
+        -5.937684
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.5034113,
+        2.0500002,
+        -5.3651476
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.5228143,
+        2.0499992,
+        -4.883228
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.061964512,
+        2.0499973,
+        -4.020993
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.014914036,
+        2.0499992,
+        -3.0374668
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.018169403,
+        2.0499992,
+        -2.052316
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.0559659,
+        2.0499992,
+        -1.0508053
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.060145378,
+        2.0499992,
+        -0.04636395
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.029780865,
+        2.0499973,
+        0.9463358
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.03394842,
+        2.0499973,
+        1.9548498
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.07095528,
+        2.0499992,
+        2.944543
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.09111595,
+        2.0500011,
+        3.9371839
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.094454765,
+        2.0500011,
+        4.9335833
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -0.011362553,
+        2.0499992,
+        5.401719
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -0.008198261,
+        2.0499992,
+        6.377885
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.012472153,
+        2.0499992,
+        7.3719716
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.033127785,
+        2.0499992,
+        8.367194
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.053845882,
+        2.0499992,
+        9.363476
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.0065774918,
+        2.0500011,
+        10.351045
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -0.092274666,
+        2.0499992,
+        11.331215
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.90974236,
+        2.0499973,
+        -2.8148603
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.86593604,
+        2.0499992,
+        -1.8403828
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.90268135,
+        2.0499992,
+        -0.8689151
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.9241893,
+        2.0500011,
+        0.12099481
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.9609444,
+        2.0500011,
+        1.0938401
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.96546674,
+        2.0499992,
+        2.0717852
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.9385319,
+        2.0499992,
+        3.0726616
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.828321,
+        2.0499992,
+        3.8945804
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.89782286,
+        2.0499992,
+        4.8702393
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.90294766,
+        2.0499992,
+        5.8640304
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.9244385,
+        2.0499973,
+        6.858612
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.8468902,
+        2.0499992,
+        7.8450546
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.86838126,
+        2.0499992,
+        8.843609
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.90519404,
+        2.0499992,
+        9.821411
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.8437753,
+        2.0499973,
+        10.811218
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.91247463,
+        2.0500002,
+        -4.038586
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.9233664,
+        2.0499992,
+        -3.3952582
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.45144105,
+        2.0500002,
+        -4.4650154
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.80310154,
+        2.0500011,
+        11.343023
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -0.04637146,
+        2.0500011,
+        11.929008
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.8406787,
+        2.0499973,
+        11.988123
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.7726886,
+        1.5500011,
+        12.69573
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -0.169945,
+        1.5499992,
+        12.712586
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -0.090760946,
+        1.5499992,
+        13.755258
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.94959664,
+        1.5499992,
+        13.763655
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -0.15119195,
+        1.0499973,
+        14.822512
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.7999339,
+        1.0499992,
+        14.865956
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.07399905,
+        0.5500002,
+        15.709195
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.7894716,
+        0.54999924,
+        15.802835
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.43235278,
+        0.55000114,
+        16.27591
+      ],
+      "rotation": [
+        0.0,
+        3.1096652,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.6251831,
+        0.5499954,
+        17.434881
+      ],
+      "rotation": [
+        0.0,
+        -3.1211107,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.7313957,
+        0.55000305,
+        18.42891
+      ],
+      "rotation": [
+        0.0,
+        -3.0351458,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.83599854,
+        0.55000305,
+        19.406837
+      ],
+      "rotation": [
+        0.0,
+        -3.0350337,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        0.9405651,
+        0.55000305,
+        20.394726
+      ],
+      "rotation": [
+        0.0,
+        -3.0361373,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        1.0451031,
+        0.55000305,
+        21.3681
+      ],
+      "rotation": [
+        0.0,
+        -3.0346053,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        1.3193264,
+        0.55000305,
+        22.364643
+      ],
+      "rotation": [
+        0.0,
+        -2.8730643,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        1.5962029,
+        0.5500107,
+        23.347479
+      ],
+      "rotation": [
+        0.0,
+        -2.8669972,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        1.9565601,
+        0.55000305,
+        24.261902
+      ],
+      "rotation": [
+        0.0,
+        -2.7661989,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        2.4627,
+        0.55000305,
+        25.212006
+      ],
+      "rotation": [
+        0.0,
+        -2.6521125,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        2.9025955,
+        0.55000305,
+        26.11477
+      ],
+      "rotation": [
+        0.0,
+        -2.6881762,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        3.577526,
+        0.55000305,
+        26.90813
+      ],
+      "rotation": [
+        0.0,
+        -2.4366782,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        4.344063,
+        0.55000305,
+        27.621649
+      ],
+      "rotation": [
+        0.0,
+        -2.3203878,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        5.16111,
+        0.55000305,
+        28.234539
+      ],
+      "rotation": [
+        0.0,
+        -2.2143795,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        6.070771,
+        0.5500107,
+        28.608913
+      ],
+      "rotation": [
+        0.0,
+        -1.9612229,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        7.0542135,
+        0.55000305,
+        29.052723
+      ],
+      "rotation": [
+        0.0,
+        -1.9947156,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        8.02793,
+        0.55000305,
+        29.33356
+      ],
+      "rotation": [
+        0.0,
+        -1.8515944,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        9.016098,
+        0.55000305,
+        29.53714
+      ],
+      "rotation": [
+        0.0,
+        -1.7739704,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        10.061875,
+        0.55000305,
+        29.571669
+      ],
+      "rotation": [
+        0.0,
+        -1.6038016,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        11.082485,
+        0.55000305,
+        29.604929
+      ],
+      "rotation": [
+        0.0,
+        -1.6033735,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        12.091324,
+        0.55000305,
+        29.558773
+      ],
+      "rotation": [
+        0.0,
+        -1.5250766,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        13.126883,
+        0.5499954,
+        29.511963
+      ],
+      "rotation": [
+        0.0,
+        -1.5256243,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        14.096297,
+        0.55000305,
+        29.222551
+      ],
+      "rotation": [
+        0.0,
+        -1.2806772,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        15.055329,
+        0.55000305,
+        28.859516
+      ],
+      "rotation": [
+        0.0,
+        -1.2089227,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        15.929904,
+        0.55000305,
+        28.33215
+      ],
+      "rotation": [
+        0.0,
+        -1.0281755,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        16.786293,
+        0.5500107,
+        27.813404
+      ],
+      "rotation": [
+        0.0,
+        -1.02617,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        17.567778,
+        0.5500107,
+        27.132582
+      ],
+      "rotation": [
+        0.0,
+        -0.85412776,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.258211,
+        0.5500107,
+        26.305393
+      ],
+      "rotation": [
+        0.0,
+        -0.6955295,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.683363,
+        0.5499954,
+        25.411861
+      ],
+      "rotation": [
+        0.0,
+        -0.44410938,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        19.062801,
+        0.5499954,
+        24.506536
+      ],
+      "rotation": [
+        0.0,
+        -0.39687848,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        19.363194,
+        0.55000305,
+        23.516687
+      ],
+      "rotation": [
+        0.0,
+        -0.29463962,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        19.503336,
+        0.55000305,
+        22.534569
+      ],
+      "rotation": [
+        0.0,
+        -0.14173743,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        19.643394,
+        0.5499954,
+        21.553036
+      ],
+      "rotation": [
+        0.0,
+        -0.14173658,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        19.78108,
+        0.55000305,
+        20.543873
+      ],
+      "rotation": [
+        0.0,
+        -0.13559861,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        19.840359,
+        0.5500107,
+        19.509922
+      ],
+      "rotation": [
+        0.0,
+        -0.05726908,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        19.820534,
+        0.55000305,
+        18.530798
+      ],
+      "rotation": [
+        0.0,
+        0.020244889,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        19.567867,
+        0.55000305,
+        17.5501
+      ],
+      "rotation": [
+        0.0,
+        0.25215605,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.77264,
+        0.55000305,
+        16.874748
+      ],
+      "rotation": [
+        0.0,
+        0.8667339,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        17.961302,
+        0.55000305,
+        16.24179
+      ],
+      "rotation": [
+        0.0,
+        0.90828305,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        16.99618,
+        0.55000305,
+        16.01694
+      ],
+      "rotation": [
+        0.0,
+        1.341902,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        16.02295,
+        0.55000305,
+        15.790518
+      ],
+      "rotation": [
+        0.0,
+        1.3422132,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        15.008293,
+        0.55000305,
+        15.730195
+      ],
+      "rotation": [
+        0.0,
+        1.5114148,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        14.009874,
+        0.55000305,
+        15.749806
+      ],
+      "rotation": [
+        0.0,
+        1.5904362,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        12.969703,
+        0.55000305,
+        15.770255
+      ],
+      "rotation": [
+        0.0,
+        1.5904528,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        11.92226,
+        0.55000305,
+        15.87357
+      ],
+      "rotation": [
+        0.0,
+        1.6691141,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        10.943978,
+        0.5499954,
+        16.059446
+      ],
+      "rotation": [
+        0.0,
+        1.7585605,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        9.986512,
+        0.55000305,
+        16.322853
+      ],
+      "rotation": [
+        0.0,
+        1.8392631,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        9.009812,
+        0.55000305,
+        16.584099
+      ],
+      "rotation": [
+        0.0,
+        1.8321561,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        8.035045,
+        0.55000305,
+        17.009941
+      ],
+      "rotation": [
+        0.0,
+        1.982674,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        7.129533,
+        0.5500107,
+        17.44568
+      ],
+      "rotation": [
+        0.0,
+        2.0192976,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        6.233528,
+        0.55000305,
+        18.03611
+      ],
+      "rotation": [
+        0.0,
+        2.153443,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        5.410556,
+        0.5500107,
+        18.805927
+      ],
+      "rotation": [
+        0.0,
+        2.3228347,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        4.763009,
+        0.55000305,
+        19.644316
+      ],
+      "rotation": [
+        0.0,
+        2.4839272,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        4.203226,
+        0.55000305,
+        20.463614
+      ],
+      "rotation": [
+        0.0,
+        2.542199,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        3.5914059,
+        0.55000305,
+        21.332264
+      ],
+      "rotation": [
+        0.0,
+        2.5279636,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        3.2803373,
+        0.55000305,
+        22.272743
+      ],
+      "rotation": [
+        0.0,
+        2.822164,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        2.980379,
+        0.5499954,
+        23.227531
+      ],
+      "rotation": [
+        0.0,
+        2.8371944,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        3.0008307,
+        0.5499954,
+        24.218742
+      ],
+      "rotation": [
+        0.0,
+        -3.1209629,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        19.72785,
+        0.5499954,
+        16.608616
+      ],
+      "rotation": [
+        0.0,
+        -0.17637527,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        19.89632,
+        0.5499954,
+        15.650041
+      ],
+      "rotation": [
+        0.0,
+        -0.17397405,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        19.973743,
+        0.5499954,
+        14.621662
+      ],
+      "rotation": [
+        0.0,
+        -0.07514559,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.050213,
+        0.55000305,
+        13.556904
+      ],
+      "rotation": [
+        0.0,
+        -0.07169548,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.12937,
+        0.5499954,
+        12.577308
+      ],
+      "rotation": [
+        0.0,
+        -0.08063041,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.207565,
+        0.54999924,
+        11.598315
+      ],
+      "rotation": [
+        0.0,
+        -0.0797045,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.285717,
+        0.55000305,
+        10.6201515
+      ],
+      "rotation": [
+        0.0,
+        -0.0797277,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.363817,
+        0.55000305,
+        9.642361
+      ],
+      "rotation": [
+        0.0,
+        -0.0797045,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.343733,
+        0.54999924,
+        8.667067
+      ],
+      "rotation": [
+        0.0,
+        0.020589396,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.372276,
+        0.55000305,
+        7.6422615
+      ],
+      "rotation": [
+        0.0,
+        -0.027841495,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.351284,
+        0.55000305,
+        6.61829
+      ],
+      "rotation": [
+        0.0,
+        0.020499451,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.330292,
+        0.54999924,
+        5.5943193
+      ],
+      "rotation": [
+        0.0,
+        0.020499451,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.358835,
+        0.55000305,
+        4.5701437
+      ],
+      "rotation": [
+        0.0,
+        -0.027862899,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.38736,
+        0.54999924,
+        3.5950923
+      ],
+      "rotation": [
+        0.0,
+        -0.02924701,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.367292,
+        0.54999924,
+        2.5714345
+      ],
+      "rotation": [
+        0.0,
+        0.019601628,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.346308,
+        0.54999924,
+        1.5477777
+      ],
+      "rotation": [
+        0.0,
+        0.020496542,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.326233,
+        0.54999924,
+        0.5729313
+      ],
+      "rotation": [
+        0.0,
+        0.020589396,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.306164,
+        0.54999924,
+        -0.4019146
+      ],
+      "rotation": [
+        0.0,
+        0.020583605,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.285175,
+        0.54999924,
+        -1.4255714
+      ],
+      "rotation": [
+        0.0,
+        0.020502359,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.265108,
+        0.55000305,
+        -2.4004154
+      ],
+      "rotation": [
+        0.0,
+        0.020583605,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.245949,
+        0.54999924,
+        -3.3752632
+      ],
+      "rotation": [
+        0.0,
+        0.019653257,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.177248,
+        0.55000305,
+        -4.3658724
+      ],
+      "rotation": [
+        0.0,
+        0.06924137,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.930122,
+        0.54999924,
+        11.005204
+      ],
+      "rotation": [
+        0.0,
+        0.4601194,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.270779,
+        0.55000305,
+        10.286479
+      ],
+      "rotation": [
+        0.0,
+        0.7423344,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        17.413872,
+        0.55000305,
+        9.814034
+      ],
+      "rotation": [
+        0.0,
+        1.0669272,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        16.503262,
+        0.54999924,
+        9.438686
+      ],
+      "rotation": [
+        0.0,
+        1.1798222,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        15.540233,
+        0.55000305,
+        9.161507
+      ],
+      "rotation": [
+        0.0,
+        1.2905502,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        14.571895,
+        0.54999924,
+        8.931937
+      ],
+      "rotation": [
+        0.0,
+        1.3380182,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        13.600199,
+        0.54999924,
+        8.85058
+      ],
+      "rotation": [
+        0.0,
+        1.4872644,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        12.571678,
+        0.55000305,
+        8.769843
+      ],
+      "rotation": [
+        0.0,
+        1.4924587,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        11.539061,
+        0.54999924,
+        8.738315
+      ],
+      "rotation": [
+        0.0,
+        1.5402732,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        10.498484,
+        0.54999924,
+        8.70681
+      ],
+      "rotation": [
+        0.0,
+        1.5405295,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        9.449404,
+        0.5499954,
+        8.574357
+      ],
+      "rotation": [
+        0.0,
+        1.4452045,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        8.446598,
+        0.54999924,
+        8.440019
+      ],
+      "rotation": [
+        0.0,
+        1.4376266,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        7.440916,
+        0.54999924,
+        8.456998
+      ],
+      "rotation": [
+        0.0,
+        1.587678,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        6.436466,
+        0.54999924,
+        8.474105
+      ],
+      "rotation": [
+        0.0,
+        1.5878259,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        5.440998,
+        0.5499954,
+        8.491097
+      ],
+      "rotation": [
+        0.0,
+        1.5878646,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        4.773137,
+        0.54999924,
+        -13.748213
+      ],
+      "rotation": [
+        0.0,
+        2.8958023,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        4.5307474,
+        0.55000305,
+        -12.78014
+      ],
+      "rotation": [
+        0.0,
+        2.8962529,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        4.4462175,
+        0.55000305,
+        -11.758479
+      ],
+      "rotation": [
+        0.0,
+        3.0590432,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        4.3611574,
+        0.54999924,
+        -10.787386
+      ],
+      "rotation": [
+        0.0,
+        3.0542233,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        4.275565,
+        0.5499954,
+        -9.815804
+      ],
+      "rotation": [
+        0.0,
+        3.0537233,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        4.2440033,
+        0.55000305,
+        -8.79251
+      ],
+      "rotation": [
+        0.0,
+        3.11076,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        4.2660255,
+        0.5499954,
+        -7.718088
+      ],
+      "rotation": [
+        0.0,
+        -3.121099,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        4.2866154,
+        0.55000305,
+        -6.694897
+      ],
+      "rotation": [
+        0.0,
+        -3.1214688,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        4.307683,
+        0.5499954,
+        -5.671706
+      ],
+      "rotation": [
+        0.0,
+        -3.1210063,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        4.4851084,
+        0.54999924,
+        -4.7022147
+      ],
+      "rotation": [
+        0.0,
+        -2.960587,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        4.923813,
+        0.54999924,
+        -3.7896826
+      ],
+      "rotation": [
+        0.0,
+        -2.693459,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        5.567646,
+        0.54999924,
+        -3.0369554
+      ],
+      "rotation": [
+        0.0,
+        -2.43401,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        6.3627415,
+        0.54999924,
+        -2.392367
+      ],
+      "rotation": [
+        0.0,
+        -2.2520313,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        7.256645,
+        0.54999924,
+        -1.8538941
+      ],
+      "rotation": [
+        0.0,
+        -2.1129665,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        8.24503,
+        0.55000305,
+        -1.4731975
+      ],
+      "rotation": [
+        0.0,
+        -1.9384534,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        9.27625,
+        0.54999924,
+        -1.1974514
+      ],
+      "rotation": [
+        0.0,
+        -1.8320814,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        10.29688,
+        0.55000305,
+        -1.1243834
+      ],
+      "rotation": [
+        0.0,
+        -1.6422654,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        11.308647,
+        0.55000305,
+        -1.1519284
+      ],
+      "rotation": [
+        0.0,
+        -1.5435784,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        12.311684,
+        0.5499954,
+        -1.3293402
+      ],
+      "rotation": [
+        0.0,
+        -1.3957322,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        13.253601,
+        0.54999924,
+        -1.7533559
+      ],
+      "rotation": [
+        0.0,
+        -1.1478075,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        14.088078,
+        0.55000305,
+        -2.3215322
+      ],
+      "rotation": [
+        0.0,
+        -0.97301984,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        14.966997,
+        0.5499954,
+        -2.8877852
+      ],
+      "rotation": [
+        0.0,
+        -0.99846673,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        15.740778,
+        0.55000305,
+        -3.597355
+      ],
+      "rotation": [
+        0.0,
+        -0.82865906,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        16.362734,
+        0.54999924,
+        -4.3502135
+      ],
+      "rotation": [
+        0.0,
+        -0.69046944,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        16.932129,
+        0.54999924,
+        -5.1485033
+      ],
+      "rotation": [
+        0.0,
+        -0.6195757,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        17.450367,
+        0.54999924,
+        -5.992525
+      ],
+      "rotation": [
+        0.0,
+        -0.5506575,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        17.819307,
+        0.55000305,
+        -6.9304094
+      ],
+      "rotation": [
+        0.0,
+        -0.3747821,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.13853,
+        0.54999924,
+        -7.9147673
+      ],
+      "rotation": [
+        0.0,
+        -0.3135951,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.215061,
+        0.5499954,
+        -8.896226
+      ],
+      "rotation": [
+        0.0,
+        -0.077818945,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.243214,
+        0.54999924,
+        -9.876894
+      ],
+      "rotation": [
+        0.0,
+        -0.028699713,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.271358,
+        0.5499954,
+        -10.851188
+      ],
+      "rotation": [
+        0.0,
+        -0.028879857,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        19.7508,
+        0.54999924,
+        13.061136
+      ],
+      "rotation": [
+        0.0,
+        0.19626617,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        19.489553,
+        0.55000114,
+        12.247133
+      ],
+      "rotation": [
+        0.0,
+        0.45806557,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        19.238178,
+        0.54999924,
+        11.5655775
+      ],
+      "rotation": [
+        0.0,
+        0.71986496,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.284016,
+        0.54999924,
+        -5.388998
+      ],
+      "rotation": [
+        0.0,
+        0.009023331,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.338161,
+        0.54999924,
+        -6.3720856
+      ],
+      "rotation": [
+        0.0,
+        -0.05502261,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.392069,
+        0.54999924,
+        -7.369257
+      ],
+      "rotation": [
+        0.0,
+        -0.054008573,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.501776,
+        0.5499973,
+        -8.350379
+      ],
+      "rotation": [
+        0.0,
+        -0.111355126,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.55567,
+        0.54999924,
+        -9.329155
+      ],
+      "rotation": [
+        0.0,
+        -0.055007435,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.609327,
+        0.5499973,
+        -10.305273
+      ],
+      "rotation": [
+        0.0,
+        -0.05491521,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.921572,
+        0.54999924,
+        -11.227131
+      ],
+      "rotation": [
+        0.0,
+        -0.3265835,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        21.287092,
+        0.5499973,
+        -12.145082
+      ],
+      "rotation": [
+        0.0,
+        -0.37894624,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        21.431063,
+        0.55000114,
+        -13.11405
+      ],
+      "rotation": [
+        0.0,
+        -0.14750244,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        21.428854,
+        0.54999924,
+        -14.119907
+      ],
+      "rotation": [
+        0.0,
+        0.0021836606,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        21.154623,
+        0.54999924,
+        -15.055265
+      ],
+      "rotation": [
+        0.0,
+        0.2851909,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.431211,
+        0.54999924,
+        -15.723095
+      ],
+      "rotation": [
+        0.0,
+        0.82532835,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        19.536066,
+        0.54999924,
+        -16.124582
+      ],
+      "rotation": [
+        0.0,
+        1.149177,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.572289,
+        0.54999924,
+        -15.990001
+      ],
+      "rotation": [
+        0.0,
+        1.7095388,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        17.883532,
+        0.54999924,
+        -15.276098
+      ],
+      "rotation": [
+        0.0,
+        2.3741195,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        17.691185,
+        0.54999924,
+        -14.315522
+      ],
+      "rotation": [
+        0.0,
+        2.9439657,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        17.82479,
+        0.54999924,
+        -13.345641
+      ],
+      "rotation": [
+        0.0,
+        -3.0047011,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.111809,
+        0.5499973,
+        -12.409799
+      ],
+      "rotation": [
+        0.0,
+        -2.8440034,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.243876,
+        0.54999924,
+        -11.4373455
+      ],
+      "rotation": [
+        0.0,
+        -3.0066106,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        19.01221,
+        0.54999924,
+        -16.499794
+      ],
+      "rotation": [
+        0.0,
+        -1.4221351,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.035376,
+        0.55000114,
+        -15.852622
+      ],
+      "rotation": [
+        0.0,
+        -0.8985364,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        17.556932,
+        0.55000114,
+        -14.869935
+      ],
+      "rotation": [
+        0.0,
+        -0.3749376,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.176836,
+        0.54999924,
+        -16.148785
+      ],
+      "rotation": [
+        0.0,
+        -2.2075331,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        20.955387,
+        0.54999924,
+        -15.583889
+      ],
+      "rotation": [
+        0.0,
+        -2.4693325,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        21.51908,
+        0.54999924,
+        -14.694979
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.072468,
+        0.54999924,
+        -33.116768
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.208546,
+        0.54999924,
+        -34.178898
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.267082,
+        0.54999924,
+        -35.190247
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.28776,
+        0.54999924,
+        -36.204296
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.351412,
+        0.5499973,
+        -37.492805
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.340893,
+        0.55000114,
+        -38.672974
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.363525,
+        0.5499973,
+        -39.780293
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.387325,
+        0.54999924,
+        -40.946537
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.441103,
+        0.54999924,
+        -42.0144
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.466642,
+        0.54999924,
+        -32.733917
+      ],
+      "rotation": [
+        0.0,
+        -3.5165298,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.388058,
+        0.5499973,
+        -33.734364
+      ],
+      "rotation": [
+        0.0,
+        -3.5165298,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.25073,
+        0.54999924,
+        -34.75519
+      ],
+      "rotation": [
+        0.0,
+        -3.5165298,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.09864,
+        0.54999924,
+        -35.97095
+      ],
+      "rotation": [
+        0.0,
+        -3.5165298,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.024422,
+        0.5499973,
+        -37.0936
+      ],
+      "rotation": [
+        0.0,
+        -3.5165298,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -26.896421,
+        0.54999924,
+        -38.086742
+      ],
+      "rotation": [
+        0.0,
+        -3.5165298,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -26.764088,
+        0.54999924,
+        -39.183937
+      ],
+      "rotation": [
+        0.0,
+        -3.5165298,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -26.53058,
+        0.54999924,
+        -40.202435
+      ],
+      "rotation": [
+        0.0,
+        -3.5165298,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -26.26975,
+        0.54999924,
+        -41.239906
+      ],
+      "rotation": [
+        0.0,
+        -3.5165298,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -26.007734,
+        0.55000114,
+        -42.309357
+      ],
+      "rotation": [
+        0.0,
+        -3.5165298,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -25.776316,
+        0.55000114,
+        -43.327126
+      ],
+      "rotation": [
+        0.0,
+        -3.5165298,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -26.237278,
+        0.54999924,
+        -35.43665
+      ],
+      "rotation": [
+        0.0,
+        -3.2547305,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -26.047344,
+        0.54999924,
+        -36.46864
+      ],
+      "rotation": [
+        0.0,
+        -3.2547305,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -25.903122,
+        0.54999924,
+        -37.44938
+      ],
+      "rotation": [
+        0.0,
+        -3.2547305,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -25.711971,
+        0.5499973,
+        -38.485542
+      ],
+      "rotation": [
+        0.0,
+        -3.2547305,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -25.493544,
+        0.54999924,
+        -39.488365
+      ],
+      "rotation": [
+        0.0,
+        -3.2547305,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -25.423632,
+        0.55000114,
+        -40.473495
+      ],
+      "rotation": [
+        0.0,
+        -3.2547305,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -25.351929,
+        0.5499973,
+        -41.44703
+      ],
+      "rotation": [
+        0.0,
+        -3.2547305,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -25.17305,
+        0.54999924,
+        -42.463455
+      ],
+      "rotation": [
+        0.0,
+        -3.2547305,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -25.100561,
+        0.55000114,
+        -43.439056
+      ],
+      "rotation": [
+        0.0,
+        -3.2547305,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -27.167505,
+        0.54999924,
+        -32.113174
+      ],
+      "rotation": [
+        0.0,
+        -3.2547305,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -26.784485,
+        0.5499973,
+        -33.024853
+      ],
+      "rotation": [
+        0.0,
+        -3.2547305,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -26.43317,
+        0.54999924,
+        -33.933884
+      ],
+      "rotation": [
+        0.0,
+        -3.2547305,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -26.312809,
+        0.55000114,
+        -34.917416
+      ],
+      "rotation": [
+        0.0,
+        -3.2547305,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.151966,
+        0.5499973,
+        -32.414314
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.39764,
+        0.55000114,
+        -33.371452
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -29.724289,
+        0.54999924,
+        -34.476368
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.064556,
+        0.54999924,
+        -35.446888
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.265917,
+        0.5499973,
+        -36.48737
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.431652,
+        0.54999924,
+        -37.56934
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.55957,
+        0.54999924,
+        -38.68024
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.695736,
+        0.55000114,
+        -39.92263
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -30.837559,
+        0.54999924,
+        -40.935562
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.265038,
+        0.5499973,
+        9.788305
+      ],
+      "rotation": [
+        0.0,
+        -2.7311318,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.205828,
+        0.55000114,
+        9.122859
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.29771,
+        0.54999924,
+        8.693476
+      ],
+      "rotation": [
+        0.0,
+        -3.2547305,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.32264,
+        0.54999924,
+        8.029853
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.3614,
+        0.55000114,
+        7.3096576
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.356552,
+        0.54999924,
+        6.475479
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.345312,
+        0.54999924,
+        5.924625
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.317791,
+        0.54999924,
+        5.251699
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.304703,
+        0.54999924,
+        4.6143103
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.27481,
+        0.54999924,
+        3.9531908
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.260643,
+        0.55000114,
+        3.2624166
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.246319,
+        0.54999924,
+        2.5571268
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.215338,
+        0.54999924,
+        1.8436053
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        18.196543,
+        0.54999924,
+        0.9266424
+      ],
+      "rotation": [
+        0.0,
+        -2.9929311,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -19.50477,
+        0.54999924,
+        -6.844283
+      ],
+      "rotation": [
+        0.0,
+        -0.2617994,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -19.782036,
+        0.54999924,
+        -5.940922
+      ],
+      "rotation": [
+        0.0,
+        -0.2617994,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -20.073517,
+        0.54999924,
+        -5.186781
+      ],
+      "rotation": [
+        0.0,
+        -0.2617994,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -20.261448,
+        0.54999924,
+        -4.521124
+      ],
+      "rotation": [
+        0.0,
+        -0.2617994,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -20.383698,
+        0.54999924,
+        -3.9493952
+      ],
+      "rotation": [
+        0.0,
+        -0.2617994,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -20.491234,
+        0.54999924,
+        -3.3417668
+      ],
+      "rotation": [
+        0.0,
+        -0.2617994,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -20.562227,
+        0.54999924,
+        -2.6596508
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -20.458921,
+        0.54999924,
+        -1.929636
+      ],
+      "rotation": [
+        0.0,
+        0.2617994,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -20.210855,
+        0.55000114,
+        -1.3268831
+      ],
+      "rotation": [
+        0.0,
+        0.5235988,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -19.833677,
+        0.54999924,
+        -0.8435688
+      ],
+      "rotation": [
+        0.0,
+        0.7853982,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -19.36222,
+        0.54999924,
+        -0.52951384
+      ],
+      "rotation": [
+        0.0,
+        1.0471976,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -18.723503,
+        0.54999924,
+        -0.19433689
+      ],
+      "rotation": [
+        0.0,
+        1.3089969,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -18.1221,
+        0.54999924,
+        -0.14702034
+      ],
+      "rotation": [
+        0.0,
+        1.5707963,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -17.569458,
+        0.54999924,
+        -0.12970924
+      ],
+      "rotation": [
+        0.0,
+        1.5707963,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -16.972963,
+        0.54999924,
+        -0.12688637
+      ],
+      "rotation": [
+        0.0,
+        1.5707963,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -16.374409,
+        0.55000114,
+        -0.25581598
+      ],
+      "rotation": [
+        0.0,
+        1.8325956,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -15.872779,
+        0.54999924,
+        -0.6084821
+      ],
+      "rotation": [
+        0.0,
+        2.094395,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -15.480277,
+        0.54999924,
+        -1.1309571
+      ],
+      "rotation": [
+        0.0,
+        2.3561943,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -15.200357,
+        0.5499973,
+        -1.7598612
+      ],
+      "rotation": [
+        0.0,
+        2.6179936,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -15.028767,
+        0.54999924,
+        -2.3718152
+      ],
+      "rotation": [
+        0.0,
+        2.879793,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -14.903559,
+        0.54999924,
+        -3.0121427
+      ],
+      "rotation": [
+        0.0,
+        3.1415923,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -14.942733,
+        0.54999924,
+        -3.7412415
+      ],
+      "rotation": [
+        0.0,
+        3.1415923,
+        0.0
+      ],
+      "is_static": false
+    },
+    {
+      "name": "domino-1x2",
+      "position": [
+        -14.822075,
+        0.54999924,
+        -4.7443624
+      ],
+      "rotation": [
+        0.0,
+        3.1415923,
+        0.0
+      ],
+      "is_static": false
+    }
+  ]
+}

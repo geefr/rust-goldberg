@@ -104,7 +104,7 @@ fn main() {
     let ground_shape = ShapeHandle::new(ground_collision_cuboid);
     let ground_handle = state.bodies.insert(Ground::new());
     let ground_collider = ColliderDesc::new(ground_shape)
-        .translation(Vector3::y() * - ground_thickness)
+        .translation(Vector3::y() * - ground_thickness / 2.0)
         .build(BodyPartHandle(ground_handle, 0));
     state.colliders.insert(ground_collider);
 
