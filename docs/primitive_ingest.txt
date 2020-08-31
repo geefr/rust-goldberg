@@ -6,14 +6,14 @@ Primitive ingest process
 Export to OBJ
 - triangulate faces
 - Save to models/primitives
-- -z forward, y up
+- Z forward, y up
+- For materials set material type to specular, click 'use nodes', then setup material. If you don't it'll just export grey :|
 
 Create primitive definition
 - cargo run --release --bin define-primitive
 - Answer ze questions Mr Bond >:|
 -> Collider center should be the center of the object
 -> Collider dimensions should be 1/2 x/y/z size of object
+-> Collider should be specified as per the original model - Primitive scale will be applied automatically in engine
 -> Don't forget that y/z are swapped between blender and engine
 - Save json it spits out to assets/primitives/xxxx.json
-
-

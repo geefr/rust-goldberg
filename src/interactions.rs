@@ -62,7 +62,7 @@ impl EditorModeInteraction {
             primitive_spawn_height : 0.5,
             primitive_spawn_spacing : 1.2,
             primitve_last_spawn_pos : na::Vector3::new(0.0,0.0,0.0),
-            primitive_auto_rotate : true,
+            primitive_auto_rotate : false,
             primitive_placement_mode : EditorPlacementMode::Singular,
             primitive_placement_static : false,
             mouse_button1_pressed : false,

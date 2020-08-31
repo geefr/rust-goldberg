@@ -1,11 +1,11 @@
 {
-  "name": "cubey",
-  "path_obj": "models/primitives/cubey.obj",
-  "path_mtl": "models/primitives/",
+  "name": "cubey-4x4",
+  "path_obj": "models/cubey/cube.obj",
+  "path_mtl": "models/cubey",
   "scale": [
-    1.0,
-    1.0,
-    1.0
+    2.0,
+    2.0,
+    2.0
   ],
   "collider_type": "Cuboid",
   "collider_def": {

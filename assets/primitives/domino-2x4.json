@@ -1,0 +1,24 @@
+{
+  "name": "domino-2x4",
+  "path_obj": "models/domino/domino.obj",
+  "path_mtl": "models/domino/",
+  "scale": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "collider_type": "Cuboid",
+  "collider_def": {
+    "origin": [
+      0.0,
+      2.0,
+      0.0
+    ],
+    "dimensions": [
+      0.6,
+      2.0,
+      0.2
+    ]
+  },
+  "collider_def_composite_cuboid": []
+}

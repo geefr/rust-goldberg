@@ -97,19 +97,19 @@ fn main() {
     };
 
     // Setup the scene based on the level definition
-    let ground_thickness = 1.0;
+    let ground_thickness = 0.1;
     let ground_collision_cuboid = Cuboid::new(
         Vector3::new(state.level_definition.ground_dimensions[0] / 2.0, ground_thickness / 2.0, state.level_definition.ground_dimensions[1] / 2.0)
     );
     let ground_shape = ShapeHandle::new(ground_collision_cuboid);
     let ground_handle = state.bodies.insert(Ground::new());
     let ground_collider = ColliderDesc::new(ground_shape)
-        // .translation(Vector3::y() * - ground_thickness)
+        .translation(Vector3::y() * - ground_thickness)
         .build(BodyPartHandle(ground_handle, 0));
     state.colliders.insert(ground_collider);
 
     let mut ground_geometry = state.window.add_cube(state.level_definition.ground_dimensions[0], ground_thickness, state.level_definition.ground_dimensions[1]);
-    ground_geometry.append_translation(&Translation3::new(0.0, - ground_thickness, 0.0));
+    // ground_geometry.append_translation(&Translation3::new(0.0, - ground_thickness / 2.0, 0.0));
     ground_geometry.set_color(
         state.level_definition.ground_colour[0],
         state.level_definition.ground_colour[1],
@@ -133,7 +133,7 @@ fn main() {
     // Interactions
     let mut interactions : HashMap<String, Box<dyn Interaction>> = HashMap::new();
     interactions.insert(String::from("EditorMode"), Box::new(
-        EditorModeInteraction::new(ground_collision_cuboid, "domino")
+        EditorModeInteraction::new(ground_collision_cuboid, state.primitives_library.iter().next().unwrap().0)
     ));
 
     let interaction = interactions.get_mut("EditorMode").unwrap();
@@ -187,7 +187,10 @@ fn main() {
             }
         }
 
-        state.window.set_light(Light::Absolute(Point3::new(100.0, 100.0, 100.0)));
+        state.window.set_light(Light::Absolute(Point3::new(
+            state.level_definition.ground_dimensions[0],
+            50.0,
+            state.level_definition.ground_dimensions[1])));
 
         // Let the interaction render what it needs (cursors etc)
         interaction.render(&mut state);

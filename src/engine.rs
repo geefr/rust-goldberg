@@ -54,6 +54,7 @@ pub struct AppState {
     pub render_debug_extents : bool,
 }
 impl AppState {
+
     pub fn add_primitive( &mut self, name : &str, position : &Vector3<f32>, rotation : &Vector3<f32>, static_object : bool ) -> bool {
         // Log the primitive in the level definition
         self.level_definition.primitives.push(
@@ -64,7 +65,10 @@ impl AppState {
                 is_static: static_object,
             }
         );
+        self.add_primitive_without_adding_to_level(name, position, rotation, static_object)
+    }
 
+    fn add_primitive_without_adding_to_level( &mut self, name : &str, position : &Vector3<f32>, rotation : &Vector3<f32>, static_object : bool ) -> bool {
         if let Some(prim) = self.primitives_library.get_mut(name) {
             // Build the rigid body.
             let prim_scale = Vector3::from(prim.scale);
@@ -85,16 +89,40 @@ impl AppState {
             // TODO: we only handle cuboids for now
             match &prim.collider_type {
                 ColliderType::Cuboid => {
-                    let collider_pos = Vector3::from(prim.collider_def.origin);
-                    let collider_dim = Vector3::from(prim.collider_def.dimensions);
-                    collider_shape = ShapeHandle::new(Cuboid::new(collider_dim));
+                    let mut shapes = Vec::new();
+                    // Iterate over each of the collider defs, make a cuboid for each
+                    let collider_pos = Vector3::new(
+                        prim.collider_def.origin[0] * prim_scale.x,
+                        prim.collider_def.origin[1] * prim_scale.y,
+                        prim.collider_def.origin[2] * prim_scale.z,
+                    );
+                    let collider_dim = Vector3::new(
+                        prim.collider_def.dimensions[0] * prim_scale.x,
+                        prim.collider_def.dimensions[1] * prim_scale.y,
+                        prim.collider_def.dimensions[2] * prim_scale.z,
+                    );
+                    let delta = Isometry3::new(collider_pos, na::zero());
+                    shapes.push((delta, ShapeHandle::new(Cuboid::new(collider_dim))));
+
+                    collider_shape = ShapeHandle::new(Compound::new(shapes));
+                    // let collider_pos = Vector3::from(prim.collider_def.origin);
+                    // let collider_dim = Vector3::from(prim.collider_def.dimensions);
+                    // collider_shape = ShapeHandle::new(Cuboid::new(collider_dim));
                 },
                 ColliderType::CompositeCuboid => {
                     let mut shapes = Vec::new();
                     // Iterate over each of the collider defs, make a cuboid for each
                     for collider_def in &prim.collider_def_composite_cuboid {
-                        let collider_pos = Vector3::from(collider_def.origin);
-                        let collider_dim = Vector3::from(collider_def.dimensions);
+                        let collider_pos = Vector3::new(
+                            prim.collider_def.origin[0] * prim_scale.x,
+                            prim.collider_def.origin[1] * prim_scale.y,
+                            prim.collider_def.origin[2] * prim_scale.z,
+                        );
+                        let collider_dim = Vector3::new(
+                            prim.collider_def.dimensions[0] * prim_scale.x,
+                            prim.collider_def.dimensions[1] * prim_scale.y,
+                            prim.collider_def.dimensions[2] * prim_scale.z,
+                        );
                         let delta = Isometry3::new(collider_pos, na::zero());
                         shapes.push((delta, ShapeHandle::new(Cuboid::new(collider_dim))));
                     }
@@ -105,26 +133,12 @@ impl AppState {
             // Build the collider.
             let co = ColliderDesc::new(collider_shape)
                 .density(1.0)
-                .margin( 0.000001 )
+                // .margin( 0.000001 )
                 //.translation(collider_pos)
                 .ccd_enabled(false) // TODO: Enabling should provide better accuracy, but causes dominos on the floor to glitch out randomly
                 .build(BodyPartHandle(rb_handle, 0));
         
             let collision_handle = self.colliders.insert(co);
-
-            if self.render_debug_extents {
-                // let mut gfx = self.window.add_cube(collider_dim.x * 2.0, collider_dim.y * 2.0, collider_dim.z * 2.0);
-                // gfx.set_color(1.0, 0.0, 1.0);
-                // gfx.set_points_size(4.0);
-                // gfx.set_lines_width(4.0);
-                // gfx.set_surface_rendering_activation(false);
-
-                // self.physics_entities.push(PhysicsEntity{
-                //     collider : collision_handle,
-                //     // : collider_pos,
-                //     node : gfx,
-                // });
-            } else {
             
             let gfx = self.window.add_obj(
                 Path::new(&format!("{}/{}", self.assets_path, prim.path_obj)),
@@ -136,7 +150,7 @@ impl AppState {
                 collider : collision_handle,
                 //collider_origin : collider_pos,
                 node : gfx,
-            });}
+            });
 
             return true;
         }
@@ -161,7 +175,7 @@ impl AppState {
         // TODO: Hack around borrowing issues, should learn the correct pattern for this
         let prims = self.level_definition.primitives.clone();
         for prim in prims {
-            self.add_primitive(&prim.name,&Vector3::from(prim.position), &Vector3::from(prim.rotation), prim.is_static);
+            self.add_primitive_without_adding_to_level(&prim.name,&Vector3::from(prim.position), &Vector3::from(prim.rotation), prim.is_static);
         }
     }
 }
