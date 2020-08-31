@@ -2,7 +2,7 @@ extern crate kiss3d;
 extern crate nalgebra as na;
 use na::{Point3, Vector3,Isometry3};
 
-use ncollide3d::shape::{Cuboid, ShapeHandle, Compound};
+use ncollide3d::shape::{Cuboid, Ball, ShapeHandle, Compound};
 use nphysics3d::force_generator::DefaultForceGeneratorSet;
 use nphysics3d::joint::DefaultJointConstraintSet;
 use nphysics3d::object::{
@@ -87,54 +87,36 @@ impl AppState {
             let rb_handle = self.bodies.insert(rb);
         
             let collider_shape;
-            // TODO: we only handle cuboids for now
-            match &prim.collider_type {
-                ColliderType::Cuboid => {
-                    let mut shapes = Vec::new();
-                    // Iterate over each of the collider defs, make a cuboid for each
-                    let collider_pos = Vector3::new(
-                        prim.collider_def.origin[0] * prim_scale.x,
-                        prim.collider_def.origin[1] * prim_scale.y,
-                        prim.collider_def.origin[2] * prim_scale.z,
-                    );
-                    let collider_dim = Vector3::new(
-                        prim.collider_def.dimensions[0] * prim_scale.x,
-                        prim.collider_def.dimensions[1] * prim_scale.y,
-                        prim.collider_def.dimensions[2] * prim_scale.z,
-                    );
-                    let delta = Isometry3::new(collider_pos, na::zero());
-                    shapes.push((delta, ShapeHandle::new(Cuboid::new(collider_dim))));
+            let mut shapes = Vec::new();
+            // Iterate over each of the collider defs, make a cuboid for each
+            for cdef in &prim.collider_def {
+                let collider_pos = Vector3::new(
+                    cdef.origin[0] * prim_scale.x,
+                    cdef.origin[1] * prim_scale.y,
+                    cdef.origin[2] * prim_scale.z,
+                );
+                let collider_dim = Vector3::new(
+                    cdef.dimensions[0] * prim_scale.x,
+                    cdef.dimensions[1] * prim_scale.y,
+                    cdef.dimensions[2] * prim_scale.z,
+                );
+                let delta = Isometry3::new(collider_pos, na::zero());
 
-                    collider_shape = ShapeHandle::new(Compound::new(shapes));
-                    // let collider_pos = Vector3::from(prim.collider_def.origin);
-                    // let collider_dim = Vector3::from(prim.collider_def.dimensions);
-                    // collider_shape = ShapeHandle::new(Cuboid::new(collider_dim));
-                },
-                ColliderType::CompositeCuboid => {
-                    let mut shapes = Vec::new();
-                    // Iterate over each of the collider defs, make a cuboid for each
-                    for cdef in &prim.collider_def_composite_cuboid {
-                        let collider_pos = Vector3::new(
-                            cdef.origin[0] * prim_scale.x,
-                            cdef.origin[1] * prim_scale.y,
-                            cdef.origin[2] * prim_scale.z,
-                        );
-                        let collider_dim = Vector3::new(
-                            cdef.dimensions[0] * prim_scale.x,
-                            cdef.dimensions[1] * prim_scale.y,
-                            cdef.dimensions[2] * prim_scale.z,
-                        );
-                        let delta = Isometry3::new(collider_pos, na::zero());
+                match cdef.collider_type {
+                    ColliderType::Cuboid => {        
                         shapes.push((delta, ShapeHandle::new(Cuboid::new(collider_dim))));
+                    },
+                    ColliderType::Ball => {
+                        shapes.push((delta, ShapeHandle::new(Ball::new(collider_dim.x))));
                     }
-                    collider_shape = ShapeHandle::new(Compound::new(shapes));
-                },
+                }
             }
+            collider_shape = ShapeHandle::new(Compound::new(shapes));
             
             // Build the collider.
             let co = ColliderDesc::new(collider_shape)
-                .density(1060.0)
-                .material(MaterialHandle::new(BasicMaterial::new(0.0, 0.1)))
+                .density(prim.density) // g/m^3
+                .material(MaterialHandle::new(BasicMaterial::new(prim.restitution, prim.friction))) // Restitution, Friction
                 // .margin( 0.000001 )
                 //.translation(collider_pos)
                 .ccd_enabled(false) // TODO: Enabling should provide better accuracy, but causes dominos on the floor to glitch out randomly
@@ -190,6 +172,7 @@ pub fn load_primitives_definitions( assets_path : &String ) -> io::Result<HashMa
     for entry in fs::read_dir(primitives_path)? {
         let entry = entry?;
         let path = entry.path();
+        println!("Load primitive: {}", path.to_string_lossy());
         if path.is_file() {
             let ext = match path.extension() {
                 Some(x) => x,

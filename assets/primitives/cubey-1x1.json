@@ -7,8 +7,12 @@
     0.5,
     0.5
   ],
-  "collider_type": "Cuboid",
-  "collider_def": {
+  "density": 1000.0,
+  "restitution": 0.0,
+  "friction": 0.2,
+  "collider_def": [
+  {
+    "collider_type": "Cuboid",
     "origin": [
       0.0,
       1.0,
@@ -19,6 +23,5 @@
       1.0,
       1.0
     ]
-  },
-  "collider_def_composite_cuboid": []
+  }]
 }
