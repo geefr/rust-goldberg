@@ -4,7 +4,7 @@ extern crate nalgebra as na;
 
 use crate::engine::*;
 
-use na::{Point2, Point3, Vector3, Translation3, Isometry3, UnitQuaternion};
+use na::{Point2, Vector3, Translation3, Isometry3, UnitQuaternion};
 
 use ncollide3d::shape::{Cuboid};
 use ncollide3d::query::{Ray, RayCast};
@@ -156,7 +156,7 @@ impl Interaction for EditorModeInteraction {
             self.mouse_button1_pressed = false;
         }
     }
-    fn on_mouse_move( &mut self, state : &mut AppState, x : f32, y : f32, modif : &Modifiers ) {
+    fn on_mouse_move( &mut self, state : &mut AppState, x : f32, y : f32, _modif : &Modifiers ) {
         let window_size = na::Vector2::new(state.window.size()[0] as f32, state.window.size()[1] as f32);
         let cursor_position_projected = na::Point2::new(x as f32, y as f32);
     
@@ -225,25 +225,6 @@ C   : Primitive auto-rotate  : {}",
         state.draw_hud_text(
             &control_text,
             &Point2::new(0.0,0.0), 30.0);
-
-        const CROSS_SIZE: f32 = 10.0;
-        let cursor_colour = na::Point3::new(1.0, 0.5, 1.0);
-        let up = na::Vector2::new(CROSS_SIZE, 0.0);
-
-        // TODO: HAX!
-        // draw_planar line seems to take pixel offsets from screen center
-        // cursor_position is hacked from the planar_camera (despite not using it), so
-        // here we transform from -1.0-1.0 -> what draw_planar_line needs
-        let cursor_planar_pos = na::Point2::new(
-            self.cursor_position.x * (state.window.size()[0] / 2) as f32,
-            self.cursor_position.y * (state.window.size()[1] / 2) as f32,
-        );
-
-        // state.window.draw_planar_line(&(cursor_planar_pos - up), &(cursor_planar_pos + up), &cursor_colour);
-
-        // let right = na::Vector2::new(0.0, CROSS_SIZE);
-        // state.window.draw_planar_line(&(cursor_planar_pos - right), &(cursor_planar_pos + right), &cursor_colour);
-
 
         // TODO: Inefficient
         // Remove any old preview

@@ -1,6 +1,6 @@
 extern crate kiss3d;
 extern crate nalgebra as na;
-use na::{Point3, Vector3,Isometry3,Translation3};
+use na::{Point3, Vector3,Isometry3};
 
 use ncollide3d::shape::{Cuboid, ShapeHandle};
 use nphysics3d::force_generator::DefaultForceGeneratorSet;
@@ -176,7 +176,7 @@ fn main() {
 
         for ent in &mut state.physics_entities {
             if let Some(co) = &state.colliders.get(ent.collider) {
-                let mut pos : Isometry3<f32> = na::convert_unchecked(*co.position());
+                let pos : Isometry3<f32> = na::convert_unchecked(*co.position());
                 // let collider_translation = Translation3::new(
                 //     - ent.collider_origin.x,
                 //     - ent.collider_origin.y,

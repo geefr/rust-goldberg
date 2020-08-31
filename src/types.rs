@@ -48,3 +48,24 @@ pub struct LevelPrimitiveDefinition {
     pub rotation : [f32; 3],
     pub is_static: bool, // If true the body is static, false dynamic
 }
+
+// Entities
+#[derive(Serialize,Deserialize,Debug)]
+pub enum EntityType {
+    Cannon
+}
+
+#[derive(Serialize,Deserialize,Debug)]
+pub struct EntityDefinition {
+    pub name     : String,
+    pub entity_type : EntityType,
+    pub primitive : PrimitiveDefinition,
+    pub active_default   : bool,
+    // TODO: Can't work out how to do polymorphism into json, so just store all attributes here ¯\_(ツ)_/¯
+    pub cannon_spawn_point : [f32;3],
+    pub cannon_spawn_force : [f32;3],
+    pub cannon_projectile_name : String,
+    pub cannon_projectile_scale : [f32;3],
+    pub cannon_ammo : u32,
+    pub cannon_fire_delay : f32,
+}

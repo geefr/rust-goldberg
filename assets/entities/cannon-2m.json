@@ -1,0 +1,51 @@
+{
+  "name": "Cannon-2m",
+  "entity_type": "Cannon",
+  "primitive": {
+    "name": "Cannon-2m",
+    "path_obj": "models/cannon/cannon.obj",
+    "path_mtl": "models/cannon/",
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "density": 150000.0,
+    "restitution": 0.0,
+    "friction": 0.9,
+    "collider_def": [
+      {
+        "collider_type": "Cuboid",
+        "origin": [
+          0.0,
+          1.5,
+          3.5
+        ],
+        "dimensions": [
+          1.0,
+          1.5,
+          3.5
+        ]
+      }
+    ]
+  },
+  "active_default": false,
+  "cannon_spawn_point": [
+    0.0,
+    2.0,
+    7.0
+  ],
+  "cannon_spawn_force": [
+    0.0,
+    0.0,
+    1000.0
+  ],
+  "cannon_projectile_name": "cannon-ball-1m",
+  "cannon_projectile_scale": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "cannon_ammo": 1,
+  "cannon_fire_delay": 0.0
+}
