@@ -6,7 +6,7 @@ use ncollide3d::shape::{Cuboid, ShapeHandle, Compound};
 use nphysics3d::force_generator::DefaultForceGeneratorSet;
 use nphysics3d::joint::DefaultJointConstraintSet;
 use nphysics3d::object::{
-    BodyPartHandle, ColliderDesc, DefaultBodySet, DefaultColliderSet, DefaultColliderHandle, RigidBodyDesc,
+    BodyPartHandle, ColliderDesc, DefaultBodySet, DefaultColliderSet, DefaultColliderHandle, RigidBodyDesc, BodyStatus
 };
 use nphysics3d::world::{DefaultGeometricalWorld, DefaultMechanicalWorld};
 
@@ -54,13 +54,14 @@ pub struct AppState {
     pub render_debug_extents : bool,
 }
 impl AppState {
-    pub fn add_primitive( &mut self, name : &str, position : &Vector3<f32>, rotation : &Vector3<f32> ) -> bool {
+    pub fn add_primitive( &mut self, name : &str, position : &Vector3<f32>, rotation : &Vector3<f32>, static_object : bool ) -> bool {
         // Log the primitive in the level definition
         self.level_definition.primitives.push(
             LevelPrimitiveDefinition{
                 name : String::from(name),
                 position : [position.x, position.y, position.z],
                 rotation : [rotation.x, rotation.y, rotation.z],
+                is_static: static_object,
             }
         );
 
@@ -68,9 +69,15 @@ impl AppState {
             // Build the rigid body.
             let prim_scale = Vector3::from(prim.scale);
         
+            let mut body_status = BodyStatus::Dynamic;
+            if static_object {
+                body_status = BodyStatus::Static;
+            }
+
             let rb = RigidBodyDesc::new()
                 .translation(*position)
                 .rotation(*rotation)
+                .status(body_status)
                 .build();
             let rb_handle = self.bodies.insert(rb);
         
@@ -154,7 +161,7 @@ impl AppState {
         // TODO: Hack around borrowing issues, should learn the correct pattern for this
         let prims = self.level_definition.primitives.clone();
         for prim in prims {
-            self.add_primitive(&prim.name,&Vector3::from(prim.position), &Vector3::from(prim.rotation));
+            self.add_primitive(&prim.name,&Vector3::from(prim.position), &Vector3::from(prim.rotation), prim.is_static);
         }
     }
 }

@@ -40,6 +40,7 @@ pub struct EditorModeInteraction {
     primitve_last_spawn_pos : na::Vector3<f32>,
     primitive_auto_rotate : bool,
     primitive_placement_mode : EditorPlacementMode,
+    primitive_placement_static : bool,
     mouse_button1_pressed : bool,
 }
 impl EditorModeInteraction {
@@ -57,6 +58,7 @@ impl EditorModeInteraction {
             primitve_last_spawn_pos : na::Vector3::new(0.0,0.0,0.0),
             primitive_auto_rotate : true,
             primitive_placement_mode : EditorPlacementMode::Singular,
+            primitive_placement_static : false,
             mouse_button1_pressed : false,
         }
     }
@@ -109,6 +111,7 @@ impl Interaction for EditorModeInteraction {
                     EditorPlacementMode::Singular => self.primitive_placement_mode = EditorPlacementMode::Instanced,
                 };
             },
+            Key::Z => self.primitive_placement_static = !self.primitive_placement_static,
             _ => {}
         }
     }
@@ -126,7 +129,7 @@ impl Interaction for EditorModeInteraction {
                 EditorPlacementMode::Singular => {
                     if self.mouse_button1_pressed{
                         self.primitve_last_spawn_pos = intersection_point;
-                        state.add_primitive(&self.primitive_name, &self.primitve_last_spawn_pos, &self.primitive_rotation);
+                        state.add_primitive(&self.primitive_name, &self.primitve_last_spawn_pos, &self.primitive_rotation, self.primitive_placement_static);
                         self.mouse_button1_pressed = false;
                     }
                 },
@@ -158,7 +161,7 @@ impl Interaction for EditorModeInteraction {
                     if (intersection_point - self.primitve_last_spawn_pos).magnitude() > self.primitive_spawn_spacing {
                         self.primitve_last_spawn_pos = intersection_point;
                         if self.mouse_button1_pressed{
-                            state.add_primitive(&self.primitive_name, &self.primitve_last_spawn_pos, &self.primitive_rotation);
+                            state.add_primitive(&self.primitive_name, &self.primitve_last_spawn_pos, &self.primitive_rotation, self.primitive_placement_static);
                         }
                     }
                 },
@@ -188,11 +191,13 @@ impl Interaction for EditorModeInteraction {
     F  : Decrease spacing
     C  : Toggle auto-rotate
     X  : Cycle placement mode
+    Z  : Static/Dynamic primitive
     Ctrl+S : Save level ({})
 
 Number of Primitives   : {},
 Auto-Rotate Active     : {},
 Placement Mode         : {:?},
+Spawn Static Primtive  : {},
 Primitive Rotation     : {}°, {}°, {}°
 Primitive Spawn Height : {}
 Primitive Spacing      : {}
@@ -202,6 +207,7 @@ Primitive auto-rotate  : {}",
         state.physics_entities.len(),
         self.primitive_auto_rotate,
         self.primitive_placement_mode,
+        self.primitive_placement_static,
         self.primitive_rotation.x.to_degrees(), self.primitive_rotation.y.to_degrees(), self.primitive_rotation.z.to_degrees(),
         self.primitive_spawn_height,
         self.primitive_spawn_spacing,

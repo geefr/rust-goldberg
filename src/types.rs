@@ -41,4 +41,5 @@ pub struct LevelPrimitiveDefinition {
     pub name : String,
     pub position : [f32; 3],
     pub rotation : [f32; 3],
+    pub is_static: bool, // If true the body is static, false dynamic
 }
