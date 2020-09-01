@@ -26,7 +26,7 @@ use goldberg::engine::*;
 use goldberg::types::*;
 
 fn main() {
-    let assets_path = String::from("/home/gareth/source/rust/olc-jam-2020/assets/");
+    let assets_path = String::from("assets/");
     let mut level_file = assets_path.clone() + "/levels/default.json";
 
     let args: Vec<String> = env::args().collect();
