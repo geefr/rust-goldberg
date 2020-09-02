@@ -1,0 +1,985 @@
+{
+  "name": "default",
+  "ground_dimensions": [
+    100.0,
+    100.0
+  ],
+  "ground_colour": [
+    0.9,
+    0.9,
+    0.9
+  ],
+  "background_colour": [
+    0.1,
+    0.1,
+    0.1
+  ],
+  "primitives": [
+    {
+      "name": "cubey",
+      "position": [
+        1.4320043,
+        1.0,
+        -0.51931477
+      ],
+      "rotation": [
+        0.0,
+        -1.2817929,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        1.0085852,
+        2.5,
+        -1.1227367
+      ],
+      "rotation": [
+        0.0,
+        1.2014143,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -3.018328,
+        1.0,
+        3.5325642
+      ],
+      "rotation": [
+        0.0,
+        2.396172,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -5.0097075,
+        1.0,
+        2.219036
+      ],
+      "rotation": [
+        0.0,
+        0.98769706,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -4.158762,
+        1.000001,
+        0.17406845
+      ],
+      "rotation": [
+        0.0,
+        -0.3943225,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -3.3595338,
+        2.2097988,
+        -0.57648087
+      ],
+      "rotation": [
+        0.0,
+        -1.0931401,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -4.1518154,
+        3.709797,
+        -1.0116134
+      ],
+      "rotation": [
+        0.0,
+        1.3197033,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -3.5335448,
+        5.209793,
+        -0.83500755
+      ],
+      "rotation": [
+        0.0,
+        -1.6792227,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -2.9483123,
+        6.709793,
+        -1.1341939
+      ],
+      "rotation": [
+        0.0,
+        -1.3870759,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -2.8097718,
+        8.209793,
+        -1.0302787
+      ],
+      "rotation": [
+        0.0,
+        -1.6396704,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -2.667954,
+        9.709793,
+        -0.9966762
+      ],
+      "rotation": [
+        0.0,
+        -1.5930948,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -2.6277866,
+        11.209793,
+        -1.1367217
+      ],
+      "rotation": [
+        0.0,
+        -1.4777356,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -2.4794805,
+        12.709791,
+        -1.1114864
+      ],
+      "rotation": [
+        0.0,
+        -1.5875367,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -2.3320415,
+        14.209789,
+        -1.0671318
+      ],
+      "rotation": [
+        0.0,
+        -1.6002158,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -2.1910295,
+        15.709787,
+        -1.0230678
+      ],
+      "rotation": [
+        0.0,
+        -1.6000351,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -2.2043388,
+        17.209787,
+        -1.1374382
+      ],
+      "rotation": [
+        0.0,
+        1.4946997,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -2.017317,
+        18.709787,
+        -0.9580531
+      ],
+      "rotation": [
+        0.0,
+        -1.6889151,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -1.8600082,
+        20.209787,
+        -0.91184294
+      ],
+      "rotation": [
+        0.0,
+        -1.6014255,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -1.7026992,
+        21.709787,
+        -0.8656328
+      ],
+      "rotation": [
+        0.0,
+        -1.6014255,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -1.5453902,
+        23.209787,
+        -0.8194226
+      ],
+      "rotation": [
+        0.0,
+        -1.6014255,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -1.3885401,
+        24.709787,
+        -0.7635602
+      ],
+      "rotation": [
+        0.0,
+        -1.6078191,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        1.4320043,
+        1.0,
+        -0.51931477
+      ],
+      "rotation": [
+        0.0,
+        -1.2817929,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        1.0085852,
+        2.5,
+        -1.1227367
+      ],
+      "rotation": [
+        0.0,
+        1.2014143,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -3.018328,
+        1.0,
+        3.5325642
+      ],
+      "rotation": [
+        0.0,
+        2.396172,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -5.0097075,
+        1.0,
+        2.219036
+      ],
+      "rotation": [
+        0.0,
+        0.98769706,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -4.158762,
+        1.000001,
+        0.17406845
+      ],
+      "rotation": [
+        0.0,
+        -0.3943225,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -3.3595338,
+        2.2097988,
+        -0.57648087
+      ],
+      "rotation": [
+        0.0,
+        -1.0931401,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -4.1518154,
+        3.709797,
+        -1.0116134
+      ],
+      "rotation": [
+        0.0,
+        1.3197033,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -3.5335448,
+        5.209793,
+        -0.83500755
+      ],
+      "rotation": [
+        0.0,
+        -1.6792227,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -2.9483123,
+        6.709793,
+        -1.1341939
+      ],
+      "rotation": [
+        0.0,
+        -1.3870759,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -2.8097718,
+        8.209793,
+        -1.0302787
+      ],
+      "rotation": [
+        0.0,
+        -1.6396704,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -2.667954,
+        9.709793,
+        -0.9966762
+      ],
+      "rotation": [
+        0.0,
+        -1.5930948,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -2.6277866,
+        11.209793,
+        -1.1367217
+      ],
+      "rotation": [
+        0.0,
+        -1.4777356,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -2.4794805,
+        12.709791,
+        -1.1114864
+      ],
+      "rotation": [
+        0.0,
+        -1.5875367,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -2.3320415,
+        14.209789,
+        -1.0671318
+      ],
+      "rotation": [
+        0.0,
+        -1.6002158,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -2.1910295,
+        15.709787,
+        -1.0230678
+      ],
+      "rotation": [
+        0.0,
+        -1.6000351,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -2.2043388,
+        17.209787,
+        -1.1374382
+      ],
+      "rotation": [
+        0.0,
+        1.4946997,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -2.017317,
+        18.709787,
+        -0.9580531
+      ],
+      "rotation": [
+        0.0,
+        -1.6889151,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -1.8600082,
+        20.209787,
+        -0.91184294
+      ],
+      "rotation": [
+        0.0,
+        -1.6014255,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -1.7026992,
+        21.709787,
+        -0.8656328
+      ],
+      "rotation": [
+        0.0,
+        -1.6014255,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -1.5453902,
+        23.209787,
+        -0.8194226
+      ],
+      "rotation": [
+        0.0,
+        -1.6014255,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        -1.3885401,
+        24.709787,
+        -0.7635602
+      ],
+      "rotation": [
+        0.0,
+        -1.6078191,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "platform-10m",
+      "position": [
+        -0.9623966,
+        23.5,
+        -11.626171
+      ],
+      "rotation": [
+        0.0,
+        3.111461,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "platform-10m",
+      "position": [
+        -9.998455,
+        22.499996,
+        -21.044876
+      ],
+      "rotation": [
+        0.0,
+        1.5406649,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "platform-10m",
+      "position": [
+        -19.355747,
+        21.5,
+        -12.193192
+      ],
+      "rotation": [
+        0.0,
+        3.111461,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "platform-10m",
+      "position": [
+        -20.01017,
+        21.500004,
+        7.8150187
+      ],
+      "rotation": [
+        0.0,
+        3.111461,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "platform-10m",
+      "position": [
+        -11.174618,
+        20.5,
+        17.228733
+      ],
+      "rotation": [
+        0.0,
+        4.682257,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "platform-10m",
+      "position": [
+        8.599286,
+        20.5,
+        18.014988
+      ],
+      "rotation": [
+        0.0,
+        4.682257,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        13.859768,
+        20.5,
+        16.27586
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        13.974785,
+        20.500004,
+        14.0336075
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        14.098656,
+        20.5,
+        11.57687
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        17.226662,
+        20.5,
+        11.471811
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        20.32066,
+        20.500004,
+        11.33806
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        23.569084,
+        20.5,
+        11.078955
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        23.44128,
+        20.499996,
+        13.611843
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        23.32745,
+        20.500004,
+        15.81797
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        23.379398,
+        20.500004,
+        18.469383
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        20.05828,
+        20.5,
+        18.458069
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        22.543203,
+        1.0000076,
+        10.854055
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        14.160305,
+        1.0,
+        11.530242
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        16.75153,
+        1.0000076,
+        11.155473
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        19.556404,
+        1.0,
+        10.711046
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        14.248094,
+        0.9999924,
+        14.397579
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        14.380089,
+        0.9999924,
+        17.742455
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        17.881107,
+        1.0,
+        17.83873
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        21.038433,
+        1.0,
+        17.75938
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        24.16198,
+        0.9999962,
+        17.674175
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        23.78025,
+        1.0,
+        15.573167
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    },
+    {
+      "name": "cubey",
+      "position": [
+        23.618042,
+        1.0,
+        12.879332
+      ],
+      "rotation": [
+        0.0,
+        6.253053,
+        0.0
+      ],
+      "is_static": true
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "cubey-2x2",
+  "path_obj": "models/cubey/cube.obj",
+  "path_mtl": "models/cubey",
+  "scale": [
+    1.0,
+    1.0,
+    1.0
+  ],
+"density": 1000.0,
+  "restitution": 0.0,
+  "friction": 0.2,
+  "collider_def": [
+  {
+  "collider_type": "Cuboid",
+    "origin": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "dimensions": [
+      1.0,
+      1.0,
+      1.0
+    ]
+  }
+]
+}

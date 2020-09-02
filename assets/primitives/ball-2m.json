@@ -1,0 +1,28 @@
+{
+  "name": "Ball-2m",
+  "path_obj": "models/ball/ball.obj",
+  "path_mtl": "models/ball/",
+  "scale": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "density": 2500.0,
+  "restitution": 0.0,
+  "friction": 0.4,
+  "collider_def": [
+    {
+      "collider_type": "Ball",
+      "origin": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "dimensions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ]
+}

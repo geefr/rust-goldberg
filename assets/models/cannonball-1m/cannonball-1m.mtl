@@ -1,0 +1,12 @@
+# Blender MTL File: 'cannonball-1m.blend'
+# Material Count: 1
+
+newmtl Material.001
+Ns 277.446203
+Ka 0.925373 0.925373 0.925373
+Kd 0.000000 0.000000 0.000000
+Ks 0.895522 0.895522 0.895522
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3

@@ -1,0 +1,67 @@
+{
+  "name": "steps-2m",
+  "path_obj": "models/steps/steps.obj",
+  "path_mtl": "models/steps/",
+  "scale": [
+    1.0,
+    1.0,
+    1.0
+  ],
+"density": 1000.0,
+  "restitution": 0.0,
+  "friction": 0.2,
+  "collider_def": [
+    {
+  "collider_type": "Cuboid",
+      "origin": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "dimensions": [
+        1.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+  "collider_type": "Cuboid",
+      "origin": [
+        0.0,
+        1.0,
+        3.0
+      ],
+      "dimensions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+  "collider_type": "Cuboid",
+      "origin": [
+        0.0,
+        1.5,
+        5.0
+      ],
+      "dimensions": [
+        1.0,
+        1.5,
+        1.0
+      ]
+    },
+    {
+  "collider_type": "Cuboid",
+      "origin": [
+        0.0,
+        2.0,
+        7.0
+      ],
+      "dimensions": [
+        1.0,
+        2.0,
+        1.0
+      ]
+    }
+  ]
+}

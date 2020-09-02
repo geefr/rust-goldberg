@@ -1,0 +1,28 @@
+{
+  "name": "cannon-ball-1m",
+  "path_obj": "models/cannonball-1m/cannonball-1m.obj",
+  "path_mtl": "models/cannonball-1m/",
+  "scale": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "density": 150000.0,
+  "restitution": 0.0,
+  "friction": 0.9,
+  "collider_def": [
+    {
+      "collider_type": "Ball",
+      "origin": [
+        0.0,
+        0.5,
+        0.0
+      ],
+      "dimensions": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  ]
+}
