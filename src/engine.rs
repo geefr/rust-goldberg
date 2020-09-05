@@ -172,7 +172,7 @@ pub fn load_primitives_definitions( assets_path : &String ) -> io::Result<HashMa
     for entry in fs::read_dir(primitives_path)? {
         let entry = entry?;
         let path = entry.path();
-        println!("Load primitive: {}", path.to_string_lossy());
+        // println!("Load primitive: {}", path.to_string_lossy());
         if path.is_file() {
             let ext = match path.extension() {
                 Some(x) => x,

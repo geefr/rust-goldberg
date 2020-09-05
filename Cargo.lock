@@ -540,6 +540,7 @@ checksum = "e2db585e1d738fc771bf08a151420d3ed193d9d895a36df7f6f8a9456b911ddc"
 [[package]]
 name = "kiss3d"
 version = "0.25.0"
+source = "git+https://github.com/geefr/kiss3d#74fc8278acc894f123bf10569fc21ad286f1fe83"
 dependencies = [
  "bitflags",
  "either",
