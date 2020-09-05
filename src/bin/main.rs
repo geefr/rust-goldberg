@@ -71,7 +71,7 @@ fn main() {
     // - We can only get the Trait, not the camera itself
     // - We can't replace the camera on the window at all, there's no method to do it whatsoever
     // window.render_loop(state);
-    let mut camera = ArcBall::new(Point3::new(0.0, 5.0, -5.0), Point3::new(0.0, 1.5, 0.0));
+    let mut camera = ArcBall::new(Point3::new(-50.0, 50.0, -50.0), Point3::new(0.0, 1.5, 0.0));
     camera.rebind_rotate_button(Some(MouseButton::Button2));
     camera.rebind_drag_button(Some(MouseButton::Button3));
     let planar_camera = FixedView::new();
@@ -187,10 +187,11 @@ fn main() {
             }
         }
 
-        state.window.set_light(Light::Absolute(Point3::new(
-            state.level_definition.ground_dimensions[0],
-            50.0,
-            state.level_definition.ground_dimensions[1])));
+        // state.window.set_light(Light::Absolute(Point3::new(
+        //     state.level_definition.ground_dimensions[0],
+        //     50.0,
+        //     state.level_definition.ground_dimensions[1])));
+        state.window.set_light(Light::Absolute(Point3::new(0.0, 50.0, 0.0)));
 
         // Let the interaction render what it needs (cursors etc)
         interaction.render(&mut state);
