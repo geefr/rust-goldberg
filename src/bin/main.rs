@@ -32,6 +32,7 @@ fn main() {
     let args: Vec<String> = env::args().collect();
     // TODO: This level loading is a mess, sort it out
     let mut level_definition : Option<LevelDefinition> = None;
+
     if args.len() > 1 {
         let passed_level_name = &args[1].clone();
         let passed_level_file = assets_path.clone() + "/levels/" + passed_level_name + ".json";
@@ -46,7 +47,16 @@ fn main() {
     }
 
     if !level_definition.is_some() {
-        level_definition = load_level_empty("default");
+        let passed_level_name = "default";
+        let passed_level_file = assets_path.clone() + "/levels/" + passed_level_name + ".json";
+
+        level_file = passed_level_file;
+        if let Some(ldef) = load_level_definition(&level_file) {
+            level_definition = Some(ldef);
+        } else {
+            println!("WARNING: Failed to load level: {}", args[1]);
+            level_definition = load_level_empty(passed_level_name);
+        }
     }
 
     // Init graphics
